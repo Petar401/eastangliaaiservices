@@ -56,10 +56,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:18px 24px;display:fl
 .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--neon),transparent);animation:scrollPulse 2s infinite;}
 @keyframes scrollPulse{0%,100%{opacity:1}50%{opacity:.3}}
 .scroll-text{font-family:var(--mono);font-size:.58rem;letter-spacing:.28em;color:var(--dim);text-transform:uppercase;writing-mode:vertical-rl;}
-.hero-stats{display:flex;gap:20px;margin-top:40px;opacity:0;animation:fadeUp .9s 1.1s forwards;flex-wrap:wrap;}
-.stat{padding-left:16px;border-left:1px solid rgba(0,255,231,.3);}
-.stat-num{font-size:1.5rem;font-weight:800;color:var(--neon);text-shadow:0 0 18px var(--neon);line-height:1;}
-.stat-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-top:3px;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .ticker{overflow:hidden;border-top:1px solid rgba(0,255,231,.08);border-bottom:1px solid rgba(0,255,231,.08);background:rgba(0,255,231,.02);padding:12px 0;white-space:nowrap;}
 .ticker-inner{display:inline-flex;animation:tickerAnim 25s linear infinite;}
@@ -74,6 +70,9 @@ section{padding:80px 24px;position:relative;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
 .about-text p{font-family:var(--mono);font-size:.8rem;line-height:1.9;color:var(--dim);margin-bottom:18px;}
 .about-text p strong{color:var(--text);}
+.about-block{margin-top:26px;padding-left:16px;border-left:1px solid rgba(0,255,231,.25);}
+.about-block-title{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--neon);margin-bottom:10px;font-weight:700;}
+.about-block p{margin-bottom:0;}
 .hex-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:320px;margin:0 auto;}
 .hex{width:50px;height:50px;background:rgba(0,255,231,.05);border:1px solid rgba(0,255,231,.1);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);transition:all .5s;animation:hexPulse var(--delay,3s) infinite;display:flex;align-items:center;justify-content:center;font-size:1rem;}
 .hex.active{background:rgba(0,255,231,.15);border-color:var(--neon);box-shadow:0 0 18px rgba(0,255,231,.3);}
@@ -262,7 +261,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 .reveal-delay-3{transition-delay:.3s;}
 @media(max-width:900px){.about-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:1fr 1fr;}.demo-panel.active{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr 1fr;gap:28px;}.process-steps::before{display:none;}}
 @media(max-width:680px){nav{padding:14px 16px;}.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.hero{padding:88px 16px 64px;}.section-title{margin-bottom:32px;}section{padding:56px 16px;}.services-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr;}.footer-top{flex-direction:column;}.modal-body{max-height:62vh;padding:18px;}.modal-header{padding:16px 18px;}#chat-window{width:calc(100vw - 28px);right:-7px;}.demo-tabs{overflow-x:auto;}.demo-stats-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:420px){.hero-title{font-size:clamp(2.3rem,12vw,3rem);}.hero-stats{gap:12px;}.stat-num{font-size:1.1rem;}}
+@media(max-width:420px){.hero-title{font-size:clamp(2.3rem,12vw,3rem);}}
 </style>
 </head>
 <body>
@@ -300,12 +299,6 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <a href="#demos" class="btn-primary">See Live Demos</a>
     <a href="#services" class="btn-secondary">Our Services</a>
   </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Automations</div></div>
-    <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Retention</div></div>
-    <div class="stat"><div class="stat-num">10×</div><div class="stat-label">Avg. ROI</div></div>
-    <div class="stat"><div class="stat-num">48h</div><div class="stat-label">First Deploy</div></div>
-  </div>
   <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll</span></div>
 </section>
 
@@ -318,8 +311,18 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <div class="about-text">
       <p class="section-label reveal">Who We Are</p>
       <h2 class="section-title reveal">Intelligence,<br>engineered for<br><em style="color:var(--neon);font-style:normal;">East Anglia.</em></h2>
-      <p class="reveal">East Anglia AI Services is a specialist automation agency serving businesses across <strong>Norfolk, Suffolk, Cambridgeshire, and Essex</strong>. We bring cutting-edge AI to the region's most ambitious companies.</p>
-      <p class="reveal">Every system we build is <strong>custom-designed</strong> around your operations, your data, and your goals. We deploy AI that thinks, decides, and acts — so your team focuses on what only humans can do.</p>
+      <div class="about-block reveal">
+        <h4 class="about-block-title">How EAAIS began</h4>
+        <p>EAAIS was created to bridge the gap between advanced AI tools and the everyday needs of East Anglia businesses. We started with one goal: make AI accessible, practical and profitable for local business.</p>
+      </div>
+      <div class="about-block reveal">
+        <h4 class="about-block-title">What we're building toward</h4>
+        <p>We're building a trusted AI partner for the region — assisting businesses automate work, improve efficiency, and unlock growth with solutions that actually fit their day-to-day operations.</p>
+      </div>
+      <div class="about-block reveal">
+        <h4 class="about-block-title">Why East Anglia</h4>
+        <p>East Anglia is home to ambitious businesses, but many still lack accessible AI support. Our local focus lets us deliver relevant, on-site and industry-aware solutions that larger firms often miss.</p>
+      </div>
     </div>
     <div class="about-visual reveal"><div class="hex-grid" id="hexGrid"></div></div>
   </div>
