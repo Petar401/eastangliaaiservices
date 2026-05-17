@@ -508,14 +508,6 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
       <div class="chat-av">🤖</div>
       <div><div class="chat-name">ARIA — AI Assistant</div><div class="chat-status-row"><div class="sdot"></div>Online · East Anglia AI Services</div></div>
     </div>
-    <div id="api-setup">
-      <div class="sicon">🔑</div>
-      <h3>Connect to ARIA</h3>
-      <p>Enter your Anthropic API key to activate ARIA. Stored locally — never shared with us.</p>
-      <input type="password" id="api-key-input" placeholder="sk-ant-api03-...">
-      <button id="api-key-submit" onclick="saveApiKey()">Activate ARIA →</button>
-      <p style="font-size:.58rem;color:rgba(107,114,128,.6)">Get your key at console.anthropic.com</p>
-    </div>
     <div class="chat-msgs" id="chatMsgs"></div>
     <div class="chat-chips" id="chatChips">
       <button class="chip" onclick="sendChip(this)">What services do you offer?</button>
@@ -601,12 +593,11 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('clic
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));});
 
 // CHATBOT
-let apiKey=localStorage.getItem('eaais_key')||'',chatOpen=false,messages=[],loading=false;
-if(apiKey)showChatUI();
+let chatOpen=false,messages=[],loading=false;
+showChatUI();
 function openChat(){if(!chatOpen)toggleChat();}
-function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-toggle').classList.toggle('open',chatOpen);document.getElementById('chat-window').classList.toggle('open',chatOpen);if(chatOpen){document.getElementById('chatNotif').style.display='none';if(apiKey&&messages.length===0)greet();}}
-function saveApiKey(){const k=document.getElementById('api-key-input').value.trim();if(!k.startsWith('sk-ant')){document.getElementById('api-key-input').style.borderColor='var(--neon3)';return;}apiKey=k;localStorage.setItem('eaais_key',k);showChatUI();greet();}
-function showChatUI(){document.getElementById('api-setup').style.display='none';document.getElementById('chatMsgs').classList.add('active');document.getElementById('chatChips').classList.add('active');document.getElementById('chatInputRow').classList.add('active');}
+function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-toggle').classList.toggle('open',chatOpen);document.getElementById('chat-window').classList.toggle('open',chatOpen);if(chatOpen){document.getElementById('chatNotif').style.display='none';if(messages.length===0)greet();}}
+function showChatUI(){document.getElementById('chatMsgs').classList.add('active');document.getElementById('chatChips').classList.add('active');document.getElementById('chatInputRow').classList.add('active');}
 function greet(){addMsg('ai',"Hi! I'm **ARIA**, your East Anglia AI Services assistant 🤖\n\nI can answer questions about our services, pricing, and how AI automation could benefit your business. How can I help?");}
 function addMsg(role,text){const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='cmsg '+(role==='ai'?'ai':'user');const av=document.createElement('div');av.className='cmsg-av';av.textContent=role==='ai'?'🤖':'👤';const b=document.createElement('div');b.className='cmsg-bub';b.innerHTML=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');d.appendChild(av);d.appendChild(b);c.appendChild(d);c.scrollTop=c.scrollHeight;messages.push({role:role==='ai'?'assistant':'user',content:text});}
 function showTyping(){const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='cmsg ai';d.id='ty-msg';d.innerHTML='<div class="cmsg-av" style="background:rgba(0,255,231,.07);border:1px solid rgba(0,255,231,.17);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)">🤖</div><div class="cmsg-bub" style="background:rgba(0,255,231,.04);border:1px solid rgba(0,255,231,.1)"><div class="typing-ind"><span></span><span></span><span></span></div></div>';c.appendChild(d);c.scrollTop=c.scrollHeight;}
@@ -614,7 +605,25 @@ function removeTyping(){document.getElementById('ty-msg')?.remove();}
 function sendChip(el){document.getElementById('chat-input').value=el.textContent;document.getElementById('chatChips').style.display='none';sendMsg();}
 function autoResize(el){el.style.height='auto';el.style.height=el.scrollHeight+'px';}
 function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
-async function sendMsg(){if(!apiKey||loading)return;const inp=document.getElementById('chat-input');const text=inp.value.trim();if(!text)return;inp.value='';inp.style.height='auto';addMsg('user',text);loading=true;document.getElementById('chat-send').disabled=true;showTyping();try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,system:`You are ARIA, the intelligent AI assistant for East Anglia AI Services (EAAIS) — a specialist AI automation agency serving businesses across Norfolk, Suffolk, Cambridgeshire, and Essex.\n\nOur services: Custom AI Agents, Workflow Automation, Predictive Intelligence, LLM Integration, Data Pipeline Architecture, AI Ops & Monitoring.\n\nWe offer free strategy calls. Projects start from £2,000 for small automations. We work with SMEs and enterprises. Deployment can start within 48 hours of scoping.\n\nBe professional, warm, and concise (2-3 short paragraphs max). Use **bold** for emphasis. Encourage booking a free strategy call when relevant.`,messages:messages.slice(-12).map(m=>({role:m.role,content:m.content}))})});const data=await res.json();removeTyping();addMsg('ai',data.content?.[0]?.text||'Sorry, I encountered an issue. Please try again.');}catch(e){removeTyping();addMsg('ai','⚠️ Connection error. Please check your API key and try again.');}loading=false;document.getElementById('chat-send').disabled=false;}
+const replyRules=[
+  {p:['service','offer','what do you','do you do','what can you'],r:"We offer six core services:\n\n• **Custom AI Agents**\n• **Workflow Automation**\n• **Predictive Intelligence**\n• **LLM Integration**\n• **Data Pipeline Architecture**\n• **AI Ops & Monitoring**\n\nHappy to dig into any of these on a free strategy call."},
+  {p:['price','cost','pricing','how much','budget','fee','quote'],r:"Projects start from **£2,000** for small automations. Larger builds are scoped on a **free strategy call** so the price reflects the actual outcome you need."},
+  {p:['deploy','fast','how long','timeline','quick','when can','speed','turnaround'],r:"Deployment can start within **48 hours** of scoping. Most small automations are live in days, not months."},
+  {p:['sme','smes','small business','startup','enterprise','enterprises','who do you work','clients','customer','customers'],r:"Yes — we work with **SMEs and enterprises** across Norfolk, Suffolk, Cambridgeshire, and Essex. From solo operators to multi-site teams."},
+  {p:['book','call','meeting','strategy','consult','talk','schedule','demo'],r:"Absolutely — we offer a **free strategy call**. Tap the *Book a Strategy Call* CTA on this page and we'll line up a time."},
+  {p:['contact','email','phone','reach','get in touch'],r:"You can reach us via the **contact section** at the bottom of this page, or book a free strategy call directly from the CTA."},
+  {p:['location','where','based','area','region','anglia','norfolk','suffolk','cambridge','essex'],r:"We're based in **East Anglia** — serving Norfolk, Suffolk, Cambridgeshire, and Essex. Remote-friendly for the rest of the UK."},
+  {p:['hi','hello','hey','morning','evening','afternoon','hiya'],r:"Hi there! 👋 I'm **ARIA**. Ask me about our **services**, **pricing**, **deployment timeline**, or who we work with."},
+  {p:['thank','thanks','thx','cheers','appreciate','appreciated'],r:"You're very welcome! Anything else I can help with?"},
+  {p:['bye','goodbye','later'],r:"Thanks for stopping by — book a free strategy call whenever you're ready. 👋"}
+];
+function localReply(text){
+  const t=' '+text.toLowerCase().replace(/[^\w\s']/g,' ')+' ';
+  const hit=k=>new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(t);
+  for(const rule of replyRules){if(rule.p.some(hit))return rule.r;}
+  return "Great question — that's best answered on a **free strategy call**. In the meantime I can tell you about our **services**, **pricing**, **deployment timeline**, or **who we work with**.";
+}
+function sendMsg(){if(loading)return;const inp=document.getElementById('chat-input');const text=inp.value.trim();if(!text)return;inp.value='';inp.style.height='auto';addMsg('user',text);loading=true;document.getElementById('chat-send').disabled=true;showTyping();const delay=600+Math.random()*500;setTimeout(()=>{removeTyping();addMsg('ai',localReply(text));loading=false;document.getElementById('chat-send').disabled=false;},delay);}
 setTimeout(()=>{if(!chatOpen)document.getElementById('chatNotif').style.display='flex';},3000);
 </script>
 </body>
