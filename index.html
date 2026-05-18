@@ -321,7 +321,27 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 .reveal-delay-2{transition-delay:.2s;}
 .reveal-delay-3{transition-delay:.3s;}
 @media(max-width:900px){.about-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:1fr 1fr;}.demo-panel.active{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr 1fr;gap:28px;}.process-steps::before{display:none;}}
-@media(max-width:680px){nav{padding:14px 16px;}.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.hero{padding:88px 16px 64px;}.section-title{margin-bottom:32px;}section{padding:56px 16px;}.services-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr;}.footer-top{flex-direction:column;}.modal-body{max-height:62vh;padding:18px;}.modal-header{padding:16px 18px;}#chat-window{width:calc(100vw - 28px);right:-7px;}.demo-tabs{overflow-x:auto;}.demo-stats-grid{grid-template-columns:1fr 1fr;}}
+.contact{background:var(--dark3);}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
+.contact-card{background:rgba(7,7,26,.7);border:1px solid rgba(0,255,231,.1);padding:32px 24px;text-align:center;transition:all .3s;text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;gap:14px;cursor:pointer;}
+.contact-card:hover{border-color:var(--neon);background:rgba(0,255,231,.04);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.4),0 0 24px rgba(0,255,231,.1);}
+.contact-icon{width:50px;height:50px;background:rgba(0,255,231,.07);border:1px solid rgba(0,255,231,.22);display:flex;align-items:center;justify-content:center;font-size:1.3rem;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+.contact-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--neon);text-transform:uppercase;}
+.contact-value{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--text);word-break:break-word;line-height:1.4;}
+.contact-info{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-align:center;margin-top:28px;line-height:1.9;}
+.contact-info strong{color:var(--neon);font-weight:700;}
+#cookie-banner{position:fixed;bottom:14px;left:14px;right:14px;max-width:680px;margin:0 auto;background:var(--dark2);border:1px solid rgba(0,255,231,.28);padding:20px 24px;z-index:600;display:none;flex-direction:column;gap:14px;box-shadow:0 0 40px rgba(0,0,0,.75),0 0 22px rgba(0,255,231,.08);}
+#cookie-banner.show{display:flex;animation:fadeUp .4s ease;}
+.cookie-text{font-family:var(--mono);font-size:.7rem;line-height:1.75;color:var(--text);}
+.cookie-text a{color:var(--neon);text-decoration:none;border-bottom:1px solid rgba(0,255,231,.3);cursor:pointer;}
+.cookie-text a:hover{text-shadow:0 0 8px var(--neon);}
+.cookie-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.cookie-btn{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(0,255,231,.3);background:transparent;color:var(--text);cursor:pointer;font-weight:700;transition:all .25s;}
+.cookie-btn.primary{background:var(--neon);color:var(--dark);border-color:var(--neon);box-shadow:0 0 16px rgba(0,255,231,.3);}
+.cookie-btn.primary:hover{box-shadow:0 0 28px rgba(0,255,231,.6);}
+.cookie-btn:not(.primary):hover{border-color:var(--neon);color:var(--neon);}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+@media(max-width:680px){nav{padding:14px 16px;}.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.hero{padding:88px 16px 64px;}.section-title{margin-bottom:32px;}section{padding:56px 16px;}.services-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr;}.footer-top{flex-direction:column;}.modal-body{max-height:62vh;padding:18px;}.modal-header{padding:16px 18px;}#chat-window{width:calc(100vw - 28px);right:-7px;}.demo-tabs{overflow-x:auto;}.demo-stats-grid{grid-template-columns:1fr 1fr;}#cookie-banner{bottom:8px;left:8px;right:8px;padding:16px;}}
 @media(max-width:420px){.hero-title{font-size:clamp(2.3rem,12vw,3rem);}}
 </style>
 </head>
@@ -338,6 +358,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <li><a href="#demos">Demos</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="openChat()">Talk to ARIA</button>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -348,6 +369,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
   <a href="#demos" onclick="toggleMenu()">Demos</a>
   <a href="#process" onclick="toggleMenu()">Process</a>
   <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
   <button class="m-cta" onclick="toggleMenu();openChat()">Talk to ARIA</button>
 </div>
 
@@ -599,6 +621,32 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
   </div>
 </section>
 
+<section class="contact" id="contact">
+  <p class="section-label reveal">Get In Touch</p>
+  <h2 class="section-title reveal">Talk to an<br><em style="color:var(--neon);font-style:normal;">AI engineer.</em></h2>
+  <div class="contact-grid">
+    <a href="tel:+447466951175" class="contact-card reveal">
+      <div class="contact-icon">📞</div>
+      <p class="contact-label">Call Us</p>
+      <p class="contact-value">07466 951175</p>
+    </a>
+    <a href="mailto:info@eastangliaaiservices.co.uk" class="contact-card reveal reveal-delay-1">
+      <div class="contact-icon">✉️</div>
+      <p class="contact-label">Email Us</p>
+      <p class="contact-value">info@eastangliaaiservices.co.uk</p>
+    </a>
+    <a onclick="openChat()" class="contact-card reveal reveal-delay-2">
+      <div class="contact-icon">🤖</div>
+      <p class="contact-label">Chat Now</p>
+      <p class="contact-value">Ask ARIA Anything</p>
+    </a>
+  </div>
+  <p class="contact-info reveal">
+    <strong>Hours:</strong> Mon–Fri · 9:00–17:30 &nbsp;·&nbsp; <strong>Service Area:</strong> Norfolk · Suffolk · Cambridgeshire · Essex<br>
+    On-site visits possible across the region. We aim to respond to all enquiries within <strong>1 business day</strong>.
+  </p>
+</section>
+
 <section class="cta-section">
   <p class="section-label reveal">Ready to Begin?</p>
   <h2 class="cta-title reveal">Your competitors<br><span class="neon-text">are already using AI.</span></h2>
@@ -613,11 +661,11 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <div class="footer-brand"><div class="footer-logo-text">EAST ANGLIA AI SERVICES</div><p>Specialist AI automation for businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li></ul></div>
     <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="#process">Our Process</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466 951175</a></li></ul></div>
-    <div class="footer-col"><h4>Legal</h4><ul><li><a onclick="openModal('terms')">Terms of Service</a></li><li><a onclick="openModal('privacy')">Privacy Policy</a></li><li><a href="#">Cookie Policy</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a onclick="openModal('terms')">Terms of Service</a></li><li><a onclick="openModal('privacy')">Privacy Policy</a></li><li><a onclick="openModal('cookies')">Cookie Policy</a></li><li><a onclick="openModal('contactpolicy')">Contact Policy</a></li><li><a onclick="showCookieBanner()">Cookie Settings</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 East Anglia AI Services Ltd. All rights reserved. Registered in England &amp; Wales.</p>
-    <div class="footer-legal"><a onclick="openModal('terms')">Terms</a><a onclick="openModal('privacy')">Privacy</a></div>
+    <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+    <div class="footer-legal"><a onclick="openModal('terms')">Terms</a><a onclick="openModal('privacy')">Privacy</a><a onclick="openModal('cookies')">Cookies</a></div>
   </div>
 </footer>
 
@@ -656,6 +704,50 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
       <div class="modal-sec"><h3>8. Cookies</h3><p>We use essential cookies for site functionality and anonymised analytics cookies. Control cookies through your browser settings.</p></div>
       <div class="modal-sec"><h3>9. Contact</h3><p>To exercise your rights: info@eastangliaaiservices.co.uk · 07466 951175 · Complaints: ico.org.uk</p></div>
     </div>
+  </div>
+</div>
+
+<!-- COOKIE POLICY MODAL -->
+<div class="modal-overlay" id="cookies-modal">
+  <div class="modal">
+    <div class="modal-header"><h2>Cookie Policy</h2><button class="modal-close" onclick="closeModal('cookies')">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-sec"><p>Last updated: May 2026 · This policy explains how cookies and similar storage are used on eastangliaaiservices.co.uk.</p></div>
+      <div class="modal-sec"><h3>1. What Are Cookies?</h3><p>Cookies are small text files placed on your device by websites you visit. Similar technologies (localStorage, sessionStorage) work the same way. They allow sites to remember settings and improve your experience.</p></div>
+      <div class="modal-sec"><h3>2. Cookies We Use</h3><p>This site is intentionally lightweight and uses <strong>only strictly necessary storage</strong>. We do not use third-party trackers, advertising cookies, or cross-site analytics by default.</p><ul><li><strong>eaais_cookie_consent</strong> — records your choice from the cookie banner so we don't show it again. Strictly necessary. Stored for 12 months.</li><li><strong>eaais_chat_history</strong> — optionally stores your ARIA chat session locally so messages persist if you reload. Strictly necessary if you use the chat. Stored for 30 days or until you clear browser data.</li></ul></div>
+      <div class="modal-sec"><h3>3. Third-Party Cookies</h3><p>We do not currently load third-party advertising or analytics cookies. If this changes in the future, this policy will be updated and consent will be requested via the cookie banner before any non-essential cookies are set.</p></div>
+      <div class="modal-sec"><h3>4. Managing Cookies</h3><p>You can change your consent at any time by clicking <strong>"Cookie Settings"</strong> in the footer. You can also block or delete cookies through your browser settings — guidance is available at ico.org.uk/your-data-matters/online.</p></div>
+      <div class="modal-sec"><h3>5. ARIA Chatbot</h3><p>ARIA runs entirely in your browser and uses only local storage. No chat content is sent to our servers or any third party.</p></div>
+      <div class="modal-sec"><h3>6. Contact</h3><p>Questions about cookies: info@eastangliaaiservices.co.uk</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT POLICY MODAL -->
+<div class="modal-overlay" id="contactpolicy-modal">
+  <div class="modal">
+    <div class="modal-header"><h2>Contact Policy</h2><button class="modal-close" onclick="closeModal('contactpolicy')">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-sec"><p>Last updated: May 2026 · How we handle enquiries and communications.</p></div>
+      <div class="modal-sec"><h3>1. How to Reach Us</h3><ul><li><strong>Phone:</strong> 07466 951175 (Mon–Fri, 9:00–17:30)</li><li><strong>Email:</strong> info@eastangliaaiservices.co.uk</li><li><strong>Chat:</strong> ARIA assistant — available 24/7 on this site</li></ul></div>
+      <div class="modal-sec"><h3>2. Response Times</h3><ul><li>Email enquiries: replied to within <strong>1 business day</strong></li><li>Voicemails: returned within <strong>1 business day</strong></li><li>Existing clients on active projects: same-day response during business hours</li><li>Out-of-hours enquiries are answered the next business day</li></ul></div>
+      <div class="modal-sec"><h3>3. What to Include</h3><p>To help us respond quickly, please share: your name, company, a brief description of what you're trying to automate or solve, and your preferred contact method.</p></div>
+      <div class="modal-sec"><h3>4. Free Strategy Calls</h3><p>We offer a free 30-minute discovery call for new enquiries. To book one, email us with two or three time slots that work for you and we'll confirm.</p></div>
+      <div class="modal-sec"><h3>5. Service Area</h3><p>We work with SMEs across Norfolk, Suffolk, Cambridgeshire and Essex. On-site visits are possible across the region for discovery workshops and key project milestones.</p></div>
+      <div class="modal-sec"><h3>6. Data Protection</h3><p>Contact details you share are processed under our <a onclick="closeModal('contactpolicy');openModal('privacy')" style="color:var(--neon);cursor:pointer;border-bottom:1px solid rgba(0,255,231,.3);">Privacy Policy</a>, used only to respond to your enquiry, and never sold or shared with third parties without your consent.</p></div>
+      <div class="modal-sec"><h3>7. Marketing Communications</h3><p>We will not add you to any marketing list without opt-in consent. If you do opt in, you may unsubscribe at any time using the link in any email.</p></div>
+      <div class="modal-sec"><h3>8. Complaints</h3><p>If you are unhappy with how we have handled your enquiry, please email info@eastangliaaiservices.co.uk with the subject line "Complaint" and we will respond within 5 business days.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-text">We use only essential cookies and local storage to remember your preferences and chat session. We don't use trackers or advertising cookies. See our <a onclick="openModal('cookies')">Cookie Policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="cookie-btn primary" onclick="setCookieConsent('accepted')">Accept</button>
+    <button class="cookie-btn" onclick="setCookieConsent('rejected')">Reject Non-Essential</button>
+    <button class="cookie-btn" onclick="openModal('cookies')">Cookie Settings</button>
   </div>
 </div>
 
@@ -762,6 +854,12 @@ function openModal(t){document.getElementById(t+'-modal').classList.add('open');
 function closeModal(t){document.getElementById(t+'-modal').classList.remove('open');document.body.style.overflow='';}
 document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id.replace('-modal',''));});});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));});
+
+// COOKIE CONSENT
+function getCookieConsent(){try{return localStorage.getItem('eaais_cookie_consent');}catch(e){return null;}}
+function setCookieConsent(v){try{localStorage.setItem('eaais_cookie_consent',v);}catch(e){}document.getElementById('cookie-banner').classList.remove('show');}
+function showCookieBanner(){document.getElementById('cookie-banner').classList.add('show');}
+if(!getCookieConsent()){setTimeout(showCookieBanner,1200);}
 
 // CHATBOT
 let chatOpen=false,messages=[],loading=false;
