@@ -1,0 +1,14 @@
+{
+  "name": "East Anglia AI Services",
+  "short_name": "EAAIS",
+  "description": "Custom AI agents, workflow automation, predictive intelligence & LLM integration for SMEs across Norfolk, Suffolk, Cambridgeshire & Essex.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#05070d",
+  "theme_color": "#00ffe7",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

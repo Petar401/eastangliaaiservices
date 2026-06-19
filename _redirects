@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects. Inert on GitHub Pages. Enforces the canonical apex (non-www) host.
+# If host-based matching is unavailable on your Pages plan, set the apex as the primary custom domain
+# in the Pages dashboard (it will 301 www -> apex automatically) — see TODO.md.
+https://www.eastangliaaiservices.co.uk/* https://eastangliaaiservices.co.uk/:splat 301
+http://www.eastangliaaiservices.co.uk/* https://eastangliaaiservices.co.uk/:splat 301
