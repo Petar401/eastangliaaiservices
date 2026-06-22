@@ -2,24 +2,23 @@
 
 > AI Automation Agency — Norfolk · Suffolk · Cambridgeshire · Essex
 
-A stunning 3D agency website built with Three.js, featuring an interactive AI chatbot powered by Claude.
+A stunning 3D agency website built with Three.js, featuring an interactive in-browser AI assistant (ARIA) and a built-in accessibility panel.
 
 ## 🚀 Features
 
 - **3D Interactive Hero** — Live neural network, particle field, torus rings & wireframe geometry powered by Three.js
-- **ARIA Chatbot** — Intelligent AI assistant powered by Claude (Anthropic API)
+- **ARIA Chatbot** — Lightweight in-browser assistant (rule-based; no API key required)
 - **Futuristic Design** — Dark theme with neon cyan accents, glitch text, custom cursor, scanlines
 - **Scroll Animations** — Smooth reveal animations throughout
+- **Accessibility Options** — Built-in panel for reduced motion, higher contrast and larger text, plus skip-to-content and respect for the OS reduced-motion setting
 - **Fully Responsive** — Works across all devices
 
-## 💬 ARIA Chatbot Setup
+## 💬 ARIA Chatbot
 
-The chatbot requires an Anthropic API key to function:
-
-1. Visit [console.anthropic.com](https://console.anthropic.com) and create an account
-2. Generate an API key
-3. When you open the chat widget on the site, enter your API key
-4. Your key is stored locally in your browser — never shared externally
+ARIA runs entirely in the browser as a lightweight, rule-based assistant — **no API key or
+external service is required**. It answers common questions about services, pricing, deployment
+timelines and coverage area, then points visitors to a free strategy call. No chat content leaves
+the visitor's device.
 
 ## 🌐 GitHub Pages Deployment
 
@@ -32,7 +31,7 @@ This is a single-file static site. To enable GitHub Pages:
 ## 🛠️ Tech Stack
 
 - **Three.js** (r128) — 3D graphics
-- **Anthropic Claude API** — AI chatbot
+- **Web3Forms** — contact form submissions
 - **Google Fonts** — Syne + Space Mono
 - Pure HTML/CSS/JS — no build step required
 
