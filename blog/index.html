@@ -53,9 +53,42 @@ footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var
 .footer-copy{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--dim);}
 .footer-copy a{color:var(--dim);}
 @media(max-width:680px){nav{padding:14px 18px;}.nav-links{gap:16px;}.nav-links a{font-size:.6rem;}.blog-head{padding:104px 18px 6px;}}
+/* ---- Accessibility ---- */
+.skip-link{position:fixed;top:-80px;left:14px;z-index:2000;background:var(--neon);color:var(--dark);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;text-decoration:none;transition:top .2s;}
+.skip-link:focus{top:14px;outline:2px solid #fff;outline-offset:2px;}
+#a11y-wrapper{position:fixed;bottom:20px;left:14px;z-index:500;}
+#a11y-toggle{width:52px;height:52px;background:var(--dark2);border:1px solid var(--neon);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 22px rgba(0,255,231,.35);transition:box-shadow .3s,transform .3s;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);color:var(--neon);}
+#a11y-toggle:hover{box-shadow:0 0 38px rgba(0,255,231,.65);transform:scale(1.05);}
+#a11y-toggle svg{width:24px;height:24px;}
+#a11y-panel{position:absolute;bottom:64px;left:0;width:262px;background:var(--dark2);border:1px solid rgba(0,255,231,.2);box-shadow:0 0 50px rgba(0,0,0,.8),0 0 22px rgba(0,255,231,.08);padding:16px 18px;transform:translateY(14px) scale(.96);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;}
+#a11y-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+.a11y-title{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--neon);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+.a11y-intro{font-family:var(--mono);font-size:.56rem;color:var(--dim);line-height:1.6;margin-bottom:8px;}
+.a11y-opt{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid rgba(0,255,231,.08);}
+.a11y-opt label{font-family:var(--mono);font-size:.66rem;color:var(--text);}
+.a11y-switch{position:relative;width:40px;height:21px;min-width:40px;background:rgba(255,255,255,.08);border:1px solid rgba(0,255,231,.2);cursor:pointer;flex-shrink:0;transition:background .3s,border-color .3s;border-radius:11px;padding:0;}
+.a11y-switch::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--dim);border-radius:50%;transition:left .3s,background .3s;}
+.a11y-switch[aria-pressed="true"]{background:rgba(0,255,231,.22);border-color:var(--neon);}
+.a11y-switch[aria-pressed="true"]::after{left:21px;background:var(--neon);box-shadow:0 0 8px var(--neon);}
+.a11y-switch:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
+.a11y-reset{width:100%;margin-top:14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);background:transparent;border:1px solid rgba(0,255,231,.2);padding:9px;cursor:pointer;transition:border-color .25s,color .25s;}
+.a11y-reset:hover{border-color:var(--neon);color:var(--neon);}
+html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+html.high-contrast{--dim:#cfd3e6;}
+html.high-contrast .logo,html.high-contrast .footer-logo-text{text-shadow:none!important;}
+html.large-text{font-size:118%;}
 </style>
 </head>
 <body>
+<script>
+/* Apply saved accessibility preferences before paint */
+(function(){var r=document.documentElement;function g(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+var m=g('eaais_a11y_motion');if(m===null){m=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)?'1':'0';}
+if(m==='1')r.classList.add('reduce-motion');
+if(g('eaais_a11y_contrast')==='1')r.classList.add('high-contrast');
+if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
+</script>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav>
   <a href="/" class="logo">EAAIS</a>
   <ul class="nav-links">
@@ -72,7 +105,7 @@ footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var
   <p class="intro">Plain-English thinking on AI automation, voice agents and customer service — written for real businesses across Norfolk, Suffolk, Cambridgeshire and Essex.</p>
 </header>
 
-<main class="blog-grid">
+<main class="blog-grid" id="main" tabindex="-1">
   <a class="blog-card" href="/blog/voice-agents-customer-service-east-anglia.html">
     <img class="blog-card-img" src="/blog/voice-agents-east-anglia.jpg" alt="AI voice agent answering customer calls for an East Anglia business" loading="lazy" width="1200" height="675">
     <div class="blog-card-body">
@@ -88,5 +121,53 @@ footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var
   <div class="footer-logo-text">EAST ANGLIA AI SERVICES</div>
   <p class="footer-copy">© 2026 East Anglia AI Services Ltd · Norfolk · Suffolk · Cambridgeshire · Essex · <a href="/">Home</a></p>
 </footer>
+
+<!-- ACCESSIBILITY -->
+<div id="a11y-wrapper">
+  <div id="a11y-panel" role="dialog" aria-label="Accessibility options" aria-hidden="true">
+    <p class="a11y-title">Accessibility</p>
+    <p class="a11y-intro">Adjust the site to suit you. Choices are saved on this device.</p>
+    <div class="a11y-opt">
+      <label id="a11y-motion-lbl">Reduce motion</label>
+      <button class="a11y-switch" data-opt="motion" aria-pressed="false" aria-labelledby="a11y-motion-lbl"></button>
+    </div>
+    <div class="a11y-opt">
+      <label id="a11y-contrast-lbl">Higher contrast</label>
+      <button class="a11y-switch" data-opt="contrast" aria-pressed="false" aria-labelledby="a11y-contrast-lbl"></button>
+    </div>
+    <div class="a11y-opt">
+      <label id="a11y-text-lbl">Larger text</label>
+      <button class="a11y-switch" data-opt="text" aria-pressed="false" aria-labelledby="a11y-text-lbl"></button>
+    </div>
+    <button class="a11y-reset" id="a11y-reset">Reset to defaults</button>
+  </div>
+  <button id="a11y-toggle" onclick="toggleA11y()" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8.5 4.74a1 1 0 0 0-1.22-.71l-4.79 1.28a8 8 0 0 1-5 0L4.72 6.03a1 1 0 1 0-.52 1.94l4.8 1.28V14l-1.9 6.04a1 1 0 0 0 1.9.6L10.8 15h2.4l1.8 5.64a1 1 0 0 0 1.9-.6L15 14V9.25l4.8-1.28a1 1 0 0 0 .7-1.23Z"/></svg>
+  </button>
+</div>
+<script>
+function toggleA11y(){const p=document.getElementById('a11y-panel');const t=document.getElementById('a11y-toggle');const open=!p.classList.contains('open');p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true');t.setAttribute('aria-expanded',open?'true':'false');}
+(function(){
+  const root=document.documentElement;
+  const KEYS={motion:'eaais_a11y_motion',contrast:'eaais_a11y_contrast',text:'eaais_a11y_text'};
+  const CLS={motion:'reduce-motion',contrast:'high-contrast',text:'large-text'};
+  function save(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function apply(opt,on,persist){
+    root.classList.toggle(CLS[opt],on);
+    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
+    if(btn)btn.setAttribute('aria-pressed',on?'true':'false');
+    if(persist)save(KEYS[opt],on?'1':'0');
+  }
+  ['motion','contrast','text'].forEach(function(opt){
+    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
+    if(!btn)return;
+    btn.setAttribute('aria-pressed',root.classList.contains(CLS[opt])?'true':'false');
+    btn.addEventListener('click',function(){apply(opt,!root.classList.contains(CLS[opt]),true);});
+  });
+  const reset=document.getElementById('a11y-reset');
+  if(reset)reset.addEventListener('click',function(){['motion','contrast','text'].forEach(function(opt){apply(opt,false,false);try{localStorage.removeItem(KEYS[opt]);}catch(e){}});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){const p=document.getElementById('a11y-panel');if(p&&p.classList.contains('open'))toggleA11y();}});
+})();
+</script>
 </body>
 </html>
