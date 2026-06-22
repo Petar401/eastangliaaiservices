@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="Custom AI agents, workflow automation, predictive intelligence & LLM integration for East Anglian SMEs.">
 <meta name="twitter:image" content="https://eastangliaaiservices.co.uk/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"East Anglia AI Services Ltd","alternateName":"EAAIS","url":"https://eastangliaaiservices.co.uk/","email":"info@eastangliaaiservices.co.uk","telephone":"+447466951175","areaServed":["Norfolk","Suffolk","Cambridgeshire","Essex","Norwich","Ipswich","Cambridge","Colchester","Peterborough","Bury St Edmunds","Chelmsford","King's Lynn"],"address":{"@type":"PostalAddress","addressRegion":"East Anglia","addressCountry":"GB"},"description":"Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines and AI ops for businesses across East Anglia.","sameAs":[],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Agent Development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Workflow Automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Predictive Intelligence"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"LLM Integration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Data Pipeline Architecture"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Ops & Monitoring"}}]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"East Anglia AI Services Ltd","alternateName":"EAAIS","url":"https://eastangliaaiservices.co.uk/","email":"info@eastangliaaiservices.co.uk","telephone":"+447466951175","areaServed":["Norfolk","Suffolk","Cambridgeshire","Essex","Norwich","Ipswich","Cambridge","Colchester","Peterborough","Bury St Edmunds","Chelmsford","King's Lynn"],"address":{"@type":"PostalAddress","addressRegion":"East Anglia","addressCountry":"GB"},"description":"Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines and AI ops for businesses across East Anglia.","sameAs":["https://www.facebook.com/profile.php?id=61589538308485","https://www.linkedin.com/in/petar-petkov-3b9471343/","https://www.tiktok.com/@east.anglia.ai.se"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Agent Development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Workflow Automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Predictive Intelligence"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"LLM Integration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Data Pipeline Architecture"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Ops & Monitoring"}}]}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -343,6 +343,41 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
 @media(max-width:680px){nav{padding:14px 16px;}.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.hero{padding:88px 16px 64px;}.section-title{margin-bottom:32px;}section{padding:56px 16px;}.services-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr;}.footer-top{flex-direction:column;}.modal-body{max-height:62vh;padding:18px;}.modal-header{padding:16px 18px;}#chat-window{width:calc(100vw - 28px);right:-7px;}.demo-tabs{overflow-x:auto;}.demo-stats-grid{grid-template-columns:1fr 1fr;}#cookie-banner{bottom:8px;left:8px;right:8px;padding:16px;}}
 @media(max-width:420px){.hero-title{font-size:clamp(2.3rem,12vw,3rem);}}
+/* ---- Contact form (Web3Forms) ---- */
+.contact-form{max-width:620px;margin:40px auto 0;display:grid;gap:16px;text-align:left;}
+.contact-form .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.contact-form label{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--neon);margin-bottom:8px;}
+.contact-form input,.contact-form textarea{width:100%;background:rgba(7,7,26,.7);border:1px solid rgba(0,255,231,.18);color:var(--text);font-family:var(--mono);font-size:.78rem;padding:13px 14px;transition:border-color .3s,box-shadow .3s;}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--neon);box-shadow:0 0 0 1px var(--neon),0 0 18px rgba(0,255,231,.18);}
+.contact-form textarea{resize:vertical;min-height:130px;line-height:1.7;}
+.contact-form .cf-hp{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;overflow:hidden;}
+.cf-submit{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);background:var(--neon);padding:15px 28px;border:none;cursor:pointer;font-weight:700;box-shadow:0 0 28px rgba(0,255,231,.35);transition:all .3s;justify-self:start;}
+.cf-submit:hover{box-shadow:0 0 50px rgba(0,255,231,.7);transform:translateY(-2px);}
+.cf-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
+.form-status{font-family:var(--mono);font-size:.72rem;line-height:1.7;padding:13px 16px;border:1px solid transparent;display:none;}
+.form-status.show{display:block;}
+.form-status.ok{color:var(--neon);border-color:rgba(0,255,231,.4);background:rgba(0,255,231,.06);}
+.form-status.err{color:#ff5e8a;border-color:rgba(255,0,153,.4);background:rgba(255,0,153,.06);}
+/* ---- Social icons ---- */
+.contact-social{display:flex;justify-content:center;gap:18px;margin-top:40px;}
+.social-link{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(0,255,231,.07);border:1px solid rgba(0,255,231,.22);color:var(--neon);transition:all .3s;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+.social-link svg{width:20px;height:20px;fill:currentColor;}
+.social-link:hover{background:rgba(0,255,231,.16);transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,255,231,.18);}
+.footer-social{display:flex;gap:14px;margin-top:16px;}
+.footer-social .social-link{width:38px;height:38px;}
+.footer-social .social-link svg{width:16px;height:16px;}
+/* ---- Blog ---- */
+.blog{background:var(--dark2);}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:36px;}
+.blog-card{display:flex;flex-direction:column;background:rgba(7,7,26,.7);border:1px solid rgba(0,255,231,.1);text-decoration:none;color:inherit;overflow:hidden;transition:all .3s;}
+.blog-card:hover{border-color:var(--neon);transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.45),0 0 24px rgba(0,255,231,.1);}
+.blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid rgba(0,255,231,.12);}
+.blog-card-body{padding:24px;display:flex;flex-direction:column;gap:12px;}
+.blog-card-meta{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--neon);}
+.blog-card-title{font-family:var(--sans);font-size:1.18rem;font-weight:700;line-height:1.35;color:var(--text);}
+.blog-card-excerpt{font-family:var(--mono);font-size:.72rem;color:var(--dim);line-height:1.8;}
+.blog-card-link{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-top:4px;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.contact-form .cf-row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -358,6 +393,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <li><a href="#demos">Demos</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="openChat()">Talk to ARIA</button>
@@ -369,6 +405,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
   <a href="#demos" onclick="toggleMenu()">Demos</a>
   <a href="#process" onclick="toggleMenu()">Process</a>
   <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <button class="m-cta" onclick="toggleMenu();openChat()">Talk to ARIA</button>
 </div>
@@ -646,6 +683,22 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
   </div>
 </section>
 
+<section class="blog" id="blog">
+  <p class="section-label reveal">From the Blog</p>
+  <h2 class="section-title reveal">AI insights for<br><em style="color:var(--neon);font-style:normal;">East Anglian business.</em></h2>
+  <div class="blog-grid">
+    <a class="blog-card reveal" href="/blog/voice-agents-customer-service-east-anglia.html">
+      <img class="blog-card-img" src="/blog/voice-agents-east-anglia.jpg" alt="AI voice agent answering customer calls for an East Anglia business" loading="lazy" width="1200" height="675">
+      <div class="blog-card-body">
+        <p class="blog-card-meta">22 June 2026 · Customer Service</p>
+        <h3 class="blog-card-title">How Voice Agents Are Quietly Transforming Customer Service in East Anglia</h3>
+        <p class="blog-card-excerpt">Missed calls cost local businesses real money. Here's how a well-built voice agent answers every call, books the job, and sounds like a member of your team.</p>
+        <span class="blog-card-link">Read article →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <p class="section-label reveal">Get In Touch</p>
   <h2 class="section-title reveal">Talk to an<br><em style="color:var(--neon);font-style:normal;">AI engineer.</em></h2>
@@ -666,6 +719,52 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
       <p class="contact-value">Ask ARIA Anything</p>
     </a>
   </div>
+
+  <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="3be4d006-0b53-4f45-a1ce-eb6d337e4dac">
+    <input type="hidden" name="subject" value="New enquiry from eastangliaaiservices.co.uk">
+    <input type="hidden" name="from_name" value="East Anglia AI Services Website">
+    <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off">
+    <div class="cf-row">
+      <div>
+        <label for="cf-name">Name</label>
+        <input id="cf-name" type="text" name="name" placeholder="Your name" required>
+      </div>
+      <div>
+        <label for="cf-email">Email</label>
+        <input id="cf-email" type="email" name="email" placeholder="you@company.co.uk" required>
+      </div>
+    </div>
+    <div class="cf-row">
+      <div>
+        <label for="cf-phone">Phone <span style="opacity:.5">(optional)</span></label>
+        <input id="cf-phone" type="tel" name="phone" placeholder="07…">
+      </div>
+      <div>
+        <label for="cf-company">Company <span style="opacity:.5">(optional)</span></label>
+        <input id="cf-company" type="text" name="company" placeholder="Company name">
+      </div>
+    </div>
+    <div>
+      <label for="cf-message">How can we help?</label>
+      <textarea id="cf-message" name="message" placeholder="Tell us a little about your business and what you'd like to automate…" required></textarea>
+    </div>
+    <button type="submit" class="cf-submit" id="cfSubmit">Send Enquiry</button>
+    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="contact-social reveal" aria-label="Follow East Anglia AI Services">
+    <a class="social-link" href="https://www.facebook.com/profile.php?id=61589538308485" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z"/></svg>
+    </a>
+    <a class="social-link" href="https://www.linkedin.com/in/petar-petkov-3b9471343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+    </a>
+    <a class="social-link" href="https://www.tiktok.com/@east.anglia.ai.se" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 3.4-2.46V9.69a5.7 5.7 0 0 0-.81-.06A5.69 5.69 0 0 0 4.18 15.3 5.69 5.69 0 0 0 9.87 21a5.69 5.69 0 0 0 5.69-5.69V8.9a7.33 7.33 0 0 0 4.27 1.37V7.18a4.28 4.28 0 0 1-3.23-1.36Z"/></svg>
+    </a>
+  </div>
+
   <p class="contact-info reveal">
     <strong>Hours:</strong> Mon–Fri · 9:00–17:30 &nbsp;·&nbsp; <strong>Service Area:</strong> Norfolk · Suffolk · Cambridgeshire · Essex<br>
     On-site visits possible across the region. We aim to respond to all enquiries within <strong>1 business day</strong>.
@@ -683,7 +782,13 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 
 <footer>
   <div class="footer-top">
-    <div class="footer-brand"><div class="footer-logo-text">EAST ANGLIA AI SERVICES</div><p>Specialist AI automation for businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p></div>
+    <div class="footer-brand"><div class="footer-logo-text">EAST ANGLIA AI SERVICES</div><p>Specialist AI automation for businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p>
+      <div class="footer-social" aria-label="Follow East Anglia AI Services">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61589538308485" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z"/></svg></a>
+        <a class="social-link" href="https://www.linkedin.com/in/petar-petkov-3b9471343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a class="social-link" href="https://www.tiktok.com/@east.anglia.ai.se" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 3.4-2.46V9.69a5.7 5.7 0 0 0-.81-.06A5.69 5.69 0 0 0 4.18 15.3 5.69 5.69 0 0 0 9.87 21a5.69 5.69 0 0 0 5.69-5.69V8.9a7.33 7.33 0 0 0 4.27 1.37V7.18a4.28 4.28 0 0 1-3.23-1.36Z"/></svg></a>
+      </div>
+    </div>
     <div class="footer-col"><h3>Services</h3><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li></ul></div>
     <div class="footer-col"><h3>Company</h3><ul><li><a href="#about">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="#process">Our Process</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466 951175</a></li></ul></div>
     <div class="footer-col"><h3>Legal</h3><ul><li><a onclick="openModal('terms')">Terms of Service</a></li><li><a onclick="openModal('privacy')">Privacy Policy</a></li><li><a onclick="openModal('cookies')">Cookie Policy</a></li><li><a onclick="openModal('contactpolicy')">Contact Policy</a></li><li><a onclick="showCookieBanner()">Cookie Settings</a></li></ul></div>
@@ -919,6 +1024,40 @@ function localReply(text){
 }
 function sendMsg(){if(loading)return;const inp=document.getElementById('chat-input');const text=inp.value.trim();if(!text)return;inp.value='';inp.style.height='auto';addMsg('user',text);loading=true;document.getElementById('chat-send').disabled=true;showTyping();const delay=600+Math.random()*500;setTimeout(()=>{removeTyping();addMsg('ai',localReply(text));loading=false;document.getElementById('chat-send').disabled=false;},delay);}
 setTimeout(()=>{if(!chatOpen)document.getElementById('chatNotif').style.display='flex';},3000);
+
+// CONTACT FORM (Web3Forms, AJAX submit — no page redirect)
+(function(){
+  const form=document.getElementById('contactForm');
+  if(!form)return;
+  const status=document.getElementById('formStatus');
+  const btn=document.getElementById('cfSubmit');
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    status.className='form-status';
+    btn.disabled=true;const orig=btn.textContent;btn.textContent='Sending…';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Accept':'application/json'},
+        body:new FormData(form)
+      });
+      const data=await res.json();
+      if(res.ok&&data.success){
+        status.textContent="Thanks — your message is on its way. We'll be in touch within 1 business day.";
+        status.className='form-status ok show';
+        form.reset();
+      }else{
+        status.textContent=(data&&data.message)?data.message:'Something went wrong. Please email info@eastangliaaiservices.co.uk instead.';
+        status.className='form-status err show';
+      }
+    }catch(err){
+      status.textContent='Network error — please email info@eastangliaaiservices.co.uk or call 07466 951175.';
+      status.className='form-status err show';
+    }finally{
+      btn.disabled=false;btn.textContent=orig;
+    }
+  });
+})();
 </script>
 </body>
 </html>
