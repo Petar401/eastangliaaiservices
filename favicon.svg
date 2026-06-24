@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="gold" x1="4" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe082"/>
+      <stop offset="0.45" stop-color="#f5c542"/>
+      <stop offset="0.8" stop-color="#d4a017"/>
+      <stop offset="1" stop-color="#b8860b"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#glow)">
+    <!-- Head profile, facing right -->
+    <path fill="url(#gold)" d="
+      M15.2 3.6
+      C20 2.4 26.6 5.4 27 11.8
+      L27.2 13
+      L29.3 15.6
+      L26.7 16.7
+      L27.4 18.4
+      L25.7 19.4
+      L26.4 21.8
+      C26 24.2 24.4 25.6 22.2 26.6
+      L21.4 30.4
+      L15 30.4
+      L13.4 20.4
+      C12.4 13.4 11.8 6.4 15.2 3.6
+      Z"/>
+
+    <!-- Circuit traces branching from the back of the head -->
+    <g fill="none" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13.6 8 H7.5 V5"/>
+      <path d="M13.4 12 H4"/>
+      <path d="M13.4 15.5 H8.5 V18.5"/>
+      <path d="M13.6 19 H5.5"/>
+      <path d="M13.8 22.5 H9 V25.5"/>
+    </g>
+
+    <!-- Terminal + junction nodes -->
+    <g fill="url(#gold)">
+      <circle cx="7.5" cy="4.4" r="1.4"/>
+      <circle cx="3.4" cy="12" r="1.4"/>
+      <circle cx="8.5" cy="19.2" r="1.4"/>
+      <circle cx="4.9" cy="19" r="1.4"/>
+      <circle cx="9" cy="26.1" r="1.4"/>
+    </g>
+
+    <!-- Temple accent node -->
+    <circle cx="18.5" cy="12.5" r="1.1" fill="#fff3cc"/>
+  </g>
+</svg>

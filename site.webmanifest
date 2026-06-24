@@ -1,0 +1,11 @@
+{
+  "name": "East Anglia AI Services",
+  "short_name": "EAAIS",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#00ffe7",
+  "background_color": "#010108",
+  "display": "standalone"
+}
