@@ -381,6 +381,22 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 .blog-card-title{font-family:var(--sans);font-size:1.18rem;font-weight:700;line-height:1.35;color:var(--text);}
 .blog-card-excerpt{font-family:var(--mono);font-size:.72rem;color:var(--dim);line-height:1.8;}
 .blog-card-link{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-top:4px;}
+.blog-carousel{position:relative;max-width:760px;margin:36px auto 0;}
+.blog-viewport{overflow:hidden;}
+.blog-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.blog-slide{flex:0 0 100%;min-width:100%;}
+.blog-slide .blog-card{height:100%;}
+.blog-nav{position:absolute;top:38%;transform:translateY(-50%);width:46px;height:46px;border:1px solid rgba(0,255,231,.3);background:rgba(1,1,8,.72);backdrop-filter:blur(6px);color:var(--neon);display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--sans);font-size:1.5rem;line-height:1;z-index:6;transition:background .3s,color .3s,box-shadow .3s;}
+.blog-nav:hover,.blog-nav:focus-visible{background:var(--neon);color:var(--dark);box-shadow:0 0 18px rgba(0,255,231,.45);outline:none;}
+.blog-prev{left:-23px;}
+.blog-next{right:-23px;}
+.blog-dots{display:flex;justify-content:center;gap:12px;margin-top:22px;}
+.blog-dot{width:11px;height:11px;padding:0;border:1px solid rgba(0,255,231,.4);background:transparent;cursor:pointer;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transition:background .3s,box-shadow .3s,border-color .3s;}
+.blog-dot:hover{border-color:var(--neon);}
+.blog-dot.active{background:var(--neon);border-color:var(--neon);box-shadow:0 0 10px var(--neon);}
+.blog-dot:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
+html.reduce-motion .blog-track{transition:none!important;}
+@media(max-width:840px){.blog-prev{left:6px;}.blog-next{right:6px;}}
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.contact-form .cf-row{grid-template-columns:1fr;}}
 /* ---- Accessibility ---- */
 .skip-link{position:fixed;top:-80px;left:14px;z-index:2000;background:var(--neon);color:var(--dark);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;text-decoration:none;transition:top .2s;}
@@ -730,16 +746,47 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 <section class="blog" id="blog">
   <p class="section-label reveal">From the Blog</p>
   <h2 class="section-title reveal">AI insights for<br><em style="color:var(--neon);font-style:normal;">East Anglian business.</em></h2>
-  <div class="blog-grid">
-    <a class="blog-card reveal" href="/blog/voice-agents-customer-service-east-anglia.html">
-      <img class="blog-card-img" src="/blog/voice-agents-east-anglia.jpg" alt="AI voice agent answering customer calls for an East Anglia business" loading="lazy" width="1200" height="675">
-      <div class="blog-card-body">
-        <p class="blog-card-meta">22 June 2026 · Customer Service</p>
-        <h3 class="blog-card-title">How Voice Agents Are Quietly Transforming Customer Service in East Anglia</h3>
-        <p class="blog-card-excerpt">Missed calls cost local businesses real money. Here's how a well-built voice agent answers every call, books the job, and sounds like a member of your team.</p>
-        <span class="blog-card-link">Read article →</span>
+  <div class="blog-carousel reveal" id="blogCarousel" aria-roledescription="carousel" aria-label="Articles from the blog">
+    <button class="blog-nav blog-prev" id="blogPrev" type="button" aria-label="Previous article">‹</button>
+    <div class="blog-viewport">
+      <div class="blog-track" id="blogTrack">
+        <div class="blog-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+          <a class="blog-card" href="/blog/local-llm-business-east-anglia.html">
+            <img class="blog-card-img" src="/blog/llm-local-llm-east-anglia.jpg" alt="On-premise server rack connected to a neural-network brain, representing a private local LLM for an East Anglia business" loading="lazy" width="1200" height="675">
+            <div class="blog-card-body">
+              <p class="blog-card-meta">26 June 2026 · Local AI</p>
+              <h3 class="blog-card-title">Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House</h3>
+              <p class="blog-card-excerpt">Cloud or local? A growing number of firms across the region are keeping their AI — and their data — in-house. Here's the honest trade-off and where a private model pays off.</p>
+              <span class="blog-card-link">Read article →</span>
+            </div>
+          </a>
+        </div>
+        <div class="blog-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+          <a class="blog-card" href="/blog/voice-agents-customer-service-east-anglia.html">
+            <img class="blog-card-img" src="/blog/voice-agents-east-anglia.jpg" alt="AI voice agent answering customer calls for an East Anglia business" loading="lazy" width="1200" height="675">
+            <div class="blog-card-body">
+              <p class="blog-card-meta">22 June 2026 · Customer Service</p>
+              <h3 class="blog-card-title">How Voice Agents Are Quietly Transforming Customer Service in East Anglia</h3>
+              <p class="blog-card-excerpt">Missed calls cost local businesses real money. Here's how a well-built voice agent answers every call, books the job, and sounds like a member of your team.</p>
+              <span class="blog-card-link">Read article →</span>
+            </div>
+          </a>
+        </div>
+        <div class="blog-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+          <a class="blog-card" href="/blog/ai-growth-small-business-east-anglia.html">
+            <img class="blog-card-img" src="/blog/ai-growth-east-anglia.jpg" alt="Rising neon growth chart representing AI-driven growth for small businesses in East Anglia" loading="lazy" width="1200" height="675">
+            <div class="blog-card-body">
+              <p class="blog-card-meta">24 June 2026 · AI Strategy</p>
+              <h3 class="blog-card-title">How the Right AI Is Helping East Anglia's Small Businesses Grow</h3>
+              <p class="blog-card-excerpt">The firms pulling ahead in Norwich, Ipswich and Cambridge didn't buy the cleverest AI. They picked one real problem and let AI take it off their hands. Here's the evidence and where to start.</p>
+              <span class="blog-card-link">Read article →</span>
+            </div>
+          </a>
+        </div>
       </div>
-    </a>
+    </div>
+    <button class="blog-nav blog-next" id="blogNext" type="button" aria-label="Next article">›</button>
+    <div class="blog-dots" id="blogDots" role="group" aria-label="Choose article"></div>
   </div>
 </section>
 
@@ -1154,6 +1201,60 @@ function toggleA11y(){const p=document.getElementById('a11y-panel');const t=docu
   const reset=document.getElementById('a11y-reset');
   if(reset)reset.addEventListener('click',function(){['motion','contrast','text'].forEach(function(opt){apply(opt,false,false);try{localStorage.removeItem(KEYS[opt]);}catch(e){}});});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){const p=document.getElementById('a11y-panel');if(p&&p.classList.contains('open'))toggleA11y();}});
+})();
+</script>
+<!-- BLOG CAROUSEL -->
+<script>
+(function(){
+  var root=document.getElementById('blogCarousel');
+  if(!root)return;
+  var track=document.getElementById('blogTrack');
+  var slides=track?Array.prototype.slice.call(track.querySelectorAll('.blog-slide')):[];
+  if(!track||slides.length===0)return;
+  var prevBtn=document.getElementById('blogPrev');
+  var nextBtn=document.getElementById('blogNext');
+  var dotsWrap=document.getElementById('blogDots');
+  var AUTO=6000;
+  var idx=0,timer=null,dots=[];
+  if(dotsWrap){
+    for(var s=0;s<slides.length;s++){
+      var d=document.createElement('button');
+      d.type='button';d.className='blog-dot';
+      d.setAttribute('aria-label','Go to article '+(s+1)+' of '+slides.length);
+      d.addEventListener('click',(function(n){return function(){go(n);restart();};})(s));
+      dotsWrap.appendChild(d);dots.push(d);
+    }
+  }
+  function go(n){
+    idx=(n+slides.length)%slides.length;
+    track.style.transform='translateX('+(-idx*100)+'%)';
+    for(var s=0;s<slides.length;s++){
+      slides[s].setAttribute('aria-hidden',s===idx?'false':'true');
+      if(dots[s])dots[s].classList.toggle('active',s===idx);
+    }
+  }
+  function nextSlide(){go(idx+1);}
+  function prevSlide(){go(idx-1);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){
+    stop();
+    if(slides.length<2)return;
+    if(document.documentElement.classList.contains('reduce-motion'))return;
+    timer=setInterval(nextSlide,AUTO);
+  }
+  function restart(){stop();start();}
+  if(nextBtn)nextBtn.addEventListener('click',function(){nextSlide();restart();});
+  if(prevBtn)prevBtn.addEventListener('click',function(){prevSlide();restart();});
+  root.addEventListener('mouseenter',stop);
+  root.addEventListener('mouseleave',start);
+  root.addEventListener('focusin',stop);
+  root.addEventListener('focusout',start);
+  root.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){e.preventDefault();prevSlide();restart();}
+    else if(e.key==='ArrowRight'){e.preventDefault();nextSlide();restart();}
+  });
+  go(0);
+  start();
 })();
 </script>
 </body>

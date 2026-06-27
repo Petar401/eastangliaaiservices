@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House | East Anglia AI Services</title>
+<meta name="description" content="Cloud or local? A plain-English guide to running private, on-premise LLMs for businesses in Norwich, Ipswich and Cambridge — the trade-offs, the real use cases, and where to start.">
+<meta name="keywords" content="local LLM, local LLM for business, private LLM, on-premise LLM, self-hosted LLM, open source LLM, Llama, Mistral, LLM data privacy, GDPR AI, running LLMs locally, private AI East Anglia, AI Norwich, AI Ipswich, AI Cambridge, on-premise AI Norfolk Suffolk Cambridgeshire Essex">
+<meta name="author" content="Petar Petkov">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#00ffe7">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://eastangliaaiservices.co.uk/blog/local-llm-business-east-anglia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="East Anglia AI Services">
+<meta property="og:title" content="Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House">
+<meta property="og:description" content="The real trade-off between cloud and local LLMs — and why a growing number of firms across Norfolk, Suffolk, Cambridgeshire and Essex are keeping their AI, and their data, in-house.">
+<meta property="og:url" content="https://eastangliaaiservices.co.uk/blog/local-llm-business-east-anglia.html">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://eastangliaaiservices.co.uk/blog/llm-local-llm-east-anglia.jpg">
+<meta property="article:published_time" content="2026-06-26">
+<meta property="article:modified_time" content="2026-06-26">
+<meta property="article:author" content="Petar Petkov">
+<meta property="article:section" content="Local AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House">
+<meta name="twitter:description" content="Cloud or local? The trade-offs, the real use cases, and where to start with private, on-premise LLMs for businesses across East Anglia.">
+<meta name="twitter:image" content="https://eastangliaaiservices.co.uk/blog/llm-local-llm-east-anglia.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House","description":"Cloud or local? A plain-English guide to running private, on-premise LLMs for businesses in Norwich, Ipswich and Cambridge — the trade-offs, the real use cases, and where to start.","image":"https://eastangliaaiservices.co.uk/blog/llm-local-llm-east-anglia.jpg","datePublished":"2026-06-26","dateModified":"2026-06-26","inLanguage":"en-GB","author":{"@type":"Person","name":"Petar Petkov","url":"https://www.linkedin.com/in/petar-petkov-3b9471343/"},"publisher":{"@type":"Organization","name":"East Anglia AI Services Ltd","url":"https://eastangliaaiservices.co.uk/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://eastangliaaiservices.co.uk/blog/local-llm-business-east-anglia.html"},"about":["Large language models","Local LLM","Private AI","Data protection","On-premise AI","East Anglia"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a local LLM?","acceptedAnswer":{"@type":"Answer","text":"A local LLM is a large language model that runs on hardware you control — a server in your office, a machine in a data centre you rent, or a private cloud tenant — rather than being accessed over the public internet through a provider like OpenAI or Anthropic. Because the model and your data stay inside your own boundary, nothing you type leaves the building unless you decide it should. Open-weight models such as Meta's Llama and Mistral's releases are what make this practical for ordinary businesses."}},{"@type":"Question","name":"Is a local LLM better than ChatGPT for a small business?","acceptedAnswer":{"@type":"Answer","text":"Neither is simply better — it depends on the job. A hosted service like ChatGPT is the fastest, cheapest way to start and usually gives you the strongest raw model. A local LLM wins when data privacy, predictable cost at high volume, offline reliability or full control matter more than having the single most capable model. Many firms end up using both: a hosted model for general work and a private one for anything sensitive."}},{"@type":"Question","name":"Do I need an expensive GPU to run an LLM locally?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Smaller open models in the 3-to-14-billion-parameter range now run usefully on a single business-grade GPU, and sometimes on a well-specified workstation or laptop. The larger, more capable models do need serious hardware, but most practical business tasks — drafting, summarising, answering questions from your own documents — are handled well by the smaller models that modest kit can run."}},{"@type":"Question","name":"Does a local LLM keep my business GDPR compliant?","acceptedAnswer":{"@type":"Answer","text":"Keeping data on your own infrastructure removes one of the biggest worries — sending personal or confidential information to a third party — but it does not make you compliant on its own. You remain the data controller, so the usual UK GDPR duties still apply: a lawful basis, data minimisation, security, and being able to explain what the system does. Running the model locally simply makes those duties far easier to meet."}}]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--neon:#00ffe7;--neon2:#bf00ff;--dark:#010108;--dark2:#07071a;--dark3:#0d0d2b;--text:#e8eaf6;--dim:#6b7280;--mono:'Space Mono',monospace;--sans:'Syne',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:var(--sans);overflow-x:hidden;line-height:1.7;}
+a{color:var(--neon);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 40px;background:rgba(1,1,8,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,255,231,.08);}
+.logo{font-family:var(--mono);font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--neon);text-shadow:0 0 18px var(--neon);text-transform:uppercase;text-decoration:none;}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center;}
+.nav-links a{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;}
+.nav-links a:hover{color:var(--neon);}
+.article-wrap{max-width:760px;margin:0 auto;padding:130px 24px 40px;}
+.crumb{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:22px;}
+.crumb a{color:var(--neon);text-decoration:none;}
+.article-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--neon);margin-bottom:16px;}
+h1{font-family:var(--sans);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.01em;margin-bottom:20px;}
+.byline{font-family:var(--mono);font-size:.7rem;color:var(--dim);margin-bottom:32px;}
+.byline strong{color:var(--text);}
+.hero-img{width:100%;height:auto;border:1px solid rgba(0,255,231,.14);box-shadow:0 18px 50px rgba(0,0,0,.5);margin-bottom:40px;display:block;}
+.article-body p{font-family:var(--sans);font-size:1.06rem;color:#cfd3e6;margin-bottom:22px;text-align:justify;text-justify:auto;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}
+.article-body h2{font-family:var(--sans);font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:700;color:var(--text);margin:44px 0 16px;line-height:1.25;}
+.article-body h2 .accent{color:var(--neon);}
+.article-body h3{font-family:var(--sans);font-size:1.2rem;font-weight:700;color:var(--text);margin:30px 0 12px;}
+.article-body ul{margin:0 0 22px 0;padding-left:0;list-style:none;}
+.article-body li{font-family:var(--sans);font-size:1.04rem;color:#cfd3e6;padding-left:26px;position:relative;margin-bottom:12px;text-align:justify;text-justify:auto;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}
+.article-body li::before{content:'';position:absolute;left:0;top:11px;width:9px;height:9px;background:var(--neon);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+.article-body strong{color:var(--text);}
+.pull{border-left:2px solid var(--neon);background:rgba(0,255,231,.04);padding:18px 24px;margin:34px 0;font-family:var(--sans);font-size:1.15rem;color:var(--text);font-style:italic;}
+.faq{margin-top:46px;border-top:1px solid rgba(0,255,231,.1);padding-top:36px;}
+.faq h3{margin-top:24px;}
+.cta-box{margin:54px 0 20px;background:var(--dark3);border:1px solid rgba(0,255,231,.16);padding:36px 28px;text-align:center;}
+.cta-box h2{margin-top:0;}
+.cta-box p{color:var(--dim);font-family:var(--mono);font-size:.78rem;margin-bottom:24px;}
+.btn-primary{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);background:var(--neon);padding:14px 28px;border:none;cursor:pointer;font-weight:700;box-shadow:0 0 28px rgba(0,255,231,.35);transition:all .3s;text-decoration:none;display:inline-block;}
+.btn-primary:hover{box-shadow:0 0 50px rgba(0,255,231,.7);transform:translateY(-2px);}
+.refs{margin-top:46px;border-top:1px solid rgba(0,255,231,.1);padding-top:30px;}
+.refs h2{font-family:var(--sans);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:16px;}
+.refs ol{list-style:none;counter-reset:ref;padding:0;margin:0;}
+.refs li{font-family:var(--mono);font-size:.72rem;line-height:1.85;color:var(--dim);padding-left:26px;position:relative;margin-bottom:14px;text-align:left;overflow-wrap:break-word;word-break:break-word;}
+.refs li::before{counter-increment:ref;content:counter(ref);position:absolute;left:0;top:0;color:var(--neon);font-weight:700;}
+.refs a{color:var(--neon);text-decoration:none;word-break:break-all;}
+.refs a:hover{text-decoration:underline;}
+footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var(--dark2);text-align:center;}
+.footer-logo-text{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--neon);text-shadow:0 0 12px var(--neon);margin-bottom:10px;}
+.footer-copy{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--dim);}
+.footer-copy a{color:var(--dim);}
+@media(max-width:680px){nav{padding:14px 18px;}.nav-links{gap:16px;}.nav-links a{font-size:.6rem;}.article-wrap{padding:104px 18px 30px;}}
+/* ---- Accessibility ---- */
+.skip-link{position:fixed;top:-80px;left:14px;z-index:2000;background:var(--neon);color:var(--dark);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;text-decoration:none;transition:top .2s;}
+.skip-link:focus{top:14px;outline:2px solid #fff;outline-offset:2px;}
+#a11y-wrapper{position:fixed;bottom:20px;left:14px;z-index:500;}
+#a11y-toggle{width:52px;height:52px;background:var(--dark2);border:1px solid var(--neon);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 22px rgba(0,255,231,.35);transition:box-shadow .3s,transform .3s;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);color:var(--neon);}
+#a11y-toggle:hover{box-shadow:0 0 38px rgba(0,255,231,.65);transform:scale(1.05);}
+#a11y-toggle svg{width:24px;height:24px;}
+#a11y-panel{position:absolute;bottom:64px;left:0;width:262px;background:var(--dark2);border:1px solid rgba(0,255,231,.2);box-shadow:0 0 50px rgba(0,0,0,.8),0 0 22px rgba(0,255,231,.08);padding:16px 18px;transform:translateY(14px) scale(.96);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;}
+#a11y-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+.a11y-title{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--neon);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+.a11y-intro{font-family:var(--mono);font-size:.56rem;color:var(--dim);line-height:1.6;margin-bottom:8px;}
+.a11y-opt{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid rgba(0,255,231,.08);}
+.a11y-opt label{font-family:var(--mono);font-size:.66rem;color:var(--text);}
+.a11y-switch{position:relative;width:40px;height:21px;min-width:40px;background:rgba(255,255,255,.08);border:1px solid rgba(0,255,231,.2);cursor:pointer;flex-shrink:0;transition:background .3s,border-color .3s;border-radius:11px;padding:0;}
+.a11y-switch::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--dim);border-radius:50%;transition:left .3s,background .3s;}
+.a11y-switch[aria-pressed="true"]{background:rgba(0,255,231,.22);border-color:var(--neon);}
+.a11y-switch[aria-pressed="true"]::after{left:21px;background:var(--neon);box-shadow:0 0 8px var(--neon);}
+.a11y-switch:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
+.a11y-reset{width:100%;margin-top:14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);background:transparent;border:1px solid rgba(0,255,231,.2);padding:9px;cursor:pointer;transition:border-color .25s,color .25s;}
+.a11y-reset:hover{border-color:var(--neon);color:var(--neon);}
+html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+html.high-contrast{--dim:#cfd3e6;}
+html.high-contrast .logo,html.high-contrast .footer-logo-text{text-shadow:none!important;}
+html.large-text{font-size:118%;}
+</style>
+</head>
+<body>
+<script>
+/* Apply saved accessibility preferences before paint */
+(function(){var r=document.documentElement;function g(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+var m=g('eaais_a11y_motion');if(m===null){m=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)?'1':'0';}
+if(m==='1')r.classList.add('reduce-motion');
+if(g('eaais_a11y_contrast')==='1')r.classList.add('high-contrast');
+if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
+</script>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <a href="/" class="logo">EAAIS</a>
+  <ul class="nav-links">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<article class="article-wrap" id="main" tabindex="-1">
+  <p class="crumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / Local AI</p>
+  <p class="article-meta">26 June 2026 · Local AI</p>
+  <h1>Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House</h1>
+  <p class="byline">By <strong>Petar Petkov</strong>, East Anglia AI Services · 10 min read</p>
+
+  <img class="hero-img" src="/blog/llm-local-llm-east-anglia.jpg" alt="Neon illustration of an on-premise server rack labelled LOCAL connected by glowing cables to a brain-shaped neural network, representing a private local LLM running inside an East Anglia business" width="1200" height="675">
+
+  <div class="article-body">
+    <p>Ask a business owner in Norwich or Cambridge what they think of ChatGPT and you'll usually get one of two answers. Either they've quietly started leaning on it for emails and first drafts, or they've been told in no uncertain terms by someone in IT not to put anything important into it. Both reactions are sensible. The tool is genuinely useful, and pasting a client contract or a patient list into a website owned by a company on the other side of the Atlantic is genuinely something to think twice about.</p>
+
+    <p>What far fewer owners realise is that this is no longer an either/or choice. You can have the language model without handing your data to anyone. The same kind of AI that powers the big chat services can now run on a computer in your own office or a server you rent and control — a setup usually called a <strong>local LLM</strong>, or a private or on-premise model. For a long time that was the preserve of well-funded labs. In the last couple of years it has quietly become something an ordinary firm in Ipswich or Bury St Edmunds can actually consider.</p>
+
+    <h2>What an LLM actually is, without the <span class="accent">mysticism</span></h2>
+    <p>A large language model, or LLM, is the technology underneath tools like ChatGPT, Claude and Gemini. Strip away the marketing and it's a very sophisticated pattern-spotter: trained on an enormous amount of text, it learns the statistical shape of language well enough to continue a sentence, answer a question, summarise a document or draft a reply in a way that reads as if a person wrote it. It isn't thinking in any human sense, and it isn't a search engine. It's a model of how language tends to fit together, and that turns out to be remarkably useful for the everyday writing and reading that clogs up a working week.</p>
+
+    <p>The important part for a business is where that model lives and runs. When you use a hosted service, the model sits on the provider's computers and your words travel there and back over the internet. When you run a model locally, the model file sits on hardware you control, and the text you feed it never has to leave your boundary. Same basic technology; very different arrangement of who holds what.</p>
+
+    <h2>Cloud LLM versus local LLM — the real trade-off</h2>
+    <p>It helps to be honest about both sides, because there's no single right answer and anyone who tells you otherwise is selling something. A hosted, cloud-based model is the quickest way to get going. You pay per use, you always have access to the latest and usually the most capable models, and someone else worries about the hardware. For a great many tasks that is exactly what you want, and it's where most firms should start.</p>
+
+    <p>A local model changes the calculation in four specific ways. Your data stays put, which matters enormously if you handle anything confidential. Your costs become predictable — you're paying for hardware you own rather than a meter that runs every time a member of staff asks a question. The model keeps working whether or not your internet does, and even if a provider changes its prices, its terms or its model overnight. And you keep control: the model doesn't change under your feet, and nothing you run through it is used to train somebody else's product. The price of all that is that you take on the kit and the upkeep, and the very best frontier models still tend to live in the cloud.</p>
+
+    <h2>Why "local" has stopped being a <span class="accent">compromise</span></h2>
+    <p>Two things changed, and they changed fast. The first is cost and capability. Stanford University's closely watched annual review of the field found that the price of running a model at the level of 2022's ChatGPT fell more than 280-fold in under two years — from around $20 per million words of output to roughly $0.07 — as the underlying hardware and software became dramatically more efficient (Stanford University, 2025). The same review noted that freely available "open-weight" models had all but caught up with the closed commercial ones, narrowing the performance gap on some standard tests from 8% to under 2% in a single year (Stanford University, 2025). The plain English version: the models you're allowed to download and run yourself are now nearly as good as the ones you can only rent.</p>
+
+    <p>The second change is that the people building these models started giving them away. Meta releases its Llama models as open weights that businesses can fine-tune and deploy on their own infrastructure (Meta, 2025), and the French lab Mistral has put out a family of compact models — small enough to run on modest hardware — under a permissive Apache 2.0 licence that lets companies use them commercially without asking permission (Mistral AI, 2025). Between them, that's a serious, free toolbox sitting on the shelf for any business that wants to pick it up.</p>
+
+    <div class="pull">The question used to be whether you could run a capable model in-house at all. Now it's simply whether you should — and for the right job, the answer is increasingly yes.</div>
+
+    <h2>Why private models matter more in some businesses than others</h2>
+    <p>This is where it stops being abstract. The case for keeping a model in-house is strongest wherever the text you'd feed it is sensitive, regulated, or simply none of a third party's business — and East Anglia has no shortage of firms in exactly that position.</p>
+
+    <p>It's worth being clear about what running a model locally does and doesn't do for your obligations. Keeping data on your own infrastructure removes the single biggest privacy worry — sending personal or confidential information off to someone else's servers — but it doesn't make you compliant by magic. Under the Information Commissioner's Office's guidance, you remain the data controller, and the usual duties of UK GDPR still apply: you need a lawful basis, you should collect only what you need, you have to keep it secure, and you must be able to explain what the system does with it (Information Commissioner's Office, 2023). A local model simply makes those duties far easier to meet, because the data never leaves a perimeter you already control.</p>
+
+    <p>That reassurance isn't a niche concern. The Federation of Small Businesses (2026) found that 92% of small business owners worry about the risks of AI — accuracy, security, and above all where their data ends up — a figure that has climbed sharply as adoption has spread. For a lot of those owners, "the data never leaves the building" is the sentence that turns a no into a maybe.</p>
+
+    <h2>Where a private model earns its keep in East Anglia</h2>
+    <p>The strongest cases we see across the region tend to fall into a handful of buckets. None of them is science fiction; they're ordinary jobs that happen to involve a lot of reading and writing.</p>
+
+    <h3>Answering questions from your own documents</h3>
+    <p>Every established firm has a body of knowledge locked in documents only one or two people can really navigate — contracts, policies, technical manuals, years of project notes. A local model connected to those files lets your team ask a plain question and get an answer drawn straight from your own material, with the documents never leaving your systems. For a Cambridge research-adjacent business or a professional services firm in Chelmsford sitting on commercially sensitive paperwork, that combination of usefulness and privacy is the whole point.</p>
+
+    <h3>Drafting in regulated trades</h3>
+    <p>Solicitors, accountants, surveyors and healthcare practices spend a great deal of time turning confidential information into letters, reports and summaries. These are precisely the documents you can't comfortably paste into a public tool. A private model handles the first draft — a client letter, a case summary, a set of file notes — on hardware that never exposes the underlying data, leaving a qualified human to check and sign it off. The work gets faster without the information ever going somewhere it shouldn't.</p>
+
+    <h3>Customer support that knows your business</h3>
+    <p>A local model grounded in your own product information, policies and past tickets can draft accurate replies to routine enquiries and hand the awkward ones to a person, all without customer details touching an outside service. For a Norfolk retailer or a Suffolk logistics firm dealing with steady volumes of fairly similar questions, that's faster responses and a tighter grip on where customer data sits.</p>
+
+    <h3>On-site work where the connection is patchy</h3>
+    <p>Manufacturing, agriculture and field engineering across the region often happen in places where the broadband is best described as optimistic. A model running on local hardware doesn't care. It can summarise maintenance logs, interpret a manual or help with reporting on a factory floor or a farm office that a cloud service would struggle to reach reliably.</p>
+
+    <h2>The honest limits — because there are some</h2>
+    <p>A local model is a tool, not a religion, and it isn't the right answer for everyone. You do take on hardware: capable open models in the 3-to-14-billion-parameter range run happily on a single business-grade GPU, but the very largest models need serious, expensive kit. The models small machines can run are excellent at everyday drafting, summarising and question-answering, yet they still tend to trail the absolute frontier cloud models on the hardest reasoning. And someone has to keep the thing running — updates, monitoring, the occasional fix — which is real work even if it's modest.</p>
+
+    <p>None of that is a reason to avoid local AI. It's a reason to be clear-eyed about when it pays. If your work isn't especially sensitive and your volumes are low, a hosted service is very likely the cheaper, simpler choice, and you should use it without guilt. The local route earns its place when privacy, predictable cost at scale, offline reliability or genuine control are worth more to you than having the single most powerful model on tap. Plenty of firms quite sensibly run both — a hosted model for general work, a private one for anything that has to stay in-house.</p>
+
+    <h2>How to decide, and how to start small</h2>
+    <p>You don't need to pick a side on principle, and you certainly don't need a six-figure server before you've proven the idea. The approach that works looks a lot like the one we'd recommend for any AI project:</p>
+    <ul>
+      <li>Start with the data, not the technology — list the tasks where the information is too sensitive, regulated or valuable to send to an outside service. That list is your case for going local.</li>
+      <li>Pick one of those tasks that's costing you real time today, so you can actually measure whether a model helps.</li>
+      <li>Prove it on small, capable open models first — they'll handle far more than people expect, and they tell you quickly whether the idea has legs before you spend on hardware.</li>
+      <li>Keep a person in the loop on anything that goes to a customer or carries risk, and write down how data flows so your UK GDPR position is clear from day one.</li>
+      <li>Scale the hardware to the result, not the hype — only invest in bigger kit once a task has earned it.</li>
+    </ul>
+
+    <p>It's worth remembering why this matters locally. The Office for National Statistics (2025) found that while around 44% of large firms had adopted AI by late 2025, smaller businesses were trailing at roughly 26% — and that gap has never been about the technology being out of reach. It's about knowing which tool fits which job. A small firm in Lowestoft now has access to the very same open models as a well-funded Cambridge scale-up. Knowing when to keep one of them in-house is fast becoming part of using AI well, rather than a luxury reserved for the technically minded.</p>
+
+    <p>The pattern is the same one we see across every kind of AI work in the region. The firms getting value aren't the ones chasing the most powerful model or the loudest trend. They're the ones matching the right tool to the right job — and for an increasing number of them, on the jobs that matter most, that tool is one they keep firmly under their own roof.</p>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>What is a local LLM?</h3>
+      <p>A local LLM is a large language model that runs on hardware you control — a server in your office, a machine in a data centre you rent, or a private cloud tenant — rather than being accessed over the public internet through a provider like OpenAI or Anthropic. Because the model and your data stay inside your own boundary, nothing you type leaves the building unless you decide it should. Open-weight models such as Meta's Llama and Mistral's releases are what make this practical for ordinary businesses.</p>
+      <h3>Is a local LLM better than ChatGPT for a small business?</h3>
+      <p>Neither is simply better — it depends on the job. A hosted service like ChatGPT is the fastest, cheapest way to start and usually gives you the strongest raw model. A local LLM wins when data privacy, predictable cost at high volume, offline reliability or full control matter more than having the single most capable model. Many firms end up using both: a hosted model for general work and a private one for anything sensitive.</p>
+      <h3>Do I need an expensive GPU to run an LLM locally?</h3>
+      <p>Not necessarily. Smaller open models in the 3-to-14-billion-parameter range now run usefully on a single business-grade GPU, and sometimes on a well-specified workstation or laptop. The larger, more capable models do need serious hardware, but most practical business tasks — drafting, summarising, answering questions from your own documents — are handled well by the smaller models that modest kit can run.</p>
+      <h3>Does a local LLM keep my business GDPR compliant?</h3>
+      <p>Keeping data on your own infrastructure removes one of the biggest worries — sending personal or confidential information to a third party — but it does not make you compliant on its own. You remain the data controller, so the usual UK GDPR duties still apply: a lawful basis, data minimisation, security, and being able to explain what the system does. Running the model locally simply makes those duties far easier to meet.</p>
+    </div>
+
+    <div class="cta-box">
+      <h2>Not sure whether your AI should live in the cloud or in-house?</h2>
+      <p>We'll look at your data, your tasks and your obligations, and tell you honestly where a private model pays off — on a free, no-pressure strategy call.</p>
+      <a href="/#contact" class="btn-primary">Book a Free Strategy Call</a>
+    </div>
+
+    <div class="refs">
+      <h2>References</h2>
+      <ol>
+        <li>Federation of Small Businesses (2026) <em>Redefining Intelligence</em>. London: FSB. Available at: <a href="https://www.fsb.org.uk/resources/policy-reports/redefining-intelligence-MCKHTFHSTCMVGF5BPKCDHVF73FGU" rel="nofollow noopener" target="_blank">https://www.fsb.org.uk/resources/policy-reports/redefining-intelligence-MCKHTFHSTCMVGF5BPKCDHVF73FGU</a> (Accessed: 26 June 2026).</li>
+        <li>Information Commissioner's Office (2023) <em>Guidance on AI and data protection</em>. Wilmslow: ICO. Available at: <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" rel="nofollow noopener" target="_blank">https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/</a> (Accessed: 26 June 2026).</li>
+        <li>Meta (2025) <em>Llama: industry-leading, open-source AI</em>. Available at: <a href="https://www.llama.com/" rel="nofollow noopener" target="_blank">https://www.llama.com/</a> (Accessed: 26 June 2026).</li>
+        <li>Mistral AI (2025) <em>Introducing Mistral 3</em>. Available at: <a href="https://mistral.ai/news/mistral-3/" rel="nofollow noopener" target="_blank">https://mistral.ai/news/mistral-3/</a> (Accessed: 26 June 2026).</li>
+        <li>Office for National Statistics (2025) <em>Business insights and impact on the UK economy</em>. Available at: <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/bulletins/businessinsightsandimpactontheukeconomy/2october2025" rel="nofollow noopener" target="_blank">https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/bulletins/businessinsightsandimpactontheukeconomy/2october2025</a> (Accessed: 26 June 2026).</li>
+        <li>Stanford University (2025) <em>The 2025 AI Index Report</em>. Stanford, CA: Stanford Institute for Human-Centered AI. Available at: <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report" rel="nofollow noopener" target="_blank">https://hai.stanford.edu/ai-index/2025-ai-index-report</a> (Accessed: 26 June 2026).</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-logo-text">EAST ANGLIA AI SERVICES</div>
+  <p class="footer-copy">© 2026 East Anglia AI Services Ltd · Norfolk · Suffolk · Cambridgeshire · Essex · <a href="/">Home</a> · <a href="/blog/">Blog</a></p>
+</footer>
+
+<!-- ACCESSIBILITY -->
+<div id="a11y-wrapper">
+  <div id="a11y-panel" role="dialog" aria-label="Accessibility options" aria-hidden="true">
+    <p class="a11y-title">Accessibility</p>
+    <p class="a11y-intro">Adjust the site to suit you. Choices are saved on this device.</p>
+    <div class="a11y-opt">
+      <label id="a11y-motion-lbl">Reduce motion</label>
+      <button class="a11y-switch" data-opt="motion" aria-pressed="false" aria-labelledby="a11y-motion-lbl"></button>
+    </div>
+    <div class="a11y-opt">
+      <label id="a11y-contrast-lbl">Higher contrast</label>
+      <button class="a11y-switch" data-opt="contrast" aria-pressed="false" aria-labelledby="a11y-contrast-lbl"></button>
+    </div>
+    <div class="a11y-opt">
+      <label id="a11y-text-lbl">Larger text</label>
+      <button class="a11y-switch" data-opt="text" aria-pressed="false" aria-labelledby="a11y-text-lbl"></button>
+    </div>
+    <button class="a11y-reset" id="a11y-reset">Reset to defaults</button>
+  </div>
+  <button id="a11y-toggle" onclick="toggleA11y()" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8.5 4.74a1 1 0 0 0-1.22-.71l-4.79 1.28a8 8 0 0 1-5 0L4.72 6.03a1 1 0 1 0-.52 1.94l4.8 1.28V14l-1.9 6.04a1 1 0 0 0 1.9.6L10.8 15h2.4l1.8 5.64a1 1 0 0 0 1.9-.6L15 14V9.25l4.8-1.28a1 1 0 0 0 .7-1.23Z"/></svg>
+  </button>
+</div>
+<script>
+function toggleA11y(){const p=document.getElementById('a11y-panel');const t=document.getElementById('a11y-toggle');const open=!p.classList.contains('open');p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true');t.setAttribute('aria-expanded',open?'true':'false');}
+(function(){
+  const root=document.documentElement;
+  const KEYS={motion:'eaais_a11y_motion',contrast:'eaais_a11y_contrast',text:'eaais_a11y_text'};
+  const CLS={motion:'reduce-motion',contrast:'high-contrast',text:'large-text'};
+  function save(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function apply(opt,on,persist){
+    root.classList.toggle(CLS[opt],on);
+    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
+    if(btn)btn.setAttribute('aria-pressed',on?'true':'false');
+    if(persist)save(KEYS[opt],on?'1':'0');
+  }
+  ['motion','contrast','text'].forEach(function(opt){
+    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
+    if(!btn)return;
+    btn.setAttribute('aria-pressed',root.classList.contains(CLS[opt])?'true':'false');
+    btn.addEventListener('click',function(){apply(opt,!root.classList.contains(CLS[opt]),true);});
+  });
+  const reset=document.getElementById('a11y-reset');
+  if(reset)reset.addEventListener('click',function(){['motion','contrast','text'].forEach(function(opt){apply(opt,false,false);try{localStorage.removeItem(KEYS[opt]);}catch(e){}});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){const p=document.getElementById('a11y-panel');if(p&&p.classList.contains('open'))toggleA11y();}});
+})();
+</script>
+</body>
+</html>
