@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" font-family="'Space Mono', monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07071a"/>
+      <stop offset="0.55" stop-color="#0d0d2b"/>
+      <stop offset="1" stop-color="#010108"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.40"/>
+      <stop offset="0.5" stop-color="#00ffe7" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#00ffe7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="post" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d0d2b"/>
+      <stop offset="0.5" stop-color="#1a1a3e"/>
+      <stop offset="1" stop-color="#07071a"/>
+    </linearGradient>
+    <linearGradient id="signDim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#00ffe7" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="signHot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#bf00ff" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#bf00ff" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="targetGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#00ffe7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#00ffe7" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="112" x2="1200" y2="112"/><line x1="0" y1="225" x2="1200" y2="225"/>
+    <line x1="0" y1="337" x2="1200" y2="337"/><line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="562" x2="1200" y2="562"/>
+    <line x1="150" y1="0" x2="150" y2="675"/><line x1="300" y1="0" x2="300" y2="675"/>
+    <line x1="450" y1="0" x2="450" y2="675"/><line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="750" y1="0" x2="750" y2="675"/><line x1="900" y1="0" x2="900" y2="675"/>
+    <line x1="1050" y1="0" x2="1050" y2="675"/>
+  </g>
+
+  <!-- ambient glow over the target -->
+  <circle cx="928" cy="298" r="300" fill="url(#glow)"/>
+
+  <!-- ===================== ROUTES FROM THE JUNCTION ===================== -->
+  <!-- start node (the business at a decision) bottom-left -->
+  <g>
+    <circle cx="196" cy="516" r="34" fill="#010108" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="2"/>
+    <path d="M196 500 a12 12 0 1 1 -0.1 0 M176 538 a20 14 0 0 1 40 0"
+          fill="none" stroke="#00ffe7" stroke-width="2.4" stroke-opacity="0.85"/>
+    <text x="150" y="586" fill="#6b7280" font-size="13" letter-spacing="2">YOUR BUSINESS</text>
+  </g>
+
+  <!-- three dim routes ending in scattered model chips -->
+  <g fill="none" stroke="#00ffe7" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="7 9" stroke-linecap="round">
+    <path d="M230 502 C 340 430, 380 300, 470 214"/>
+    <path d="M232 512 C 360 470, 470 430, 566 336"/>
+    <path d="M234 520 C 340 500, 400 430, 440 366"/>
+  </g>
+
+  <!-- bright recommended route to the target -->
+  <g fill="none" stroke="url(#path)" stroke-width="5" stroke-linecap="round" filter="url(#soft)" opacity="0.85">
+    <path d="M230 516 C 430 560, 640 520, 812 360"/>
+  </g>
+  <g fill="none" stroke="url(#path)" stroke-width="2.6" stroke-linecap="round">
+    <path d="M230 516 C 430 560, 640 520, 812 360"/>
+  </g>
+  <!-- travelling markers on the bright route -->
+  <g fill="#00ffe7">
+    <circle cx="430" cy="543" r="4"/><circle cx="588" cy="524" r="4"/><circle cx="726" cy="440" r="4"/>
+  </g>
+
+  <!-- ===================== DIM DESTINATION CHIPS ===================== -->
+  <g font-size="13" letter-spacing="1.5" font-weight="700">
+    <rect x="424" y="176" width="96" height="30" rx="15" fill="#010108" stroke="#00ffe7" stroke-opacity="0.22"/>
+    <text x="440" y="196" fill="#6b7280">BUY GPU</text>
+    <rect x="520" y="308" width="112" height="30" rx="15" fill="#010108" stroke="#00ffe7" stroke-opacity="0.22"/>
+    <text x="536" y="328" fill="#6b7280">RENT CLOUD</text>
+    <rect x="418" y="350" width="128" height="30" rx="15" fill="#010108" stroke="#00ffe7" stroke-opacity="0.22"/>
+    <text x="434" y="370" fill="#6b7280">SUBSCRIBE</text>
+  </g>
+
+  <!-- ===================== SIGNPOST ===================== -->
+  <g>
+    <!-- post -->
+    <rect x="360" y="250" width="16" height="300" rx="4" fill="url(#post)" stroke="#00ffe7" stroke-opacity="0.25"/>
+    <ellipse cx="368" cy="552" rx="46" ry="12" fill="#00ffe7" opacity="0.05"/>
+
+    <!-- BUY sign (points left, dim) -->
+    <g>
+      <path d="M360 268 h-150 l-22 17 l22 17 h150 z" fill="url(#signDim)" stroke="#00ffe7" stroke-opacity="0.3"/>
+      <text x="352" y="291" text-anchor="end" fill="#8890a8" font-size="15" letter-spacing="3" font-weight="700">BUY</text>
+    </g>
+    <!-- RENT sign (points left, dim) -->
+    <g>
+      <path d="M360 316 h-186 l-22 17 l22 17 h186 z" fill="url(#signDim)" stroke="#00ffe7" stroke-opacity="0.3"/>
+      <text x="352" y="339" text-anchor="end" fill="#8890a8" font-size="15" letter-spacing="3" font-weight="700">RENT</text>
+    </g>
+    <!-- SUBSCRIBE sign (points left, dim) -->
+    <g>
+      <path d="M360 364 h-214 l-22 17 l22 17 h214 z" fill="url(#signDim)" stroke="#00ffe7" stroke-opacity="0.3"/>
+      <text x="352" y="387" text-anchor="end" fill="#8890a8" font-size="15" letter-spacing="3" font-weight="700">SUBSCRIBE</text>
+    </g>
+    <!-- CONSULT sign (points right, bright) -->
+    <g>
+      <path d="M376 424 h288 l22 21 l-22 21 h-288 z" fill="url(#signHot)" stroke="#00ffe7" stroke-opacity="0.7" stroke-width="2"/>
+      <text x="392" y="452" fill="#00ffe7" font-size="17" letter-spacing="3" font-weight="700">CONSULT &#183; STRATEGY</text>
+    </g>
+  </g>
+
+  <!-- ===================== TARGET / BEST-FIT NODE ===================== -->
+  <circle cx="928" cy="298" r="180" fill="url(#targetGlow)"/>
+  <!-- bullseye rings -->
+  <g fill="none" stroke="#00ffe7">
+    <circle cx="928" cy="298" r="118" stroke-opacity="0.18" stroke-width="1.5"/>
+    <circle cx="928" cy="298" r="86" stroke-opacity="0.28" stroke-width="1.6"/>
+    <circle cx="928" cy="298" r="54" stroke-opacity="0.5" stroke-width="2"/>
+  </g>
+  <!-- crosshair ticks -->
+  <g stroke="#00ffe7" stroke-opacity="0.4" stroke-width="2">
+    <line x1="928" y1="150" x2="928" y2="176"/><line x1="928" y1="420" x2="928" y2="446"/>
+    <line x1="780" y1="298" x2="806" y2="298"/><line x1="1050" y1="298" x2="1076" y2="298"/>
+  </g>
+
+  <!-- brain / neural node in the centre -->
+  <g filter="url(#soft)" opacity="0.5">
+    <path d="M876 298
+             C 870 262, 902 236, 938 242
+             C 950 224, 980 222, 996 240
+             C 1022 236, 1046 260, 1042 288
+             C 1058 304, 1054 334, 1032 344
+             C 1030 370, 1002 386, 978 376
+             C 962 392, 932 390, 922 370
+             C 894 372, 874 352, 880 330
+             C 872 322, 872 308, 876 298 Z"
+          fill="none" stroke="#00ffe7" stroke-width="4"/>
+  </g>
+  <path d="M876 298
+           C 870 262, 902 236, 938 242
+           C 950 224, 980 222, 996 240
+           C 1022 236, 1046 260, 1042 288
+           C 1058 304, 1054 334, 1032 344
+           C 1030 370, 1002 386, 978 376
+           C 962 392, 932 390, 922 370
+           C 894 372, 874 352, 880 330
+           C 872 322, 872 308, 876 298 Z"
+        fill="none" stroke="#00ffe7" stroke-width="2.4" stroke-opacity="0.9"/>
+  <g fill="none" stroke="#00ffe7" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="round">
+    <path d="M944 250 C 934 280, 962 292, 950 322 C 940 348, 968 360, 962 386"/>
+    <path d="M994 246 C 1010 272, 982 292, 1008 316"/>
+  </g>
+  <!-- neural nodes -->
+  <g>
+    <line x1="918" y1="272" x2="968" y2="264" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="968" y1="264" x2="1008" y2="288" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="918" y1="272" x2="938" y2="322" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="968" y1="264" x2="972" y2="326" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="938" y1="322" x2="972" y2="326" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="972" y1="326" x2="1008" y2="288" stroke="#00ffe7" stroke-opacity="0.45" stroke-width="1.4"/>
+  </g>
+  <g>
+    <circle cx="918" cy="272" r="6" fill="#00ffe7"/>
+    <circle cx="968" cy="264" r="7.5" fill="#bf00ff"/>
+    <circle cx="1008" cy="288" r="6" fill="#00ffe7"/>
+    <circle cx="938" cy="322" r="6.5" fill="#00ffe7"/>
+    <circle cx="972" cy="326" r="8" fill="#bf00ff"/>
+  </g>
+
+  <!-- BEST FIT chip -->
+  <g font-size="14" letter-spacing="2" font-weight="700">
+    <rect x="856" y="430" width="146" height="32" rx="16" fill="#010108" stroke="#00ffe7" stroke-opacity="0.6"/>
+    <text x="876" y="452" fill="#00ffe7">RIGHT FIT</text>
+  </g>
+
+  <!-- label -->
+  <text x="80" y="626" fill="#00ffe7" font-size="20" letter-spacing="6" font-weight="700">AI CONSULTANCY &#183; THE RIGHT MODEL FOR THE JOB</text>
+  <text x="80" y="656" fill="#6b7280" font-size="15" letter-spacing="3">EAST ANGLIA AI SERVICES &#8212; NORWICH &#183; IPSWICH &#183; CAMBRIDGE &#183; NORFOLK &#183; SUFFOLK &#183; ESSEX</text>
+
+  <!-- corner ticks -->
+  <g stroke="#00ffe7" stroke-opacity="0.4" stroke-width="2">
+    <path d="M40 40 H80" fill="none"/><path d="M40 40 V80" fill="none"/>
+    <path d="M1160 635 H1120" fill="none"/><path d="M1160 635 V595" fill="none"/>
+  </g>
+</svg>
