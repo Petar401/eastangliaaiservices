@@ -21,6 +21,9 @@
 <meta property="og:url" content="https://eastangliaaiservices.co.uk/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://eastangliaaiservices.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="East Anglia AI Services — AI automation for Norfolk, Suffolk, Cambridgeshire and Essex">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Automation for UK Businesses | East Anglia AI Services">
 <meta name="twitter:description" content="Custom AI agents, workflow automation, predictive intelligence & LLM integration for East Anglian SMEs.">
@@ -28,7 +31,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"East Anglia AI Services Ltd","alternateName":"EAAIS","url":"https://eastangliaaiservices.co.uk/","email":"info@eastangliaaiservices.co.uk","telephone":"+447466951175","areaServed":["Norfolk","Suffolk","Cambridgeshire","Essex","Norwich","Ipswich","Cambridge","Colchester","Peterborough","Bury St Edmunds","Chelmsford","King's Lynn"],"address":{"@type":"PostalAddress","addressRegion":"East Anglia","addressCountry":"GB"},"description":"Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines and AI ops for businesses across East Anglia.","sameAs":["https://www.facebook.com/profile.php?id=61589538308485","https://www.linkedin.com/in/petar-petkov-3b9471343/","https://www.tiktok.com/@east.anglia.ai.se"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Agent Development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Workflow Automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Predictive Intelligence"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"LLM Integration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Data Pipeline Architecture"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Ops & Monitoring"}}]}
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -925,7 +930,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <div class="modal">
     <div class="modal-header"><h2>Terms of Service</h2><button class="modal-close" aria-label="Close" onclick="closeModal('terms')">✕</button></div>
     <div class="modal-body">
-      <div class="modal-sec"><p>Last updated: May 2025 · East Anglia AI Services Ltd, Registered in England &amp; Wales.</p></div>
+      <div class="modal-sec"><p>Last updated: May 2026 · East Anglia AI Services Ltd, Registered in England &amp; Wales.</p></div>
       <div class="modal-sec"><h3>1. Acceptance of Terms</h3><p>By accessing or using services provided by East Anglia AI Services Ltd ("EAAIS"), you agree to be bound by these Terms. If you disagree, please do not use our services.</p></div>
       <div class="modal-sec"><h3>2. Services Provided</h3><p>EAAIS provides AI automation consulting, custom AI agent development, workflow automation, data pipeline architecture, predictive intelligence, and LLM integration. Deliverables, timelines, and fees are defined in individual Statements of Work.</p></div>
       <div class="modal-sec"><h3>3. Client Obligations</h3><ul><li>Provide accurate information required for project delivery</li><li>Grant necessary access to systems, data, and personnel</li><li>Designate a project contact responsible for approvals</li><li>Pay invoices within 30 days of issue unless otherwise agreed</li><li>Comply with all applicable laws when using AI systems we deliver</li></ul></div>
@@ -944,7 +949,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <div class="modal">
     <div class="modal-header"><h2>Privacy Policy</h2><button class="modal-close" aria-label="Close" onclick="closeModal('privacy')">✕</button></div>
     <div class="modal-body">
-      <div class="modal-sec"><p>Last updated: May 2025 · East Anglia AI Services Ltd complies with the UK GDPR and the Data Protection Act 2018.</p></div>
+      <div class="modal-sec"><p>Last updated: May 2026 · East Anglia AI Services Ltd complies with the UK GDPR and the Data Protection Act 2018.</p></div>
       <div class="modal-sec"><h3>1. Who We Are</h3><p>East Anglia AI Services Ltd is the data controller for information collected through this website and our services. Contact: info@eastangliaaiservices.co.uk</p></div>
       <div class="modal-sec"><h3>2. What Data We Collect</h3><ul><li>Contact information (name, email, phone) when you enquire or book a call</li><li>Technical data (IP address, browser type, pages visited) via analytics</li><li>Communication data from emails or chat with ARIA</li><li>Business information you share during project scoping and delivery</li></ul></div>
       <div class="modal-sec"><h3>3. How We Use Your Data</h3><ul><li>To respond to enquiries and deliver agreed services</li><li>To send project updates and relevant communications</li><li>To improve our website and service quality</li><li>To comply with legal obligations</li></ul><p>We will never sell your data to third parties.</p></div>
@@ -1060,7 +1065,10 @@ if(cur){let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.c
 // HAMBURGER
 function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileNav').classList.contains('open')?'hidden':'';}
 
-// THREE.JS
+// THREE.JS — deferred and guarded: the site must stay fully functional if the CDN script never loads
+function initHero(){
+if(!window.THREE)return;
+try{
 const cv=document.getElementById('hero-canvas');
 const ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
 ren.setPixelRatio(Math.min(window.devicePixelRatio,2));
@@ -1089,6 +1097,9 @@ if(!mob){
   window.__heroStart();
 }else{let t3=0,heroRAF=null,heroPlaying=false;function an(){t3+=.003;pts.rotation.y+=.0003;cam.lookAt(sc.position);ren.render(sc,cam);heroRAF=requestAnimationFrame(an);}window.__heroStart=function(){if(heroPlaying||document.documentElement.classList.contains('reduce-motion'))return;heroPlaying=true;an();};window.__heroStop=function(){heroPlaying=false;if(heroRAF)cancelAnimationFrame(heroRAF);};window.__heroStart();}
 window.addEventListener('resize',()=>{cam.aspect=window.innerWidth/window.innerHeight;cam.updateProjectionMatrix();ren.setSize(window.innerWidth,window.innerHeight);});
+}catch(e){/* decorative background only — never break the page over it */}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initHero);else initHero();
 
 // HEX GRID
 const hg=document.getElementById('hexGrid'),he=['🤖','⚡','🧠','🔮','💡','🛡️','🔗','📊','🌐'];
@@ -1132,7 +1143,7 @@ document.querySelectorAll('.service-card[onclick]').forEach(card=>{card.addEvent
 function openModal(t){document.getElementById(t+'-modal').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(t){document.getElementById(t+'-modal').classList.remove('open');document.body.style.overflow='';}
 document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id.replace('-modal',''));});});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id.replace('-modal','')));});
 
 // COOKIE CONSENT
 function getCookieConsent(){try{return localStorage.getItem('eaais_cookie_consent');}catch(e){return null;}}
