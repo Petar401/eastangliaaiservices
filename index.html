@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TTH896D0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F6TTH896D0');
-</script>
+<!-- Cookie consent + gated Google Analytics 4 -->
+<link rel="stylesheet" href="/assets/consent.css">
+<script defer src="/assets/consent.js"></script>
 <title>AI Automation for UK Businesses | East Anglia AI Services — Norfolk, Suffolk, Cambridgeshire, Essex</title>
 <meta name="description" content="Custom AI agents, workflow automation, predictive intelligence and LLM integration for SMEs across Norfolk, Suffolk, Cambridgeshire and Essex. Built, deployed and supported in weeks. Free strategy call.">
 <meta name="keywords" content="AI automation East Anglia, AI agency Norfolk, AI consultancy Suffolk, workflow automation UK, AI agents for SMEs, LLM integration, predictive analytics, data pipeline architecture, AI ops monitoring, business AI Cambridgeshire, AI services Essex">
@@ -343,18 +337,8 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 .contact-value{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--text);word-break:break-word;line-height:1.4;}
 .contact-info{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-align:center;margin-top:28px;line-height:1.9;}
 .contact-info strong{color:var(--neon);font-weight:700;}
-#cookie-banner{position:fixed;bottom:14px;left:14px;right:14px;max-width:680px;margin:0 auto;background:var(--dark2);border:1px solid rgba(0,255,231,.28);padding:20px 24px;z-index:600;display:none;flex-direction:column;gap:14px;box-shadow:0 0 40px rgba(0,0,0,.75),0 0 22px rgba(0,255,231,.08);}
-#cookie-banner.show{display:flex;animation:fadeUp .4s ease;}
-.cookie-text{font-family:var(--mono);font-size:.7rem;line-height:1.75;color:var(--text);}
-.cookie-text a{color:var(--neon);text-decoration:none;border-bottom:1px solid rgba(0,255,231,.3);cursor:pointer;}
-.cookie-text a:hover{text-shadow:0 0 8px var(--neon);}
-.cookie-actions{display:flex;gap:8px;flex-wrap:wrap;}
-.cookie-btn{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(0,255,231,.3);background:transparent;color:var(--text);cursor:pointer;font-weight:700;transition:all .25s;}
-.cookie-btn.primary{background:var(--neon);color:var(--dark);border-color:var(--neon);box-shadow:0 0 16px rgba(0,255,231,.3);}
-.cookie-btn.primary:hover{box-shadow:0 0 28px rgba(0,255,231,.6);}
-.cookie-btn:not(.primary):hover{border-color:var(--neon);color:var(--neon);}
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
-@media(max-width:680px){nav{padding:14px 16px;}.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.hero{padding:88px 16px 64px;}.section-title{margin-bottom:32px;}section{padding:56px 16px;}.services-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr;}.footer-top{flex-direction:column;}.modal-body{max-height:62vh;padding:18px;}.modal-header{padding:16px 18px;}#chat-window{width:calc(100vw - 28px);right:-7px;}.demo-tabs{overflow-x:auto;}.demo-stats-grid{grid-template-columns:1fr 1fr;}#cookie-banner{bottom:8px;left:8px;right:8px;padding:16px;}}
+@media(max-width:680px){nav{padding:14px 16px;}.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.hero{padding:88px 16px 64px;}.section-title{margin-bottom:32px;}section{padding:56px 16px;}.services-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr;}.footer-top{flex-direction:column;}.modal-body{max-height:62vh;padding:18px;}.modal-header{padding:16px 18px;}#chat-window{width:calc(100vw - 28px);right:-7px;}.demo-tabs{overflow-x:auto;}.demo-stats-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:420px){.hero-title{font-size:clamp(2.3rem,12vw,3rem);}}
 /* ---- Contact form (Web3Forms) ---- */
 .contact-form{max-width:620px;margin:40px auto 0;display:grid;gap:16px;text-align:left;}
@@ -921,7 +905,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
     <div class="footer-col"><h3>Services</h3><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li></ul></div>
     <div class="footer-col"><h3>Company</h3><ul><li><a href="#about">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="#process">Our Process</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466 951175</a></li></ul></div>
-    <div class="footer-col"><h3>Legal</h3><ul><li><a onclick="openModal('terms')">Terms of Service</a></li><li><a onclick="openModal('privacy')">Privacy Policy</a></li><li><a onclick="openModal('cookies')">Cookie Policy</a></li><li><a onclick="openModal('contactpolicy')">Contact Policy</a></li><li><a onclick="showCookieBanner()">Cookie Settings</a></li></ul></div>
+    <div class="footer-col"><h3>Legal</h3><ul><li><a onclick="openModal('terms')">Terms of Service</a></li><li><a onclick="openModal('privacy')">Privacy Policy</a></li><li><a onclick="openModal('cookies')">Cookie Policy</a></li><li><a onclick="openModal('contactpolicy')">Contact Policy</a></li><li><a onclick="EAAISConsent.reopen()">Cookie Settings</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved. Registered in England &amp; Wales.</p>
@@ -961,7 +945,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <div class="modal-sec"><h3>5. Legal Basis for Processing</h3><ul><li><strong>Contract:</strong> Processing necessary to deliver requested services</li><li><strong>Legitimate interests:</strong> Improving our services and relevant communications</li><li><strong>Consent:</strong> Marketing communications (withdraw at any time)</li><li><strong>Legal obligation:</strong> Where required by UK law</li></ul></div>
       <div class="modal-sec"><h3>6. Data Retention</h3><p>Client data is retained for 7 years following project completion. Analytics data is retained for 26 months. You may request deletion at any time subject to legal obligations.</p></div>
       <div class="modal-sec"><h3>7. Your Rights (UK GDPR)</h3><ul><li>Right to access your personal data</li><li>Right to rectification of inaccurate data</li><li>Right to erasure ("right to be forgotten")</li><li>Right to restrict or object to processing</li><li>Right to data portability</li><li>Right to complain to the ICO (ico.org.uk)</li></ul></div>
-      <div class="modal-sec"><h3>8. Cookies</h3><p>We use essential cookies for site functionality and anonymised analytics cookies. Control cookies through your browser settings.</p></div>
+      <div class="modal-sec"><h3>8. Cookies</h3><p>We set a small number of strictly-necessary items (your cookie choice, ARIA chat history, accessibility preferences) and, only after you click <strong>Accept</strong>, Google Analytics 4 cookies (<code>_ga</code>, <code>_ga_F6TTH896D0</code>) to measure aggregate traffic. Full details, retention periods and how to withdraw consent are in our <a href="/cookies.html">Cookie Policy</a>. You can change or withdraw your choice at any time via <strong>Cookie Settings</strong> in the footer.</p></div>
       <div class="modal-sec"><h3>9. Contact</h3><p>To exercise your rights: info@eastangliaaiservices.co.uk · 07466 951175 · Complaints: ico.org.uk</p></div>
     </div>
   </div>
@@ -974,8 +958,8 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <div class="modal-body">
       <div class="modal-sec"><p>Last updated: May 2026 · This policy explains how cookies and similar storage are used on eastangliaaiservices.co.uk.</p></div>
       <div class="modal-sec"><h3>1. What Are Cookies?</h3><p>Cookies are small text files placed on your device by websites you visit. Similar technologies (localStorage, sessionStorage) work the same way. They allow sites to remember settings and improve your experience.</p></div>
-      <div class="modal-sec"><h3>2. Cookies We Use</h3><p>This site is intentionally lightweight and uses <strong>only strictly necessary storage</strong>. We do not use third-party trackers, advertising cookies, or cross-site analytics by default.</p><ul><li><strong>eaais_cookie_consent</strong> — records your choice from the cookie banner so we don't show it again. Strictly necessary. Stored for 12 months.</li><li><strong>eaais_chat_history</strong> — optionally stores your ARIA chat session locally so messages persist if you reload. Strictly necessary if you use the chat. Stored for 30 days or until you clear browser data.</li></ul></div>
-      <div class="modal-sec"><h3>3. Third-Party Cookies</h3><p>We do not currently load third-party advertising or analytics cookies. If this changes in the future, this policy will be updated and consent will be requested via the cookie banner before any non-essential cookies are set.</p></div>
+      <div class="modal-sec"><h3>2. Cookies We Use</h3><p>We use two categories: <strong>strictly necessary</strong> (always on) and <strong>analytics</strong> (off until you click Accept on the cookie banner).</p><p><strong>Strictly necessary</strong></p><ul><li><strong>eaais_cookie_consent</strong> — records your choice from the cookie banner so we don't show it again. Stored in localStorage. Retention: 12 months.</li><li><strong>eaais_chat_history</strong> — stores your ARIA chat locally so messages persist if you reload. Stored in localStorage. Retention: 30 days or until you clear browser data.</li></ul><p><strong>Analytics (opt-in)</strong></p><ul><li><strong>_ga</strong> — Google Analytics 4 client identifier used to distinguish unique visitors. First-party cookie on <code>.eastangliaaiservices.co.uk</code>. Retention: 13 months.</li><li><strong>_ga_F6TTH896D0</strong> — Google Analytics 4 session state for measurement ID <code>G-F6TTH896D0</code>. First-party cookie. Retention: 13 months.</li></ul><p>Purpose: measuring aggregate audience and traffic patterns (page views, referrers, device class) so we can improve the site. IP addresses are anonymised. Data is processed by Google LLC on our behalf under UK GDPR; see the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. No advertising, remarketing or cross-site tracking is enabled.</p></div>
+      <div class="modal-sec"><h3>3. Third-Party Cookies</h3><p>Google Analytics 4 is the only third-party service that sets cookies on this site, and only after you click <strong>Accept</strong>. It is disabled by default. If you click <strong>Reject Non-Essential</strong>, no analytics cookies are set and any existing <code>_ga</code> / <code>_ga_*</code> cookies are cleared. We do not use advertising, remarketing or social-network cookies.</p></div>
       <div class="modal-sec"><h3>4. Managing Cookies</h3><p>You can change your consent at any time by clicking <strong>"Cookie Settings"</strong> in the footer. You can also block or delete cookies through your browser settings — guidance is available at ico.org.uk/your-data-matters/online.</p></div>
       <div class="modal-sec"><h3>5. ARIA Chatbot</h3><p>ARIA runs entirely in your browser and uses only local storage. No chat content is sent to our servers or any third party.</p></div>
       <div class="modal-sec"><h3>6. Contact</h3><p>Questions about cookies: info@eastangliaaiservices.co.uk</p></div>
@@ -1001,15 +985,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   </div>
 </div>
 
-<!-- COOKIE CONSENT BANNER -->
-<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
-  <p class="cookie-text">We use only essential cookies and local storage to remember your preferences and chat session. We don't use trackers or advertising cookies. See our <a onclick="openModal('cookies')">Cookie Policy</a>.</p>
-  <div class="cookie-actions">
-    <button class="cookie-btn primary" onclick="setCookieConsent('accepted')">Accept</button>
-    <button class="cookie-btn" onclick="setCookieConsent('rejected')">Reject Non-Essential</button>
-    <button class="cookie-btn" onclick="openModal('cookies')">Cookie Settings</button>
-  </div>
-</div>
+<!-- Cookie banner is injected by /assets/consent.js -->
 
 <!-- ACCESSIBILITY -->
 <div id="a11y-wrapper">
@@ -1143,11 +1119,7 @@ function closeModal(t){document.getElementById(t+'-modal').classList.remove('ope
 document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id.replace('-modal',''));});});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));});
 
-// COOKIE CONSENT
-function getCookieConsent(){try{return localStorage.getItem('eaais_cookie_consent');}catch(e){return null;}}
-function setCookieConsent(v){try{localStorage.setItem('eaais_cookie_consent',v);}catch(e){}document.getElementById('cookie-banner').classList.remove('show');}
-function showCookieBanner(){document.getElementById('cookie-banner').classList.add('show');}
-if(!getCookieConsent()){setTimeout(showCookieBanner,1200);}
+// COOKIE CONSENT — banner + GA gate live in /assets/consent.js (window.EAAISConsent)
 
 // CHATBOT
 let chatOpen=false,messages=[],loading=false;
