@@ -1,0 +1,19 @@
+# East Anglia AI Services
+
+> Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines and AI ops for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex (UK). Founded and run by Petar Petkov.
+
+East Anglia AI Services (EAAIS) builds and deploys production AI systems for SMEs — not generic software, but automation designed around how a specific business already works. Typical engagements: invoice-processing automation, AI voice agents for customer service, predictive demand forecasting, LLM-powered chatbots grounded in a company's own documents, and continuous AI ops monitoring for deployed models. Projects typically go from discovery to a live system in a matter of weeks. Contact: info@eastangliaaiservices.co.uk, +44 7466 951175.
+
+## Pages
+
+- [Home](https://eastangliaaiservices.co.uk/): Overview of services, live interactive demos, regional coverage, process and FAQ.
+- [Free AI Readiness Assessment](https://eastangliaaiservices.co.uk/ai-readiness.html): A free 10-question, 2-minute quiz that scores a business's AI readiness and gives tailored recommendations.
+- [Blog](https://eastangliaaiservices.co.uk/blog/): Practical, plain-English articles on AI automation for East Anglian businesses.
+- [Buy, Rent, Subscribe or Ask First?](https://eastangliaaiservices.co.uk/blog/ai-consultant-vs-buy-rent-subscribe-east-anglia.html): Why talking to an AI specialist beats chasing the "best" AI model off the shelf.
+- [Local LLMs for Business](https://eastangliaaiservices.co.uk/blog/local-llm-business-east-anglia.html): Why East Anglian firms are bringing AI in-house with private, locally-hosted models.
+- [How the Right AI Helps Small Businesses Grow](https://eastangliaaiservices.co.uk/blog/ai-growth-small-business-east-anglia.html): Evidence and starting points for AI-driven growth in East Anglia's small business sector.
+- [Voice Agents in Customer Service](https://eastangliaaiservices.co.uk/blog/voice-agents-customer-service-east-anglia.html): How AI voice agents answer every call, book jobs, and cut missed-call losses.
+
+## Service area
+
+Norfolk, Suffolk, Cambridgeshire, Essex — including Norwich, Ipswich, Cambridge, Colchester, Peterborough, Bury St Edmunds, Chelmsford and King's Lynn. Remote delivery is available UK-wide.
