@@ -62,5 +62,7 @@ jobs:
             echo "Submission accepted."
           else
             echo "Submission was not accepted (see https://www.bing.com/indexnow/getstarted for status code meanings)." >&2
+            echo "Response body (does not contain the key):" >&2
+            cat /tmp/indexnow-response.txt >&2 || true
             exit 1
           fi
