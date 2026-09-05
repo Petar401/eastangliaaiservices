@@ -829,7 +829,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <p class="contact-label">Email Us</p>
       <p class="contact-value">info@eastangliaaiservices.co.uk</p>
     </a>
-    <a onclick="openChat()" class="contact-card reveal reveal-delay-2">
+    <a href="#contact" onclick="event.preventDefault();openChat();" class="contact-card reveal reveal-delay-2">
       <div class="contact-icon">🤖</div>
       <p class="contact-label">Chat Now</p>
       <p class="contact-value">Ask ARIA Anything</p>
@@ -910,11 +910,11 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
     <div class="footer-col"><h3>Services</h3><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li></ul></div>
     <div class="footer-col"><h3>Company</h3><ul><li><a href="#about">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="#process">Our Process</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466 951175</a></li></ul></div>
-    <div class="footer-col"><h3>Legal</h3><ul><li><a onclick="openModal('terms')">Terms of Service</a></li><li><a onclick="openModal('privacy')">Privacy Policy</a></li><li><a onclick="openModal('cookies')">Cookie Policy</a></li><li><a onclick="openModal('contactpolicy')">Contact Policy</a></li><li><a onclick="EAAISConsent.reopen()">Cookie Settings</a></li></ul></div>
+    <div class="footer-col"><h3>Legal</h3><ul><li><a href="/terms.html" onclick="event.preventDefault();openModal('terms');">Terms of Service</a></li><li><a href="/privacy.html" onclick="event.preventDefault();openModal('privacy');">Privacy Policy</a></li><li><a href="/cookies.html" onclick="event.preventDefault();openModal('cookies');">Cookie Policy</a></li><li><a href="/contactpolicy.html" onclick="event.preventDefault();openModal('contactpolicy');">Contact Policy</a></li><li><a href="/cookies.html" onclick="event.preventDefault();EAAISConsent.reopen();">Cookie Settings</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved. Registered in England &amp; Wales.</p>
-    <div class="footer-legal"><a onclick="openModal('terms')">Terms</a><a onclick="openModal('privacy')">Privacy</a><a onclick="openModal('cookies')">Cookies</a></div>
+    <div class="footer-legal"><a href="/terms.html" onclick="event.preventDefault();openModal('terms');">Terms</a><a href="/privacy.html" onclick="event.preventDefault();openModal('privacy');">Privacy</a><a href="/cookies.html" onclick="event.preventDefault();openModal('cookies');">Cookies</a></div>
   </div>
 </footer>
 
@@ -983,7 +983,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <div class="modal-sec"><h3>3. What to Include</h3><p>To help us respond quickly, please share: your name, company, a brief description of what you're trying to automate or solve, and your preferred contact method.</p></div>
       <div class="modal-sec"><h3>4. Free Strategy Calls</h3><p>We offer a free 30-minute discovery call for new enquiries. To book one, email us with two or three time slots that work for you and we'll confirm.</p></div>
       <div class="modal-sec"><h3>5. Service Area</h3><p>We work with SMEs across Norfolk, Suffolk, Cambridgeshire and Essex. On-site visits are possible across the region for discovery workshops and key project milestones.</p></div>
-      <div class="modal-sec"><h3>6. Data Protection</h3><p>Contact details you share are processed under our <a onclick="closeModal('contactpolicy');openModal('privacy')" style="color:var(--neon);cursor:pointer;border-bottom:1px solid rgba(0,255,231,.3);">Privacy Policy</a>, used only to respond to your enquiry, and never sold or shared with third parties without your consent.</p></div>
+      <div class="modal-sec"><h3>6. Data Protection</h3><p>Contact details you share are processed under our <a href="/privacy.html" onclick="event.preventDefault();closeModal('contactpolicy');openModal('privacy');" style="color:var(--neon);cursor:pointer;border-bottom:1px solid rgba(0,255,231,.3);">Privacy Policy</a>, used only to respond to your enquiry, and never sold or shared with third parties without your consent.</p></div>
       <div class="modal-sec"><h3>7. Marketing Communications</h3><p>We will not add you to any marketing list without opt-in consent. If you do opt in, you may unsubscribe at any time using the link in any email.</p></div>
       <div class="modal-sec"><h3>8. Complaints</h3><p>If you are unhappy with how we have handled your enquiry, please email info@eastangliaaiservices.co.uk with the subject line "Complaint" and we will respond within 5 business days.</p></div>
     </div>
