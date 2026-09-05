@@ -31,7 +31,10 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"East Anglia AI Services Ltd","alternateName":"EAAIS","url":"https://eastangliaaiservices.co.uk/","email":"info@eastangliaaiservices.co.uk","telephone":"+447466951175","areaServed":["Norfolk","Suffolk","Cambridgeshire","Essex","Norwich","Ipswich","Cambridge","Colchester","Peterborough","Bury St Edmunds","Chelmsford","King's Lynn"],"address":{"@type":"PostalAddress","addressRegion":"East Anglia","addressCountry":"GB"},"description":"Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines and AI ops for businesses across East Anglia.","sameAs":["https://www.facebook.com/profile.php?id=61589538308485","https://www.linkedin.com/in/petar-petkov-3b9471343/","https://www.tiktok.com/@east.anglia.ai.se"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Agent Development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Workflow Automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Predictive Intelligence"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"LLM Integration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Data Pipeline Architecture"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Ops & Monitoring"}}]}
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -1049,35 +1052,41 @@ if(cur){let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.c
 // HAMBURGER
 function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileNav').classList.contains('open')?'hidden':'';}
 
-// THREE.JS
+// THREE.JS (initialized after full parse so the deferred three.min.js has loaded)
+function initHeroScene(){
 const cv=document.getElementById('hero-canvas');
-const ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+const ren=new THREE.WebGLRenderer({canvas:cv,antialias:false,alpha:true});
 ren.setPixelRatio(Math.min(window.devicePixelRatio,2));
-ren.setSize(window.innerWidth,window.innerHeight);
-const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,.1,1000);
+const ww=window.innerWidth,wh=window.innerHeight;
+ren.setSize(ww,wh);
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,ww/wh,.1,1000);
 cam.position.set(0,0,18);
-const mob=window.innerWidth<680;
+const mob=ww<680;
 const PC=mob?600:2200,pp=new Float32Array(PC*3),pc=new Float32Array(PC*3);
 const N1=new THREE.Color(0x00ffe7),N2=new THREE.Color(0xbf00ff);
 for(let i=0;i<PC;i++){pp[i*3]=(Math.random()-.5)*80;pp[i*3+1]=(Math.random()-.5)*60;pp[i*3+2]=(Math.random()-.5)*40;const c=Math.random()>.6?N1:N2;pc[i*3]=c.r;pc[i*3+1]=c.g;pc[i*3+2]=c.b;}
 const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));pg.setAttribute('color',new THREE.BufferAttribute(pc,3));
 const pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.08,vertexColors:true,transparent:true,opacity:.6}));sc.add(pts);
+const FRAME_MS=32;
 if(!mob){
   const ng=new THREE.Group(),np=[];
   for(let i=0;i<22;i++){const phi=Math.acos(-1+(2*i)/22);const th=Math.sqrt(22*Math.PI)*phi;const r=5+Math.random()*3;const x=r*Math.sin(phi)*Math.cos(th);const y=r*Math.sin(phi)*Math.sin(th);const z=r*Math.cos(phi);np.push(new THREE.Vector3(x,y,z));const m=new THREE.Mesh(new THREE.SphereGeometry(.06+Math.random()*.07,8,8),new THREE.MeshBasicMaterial({color:Math.random()>.5?0x00ffe7:0xbf00ff}));m.position.set(x,y,z);ng.add(m);}
   const lm=new THREE.LineBasicMaterial({color:0x00ffe7,transparent:true,opacity:.09});
   for(let i=0;i<np.length;i++)for(let j=i+1;j<np.length;j++){if(np[i].distanceTo(np[j])<5.5){ng.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([np[i],np[j]]),lm));}}
   ng.position.set(5,0,-5);sc.add(ng);
-  const tor=new THREE.Mesh(new THREE.TorusGeometry(7,.015,8,200),new THREE.MeshBasicMaterial({color:0x00ffe7,transparent:true,opacity:.12}));tor.rotation.x=Math.PI/4;tor.position.set(4,0,-8);sc.add(tor);
+  const tor=new THREE.Mesh(new THREE.TorusGeometry(7,.015,8,100),new THREE.MeshBasicMaterial({color:0x00ffe7,transparent:true,opacity:.12}));tor.rotation.x=Math.PI/4;tor.position.set(4,0,-8);sc.add(tor);
   const ic=new THREE.Mesh(new THREE.IcosahedronGeometry(2.5,1),new THREE.MeshBasicMaterial({color:0x00ffe7,wireframe:true,transparent:true,opacity:.07}));ic.position.set(-8,3,-4);sc.add(ic);
   let mx3=0,my3=0;window.addEventListener('mousemove',e=>{mx3=(e.clientX/window.innerWidth-.5)*2;my3=-(e.clientY/window.innerHeight-.5)*2;});
-  let t3=0,heroRAF=null,heroPlaying=false;
-  function an(){t3+=.005;pts.rotation.y+=.0004;ng.rotation.y=t3*.2+mx3*.1;ng.rotation.x=Math.sin(t3*.3)*.2+my3*.05;tor.rotation.z=t3*.15;ic.rotation.y=t3*.4;ic.rotation.x=t3*.2;cam.position.x+=(mx3*1.5-cam.position.x)*.03;cam.position.y+=(my3-cam.position.y)*.03;cam.lookAt(sc.position);ren.render(sc,cam);heroRAF=requestAnimationFrame(an);}
-  window.__heroStart=function(){if(heroPlaying||document.documentElement.classList.contains('reduce-motion'))return;heroPlaying=true;an();};
+  let t3=0,heroRAF=null,heroPlaying=false,lastT=0;
+  function an(now){heroRAF=requestAnimationFrame(an);if(now-lastT<FRAME_MS)return;lastT=now;t3+=.005;pts.rotation.y+=.0004;ng.rotation.y=t3*.2+mx3*.1;ng.rotation.x=Math.sin(t3*.3)*.2+my3*.05;tor.rotation.z=t3*.15;ic.rotation.y=t3*.4;ic.rotation.x=t3*.2;cam.position.x+=(mx3*1.5-cam.position.x)*.03;cam.position.y+=(my3-cam.position.y)*.03;cam.lookAt(sc.position);ren.render(sc,cam);}
+  window.__heroStart=function(){if(heroPlaying||document.documentElement.classList.contains('reduce-motion'))return;heroPlaying=true;heroRAF=requestAnimationFrame(an);};
   window.__heroStop=function(){heroPlaying=false;if(heroRAF)cancelAnimationFrame(heroRAF);};
   window.__heroStart();
-}else{let t3=0,heroRAF=null,heroPlaying=false;function an(){t3+=.003;pts.rotation.y+=.0003;cam.lookAt(sc.position);ren.render(sc,cam);heroRAF=requestAnimationFrame(an);}window.__heroStart=function(){if(heroPlaying||document.documentElement.classList.contains('reduce-motion'))return;heroPlaying=true;an();};window.__heroStop=function(){heroPlaying=false;if(heroRAF)cancelAnimationFrame(heroRAF);};window.__heroStart();}
-window.addEventListener('resize',()=>{cam.aspect=window.innerWidth/window.innerHeight;cam.updateProjectionMatrix();ren.setSize(window.innerWidth,window.innerHeight);});
+}else{let t3=0,heroRAF=null,heroPlaying=false,lastT=0;function an(now){heroRAF=requestAnimationFrame(an);if(now-lastT<FRAME_MS)return;lastT=now;t3+=.003;pts.rotation.y+=.0003;cam.lookAt(sc.position);ren.render(sc,cam);}window.__heroStart=function(){if(heroPlaying||document.documentElement.classList.contains('reduce-motion'))return;heroPlaying=true;heroRAF=requestAnimationFrame(an);};window.__heroStop=function(){heroPlaying=false;if(heroRAF)cancelAnimationFrame(heroRAF);};window.__heroStart();}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(window.__heroStop)window.__heroStop();}else{if(window.__heroStart)window.__heroStart();}});
+window.addEventListener('resize',()=>{const rw=window.innerWidth,rh=window.innerHeight;cam.aspect=rw/rh;cam.updateProjectionMatrix();ren.setSize(rw,rh);});
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initHeroScene);}else{initHeroScene();}
 
 // HEX GRID
 const hg=document.getElementById('hexGrid'),he=['🤖','⚡','🧠','🔮','💡','🛡️','🔗','📊','🌐'];
@@ -1098,21 +1107,16 @@ runLeadDemo();
 
 // INVOICE DEMO
 function runInvoiceDemo(){const bar=document.getElementById('invBar');const bs=document.querySelectorAll('#demo-1 .inv-badge');bs.forEach(b=>{b.className='inv-badge pending';b.textContent='SCANNING...';});bar.style.width='0';setTimeout(()=>{bar.style.width='100%';},80);const lbls=['EXTRACTED','EXTRACTED','EXTRACTED','EXTRACTED','EXTRACTED','APPROVED','CLEAR','PENDING'];const cls=['extracted','extracted','extracted','extracted','extracted','approved','approved','pending'];bs.forEach((b,i)=>{setTimeout(()=>{b.className='inv-badge '+cls[i];b.textContent=lbls[i];},500+(i*320));});setTimeout(()=>{bs[7].className='inv-badge approved';bs[7].textContent='POSTED ✓';},500+7*320+700);}
-runInvoiceDemo();
 
 // SUPPORT DEMO
 const conv=[{r:'user',t:"Hi, I placed an order 3 days ago and it still hasn't arrived. Order #4892."},{r:'bot',t:"Hi there! I can see order #4892 placed on 9th May. It's currently with DPD — estimated delivery is today by 6pm. Tracking ref: DPD1234567. Would you like me to send you the tracking link?"},{r:'user',t:"Yes please, and can I change the delivery address?"},{r:'bot',t:"I've sent the DPD tracking link to your email! Regarding the address change — your order is already out for delivery today so I'm unable to reroute it. DPD will attempt redelivery tomorrow if missed. Shall I set a redelivery preference now?"},{r:'user',t:"Yes please, that would be great."},{r:'bot',t:"Done! I've set preferred redelivery for tomorrow 9am–1pm. You'll get a confirmation text from DPD shortly. Is there anything else I can help with? 😊"}];
 function runSupportDemo(){const c=document.getElementById('suppChat');c.innerHTML='';conv.forEach((msg,i)=>{setTimeout(()=>{if(msg.r==='bot'){const ty=document.createElement('div');ty.className='sm bot';ty.id='cd-ty';ty.innerHTML='<div class="sm-av">🤖</div><div class="sm-bub"><div class="typi"><span></span><span></span><span></span></div></div>';c.appendChild(ty);c.scrollTop=c.scrollHeight;setTimeout(()=>{document.getElementById('cd-ty')?.remove();const d=document.createElement('div');d.className='sm bot';d.innerHTML=`<div class="sm-av">🤖</div><div class="sm-bub">${msg.t}</div>`;c.appendChild(d);c.scrollTop=c.scrollHeight;},850);}else{const d=document.createElement('div');d.className='sm user';d.innerHTML=`<div class="sm-bub">${msg.t}</div><div class="sm-av">👤</div>`;c.appendChild(d);c.scrollTop=c.scrollHeight;}},i*2000);});}
-runSupportDemo();
 
 function runForecastDemo(){const chart=document.getElementById('fcChart');if(!chart)return;const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon','Tue','Wed','Thu','Fri','Sat','Sun'];const vals=[42,55,48,61,72,88,79,null,null,null,null,null,null,null];const preds=[null,null,null,null,null,null,null,52,64,58,71,84,96,90];const alertIdx=12;chart.innerHTML='';days.forEach((d,i)=>{const bar=document.createElement('div');const isPred=preds[i]!==null;const isAlert=i===alertIdx;bar.className='fc-bar'+(isAlert?' alert':isPred?' pred':'');bar.style.height='0';const lbl=document.createElement('span');lbl.className='fc-label';lbl.textContent=d;bar.appendChild(lbl);chart.appendChild(bar);const v=isPred?preds[i]:vals[i];setTimeout(()=>{bar.style.height=(v*1.1)+'px';},100+i*70);});const fcRows=document.getElementById('fcRows');if(fcRows){const rev=(38000+Math.floor(Math.random()*8000)).toLocaleString();const ci=(5+Math.random()*3).toFixed(1);fcRows.children[0].querySelector('.fc-val').textContent='£'+rev;fcRows.children[1].querySelector('.fc-val').textContent='±'+ci+'%';}}
-runForecastDemo();
 
 function runPipelineDemo(){const stages=document.querySelectorAll('#pipeStages .pipe-stage');if(!stages.length)return;stages.forEach(s=>s.classList.remove('active'));stages.forEach((s,i)=>{setTimeout(()=>{stages.forEach(x=>x.classList.remove('active'));s.classList.add('active');if(i===stages.length-1)setTimeout(()=>s.classList.remove('active'),900);},i*700);});const ev=document.getElementById('pipeEv');const lat=document.getElementById('pipeLat');const err=document.getElementById('pipeErr');if(ev)ev.textContent=(12000+Math.floor(Math.random()*1500)).toLocaleString();if(lat)lat.textContent=(2+Math.random()*1.4).toFixed(1)+'s';if(err)err.textContent=(0.01+Math.random()*0.04).toFixed(2)+'%';}
-runPipelineDemo();
 
 function runOpsDemo(){const rows=document.querySelectorAll('#opsRows .ops-row');if(!rows.length)return;rows.forEach(r=>{const bar=r.querySelector('.ops-meter b');if(!bar)return;const w=bar.style.width;bar.style.width='0';setTimeout(()=>{bar.style.width=w;},120);});const h=document.getElementById('opsHealth');const c=document.getElementById('opsCost');const rt=document.getElementById('opsRetrain');if(h)h.textContent=(82+Math.floor(Math.random()*8))+'%';if(c)c.textContent='£'+(0.009+Math.random()*0.006).toFixed(3);if(rt)rt.textContent=String(1+Math.floor(Math.random()*3));}
-runOpsDemo();
 
 // Keyboard accessibility — let Enter/Space trigger the service-card click
 document.querySelectorAll('.service-card[onclick]').forEach(card=>{card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click();}});});
