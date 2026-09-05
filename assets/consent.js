@@ -1,7 +1,8 @@
 /*!
- * EAAIS consent + GA4/Clarity gate
+ * EAAIS consent + GA4/Clarity/Preferred-Source gate
  * - Injects the cookie banner into every page.
- * - Loads Google Analytics 4 and Microsoft Clarity ONLY after the visitor clicks Accept.
+ * - Loads Google Analytics 4, Microsoft Clarity and the Google Preferred
+ *   Source button script ONLY after the visitor clicks Accept.
  * - Clears _ga, _clck and _clsk cookies on Reject.
  * - Public API: window.EAAISConsent.{accept,reject,reopen,status}
  */
@@ -41,6 +42,15 @@
     document.head.appendChild(s);
   }
 
+  function loadPreferredSource() {
+    if (window.__eaaisPrefSrcLoaded) return;
+    window.__eaaisPrefSrcLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://news.google.com/swg/js/v1/publisher.js';
+    document.head.appendChild(s);
+  }
+
   function expire(name, domain) {
     var suffix = '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
     document.cookie = name + suffix + (domain ? '; domain=' + domain : '');
@@ -68,7 +78,7 @@
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-label', 'Cookie consent');
     wrap.innerHTML =
-      '<p class="eaais-cookie-text">We use essential storage plus optional Google Analytics 4 and Microsoft Clarity (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>, <code>_clck</code>, <code>_clsk</code>) to measure aggregate traffic and session behaviour. Nothing loads until you choose. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
+      '<p class="eaais-cookie-text">We use essential storage plus optional Google Analytics 4, Microsoft Clarity and a Google Preferred Source button (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>, <code>_clck</code>, <code>_clsk</code>, and Google\'s own <code>NID</code> cookie) to measure aggregate traffic and session behaviour, and let you mark us as a preferred source in Google Search. Nothing loads until you choose. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
       '<div class="eaais-cookie-actions">' +
         '<button type="button" class="eaais-cookie-btn primary" data-eaais="accept">Accept</button>' +
         '<button type="button" class="eaais-cookie-btn" data-eaais="reject">Reject Non-Essential</button>' +
@@ -81,7 +91,7 @@
   function show() { makeBanner(); var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.add('show'); }
   function hide() { var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.remove('show'); }
 
-  function accept() { write('accepted'); loadGA(); loadClarity(); hide(); }
+  function accept() { write('accepted'); loadGA(); loadClarity(); loadPreferredSource(); hide(); }
   function reject() { write('rejected'); clearGACookies(); clearClarityCookies(); hide(); }
   function reopen() { makeBanner(); show(); }
   function status() { return read(); }
@@ -91,7 +101,7 @@
   function boot() {
     makeBanner();
     var v = read();
-    if (v === 'accepted') { loadGA(); loadClarity(); }
+    if (v === 'accepted') { loadGA(); loadClarity(); loadPreferredSource(); }
     else if (v === 'rejected') { clearGACookies(); clearClarityCookies(); }
     else setTimeout(show, 1200);
   }
