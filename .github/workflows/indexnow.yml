@@ -1,0 +1,66 @@
+name: IndexNow Submit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sitemap.xml"
+      - "**/*.html"
+      - ".github/workflows/indexnow.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          INDEXNOW_HOST: eastangliaaiservices.co.uk
+        run: |
+          set -euo pipefail
+
+          if [ -z "${INDEXNOW_KEY:-}" ]; then
+            echo "INDEXNOW_KEY secret is not set — skipping submission. See SEO-INDEXNOW.md for setup." >&2
+            exit 1
+          fi
+
+          urls=$(python3 -c "
+          import xml.etree.ElementTree as ET
+          ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          root = ET.parse('sitemap.xml').getroot()
+          for loc in root.findall('s:url/s:loc', ns):
+              print(loc.text.strip())
+          ")
+
+          payload=$(python3 -c "
+          import json, os, sys
+          urls = [l for l in sys.stdin.read().splitlines() if l]
+          key = os.environ['INDEXNOW_KEY']
+          host = os.environ['INDEXNOW_HOST']
+          print(json.dumps({
+              'host': host,
+              'key': key,
+              'keyLocation': f'https://{host}/{key}.txt',
+              'urlList': urls,
+          }))
+          " <<< "$urls")
+
+          status=$(curl -s -o /tmp/indexnow-response.txt -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary @<(printf '%s' "$payload"))
+
+          echo "IndexNow API responded with HTTP $status"
+          if [ "$status" -ge 200 ] && [ "$status" -lt 300 ]; then
+            echo "Submission accepted."
+          else
+            echo "Submission was not accepted (see https://www.bing.com/indexnow/getstarted for status code meanings)." >&2
+            exit 1
+          fi
