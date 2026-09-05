@@ -31,6 +31,16 @@ jobs:
             exit 1
           fi
 
+          # Tolerate stray whitespace (e.g. a trailing newline picked up when the
+          # secret was pasted from a file view) rather than failing on it.
+          INDEXNOW_KEY="$(printf '%s' "$INDEXNOW_KEY" | tr -d '[:space:]')"
+
+          if ! [[ "$INDEXNOW_KEY" =~ ^[A-Za-z0-9-]{8,128}$ ]]; then
+            echo "INDEXNOW_KEY secret is not a valid IndexNow key (8-128 chars, letters/digits/dashes only)." >&2
+            echo "Check the secret's value against the contents of the key .txt file at the repo root." >&2
+            exit 1
+          fi
+
           urls=$(python3 -c "
           import xml.etree.ElementTree as ET
           ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
