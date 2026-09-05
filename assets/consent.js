@@ -1,13 +1,14 @@
 /*!
- * EAAIS consent + GA4 gate
+ * EAAIS consent + GA4/Clarity gate
  * - Injects the cookie banner into every page.
- * - Loads Google Analytics 4 ONLY after the visitor clicks Accept.
- * - Clears _ga* cookies on Reject.
+ * - Loads Google Analytics 4 and Microsoft Clarity ONLY after the visitor clicks Accept.
+ * - Clears _ga, _clck and _clsk cookies on Reject.
  * - Public API: window.EAAISConsent.{accept,reject,reopen,status}
  */
 (function () {
   var STORAGE_KEY = 'eaais_cookie_consent';
   var GA_ID = 'G-F6TTH896D0';
+  var CLARITY_ID = 'ydpebg25fy';
   var HOSTNAME = (location.hostname || '').replace(/^www\./, '');
 
   function read() {
@@ -30,6 +31,16 @@
     document.head.appendChild(s);
   }
 
+  function loadClarity() {
+    if (window.__eaaisClarityLoaded) return;
+    window.__eaaisClarityLoaded = true;
+    window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.clarity.ms/tag/' + CLARITY_ID + '?ref=bwt';
+    document.head.appendChild(s);
+  }
+
   function expire(name, domain) {
     var suffix = '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
     document.cookie = name + suffix + (domain ? '; domain=' + domain : '');
@@ -44,6 +55,11 @@
     });
     names.forEach(function (n) { domains.forEach(function (d) { expire(n, d); }); });
   }
+  function clearClarityCookies() {
+    var domains = ['.' + HOSTNAME, HOSTNAME, ''];
+    var names = ['_clck', '_clsk'];
+    names.forEach(function (n) { domains.forEach(function (d) { expire(n, d); }); });
+  }
 
   function makeBanner() {
     if (document.getElementById('eaais-cookie-banner')) return;
@@ -52,7 +68,7 @@
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-label', 'Cookie consent');
     wrap.innerHTML =
-      '<p class="eaais-cookie-text">We use essential storage plus optional Google Analytics 4 (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>) to measure aggregate traffic. Nothing loads until you choose. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
+      '<p class="eaais-cookie-text">We use essential storage plus optional Google Analytics 4 and Microsoft Clarity (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>, <code>_clck</code>, <code>_clsk</code>) to measure aggregate traffic and session behaviour. Nothing loads until you choose. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
       '<div class="eaais-cookie-actions">' +
         '<button type="button" class="eaais-cookie-btn primary" data-eaais="accept">Accept</button>' +
         '<button type="button" class="eaais-cookie-btn" data-eaais="reject">Reject Non-Essential</button>' +
@@ -65,8 +81,8 @@
   function show() { makeBanner(); var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.add('show'); }
   function hide() { var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.remove('show'); }
 
-  function accept() { write('accepted'); loadGA(); hide(); }
-  function reject() { write('rejected'); clearGACookies(); hide(); }
+  function accept() { write('accepted'); loadGA(); loadClarity(); hide(); }
+  function reject() { write('rejected'); clearGACookies(); clearClarityCookies(); hide(); }
   function reopen() { makeBanner(); show(); }
   function status() { return read(); }
 
@@ -75,8 +91,8 @@
   function boot() {
     makeBanner();
     var v = read();
-    if (v === 'accepted') loadGA();
-    else if (v === 'rejected') clearGACookies();
+    if (v === 'accepted') { loadGA(); loadClarity(); }
+    else if (v === 'rejected') { clearGACookies(); clearClarityCookies(); }
     else setTimeout(show, 1200);
   }
   if (document.readyState === 'loading') {
