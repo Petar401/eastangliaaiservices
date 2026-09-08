@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/consent.css">
+<script defer src="/assets/consent.js"></script>
+<title>Page Not Found | East Anglia AI Services</title>
+<meta name="description" content="The page you're looking for doesn't exist. Head back to East Anglia AI Services or try one of our free tools.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#00ffe7">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--neon:#00ffe7;--neon2:#bf00ff;--neon3:#ff0099;--dark:#010108;--dark2:#07071a;--dark3:#0d0d2b;--text:#e8eaf6;--dim:#8a93a6;--mono:'Space Mono',monospace;--sans:'Syne',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:var(--sans);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:200;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 4px);mix-blend-mode:multiply;}
+.err-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 60px;position:relative;z-index:1;}
+.logo{font-family:var(--mono);font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--neon);text-shadow:0 0 18px var(--neon);text-transform:uppercase;text-decoration:none;position:fixed;top:22px;left:24px;z-index:300;}
+.err-code{font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;color:var(--neon);text-transform:uppercase;margin-bottom:20px;}
+.err-title{font-size:clamp(2rem,7vw,3.6rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;max-width:640px;}
+.err-title .accent{color:transparent;-webkit-text-stroke:1px var(--neon);text-shadow:0 0 40px rgba(0,255,231,.25);}
+.err-sub{font-family:var(--mono);font-size:.8rem;line-height:1.9;color:var(--dim);max-width:460px;margin:22px 0 36px;}
+.err-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.btn-primary{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);background:var(--neon);padding:14px 28px;border:none;cursor:pointer;font-weight:700;box-shadow:0 0 28px rgba(0,255,231,.35);transition:all .3s;text-decoration:none;display:inline-block;}
+.btn-primary:hover{box-shadow:0 0 50px rgba(0,255,231,.7);transform:translateY(-2px);}
+.btn-secondary{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);background:transparent;padding:14px 28px;border:1px solid rgba(0,255,231,.3);cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
+.btn-secondary:hover{border-color:var(--neon);box-shadow:0 0 20px rgba(0,255,231,.15);}
+footer{padding:24px;text-align:center;position:relative;z-index:1;}
+.footer-copy{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--dim);}
+.footer-copy a{color:var(--dim);text-decoration:none;}
+.footer-copy a:hover{color:var(--neon);}
+html.reduce-motion .scanlines{display:none!important;}
+@media(max-width:680px){.err-wrap{padding:100px 16px 40px;}}
+</style>
+</head>
+<body>
+<script>
+(function(){var r=document.documentElement;function g(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+var m=g('eaais_a11y_motion');if(m===null){m=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)?'1':'0';}
+if(m==='1')r.classList.add('reduce-motion');})();
+</script>
+<div class="scanlines"></div>
+<a href="/" class="logo">EAAIS</a>
+<div class="err-wrap">
+  <p class="err-code">404 · Page Not Found</p>
+  <h1 class="err-title">This page doesn't <span class="accent">exist</span></h1>
+  <p class="err-sub">The link might be broken, or the page may have moved. Head back to the homepage, or try one of our free tools below.</p>
+  <div class="err-links">
+    <a href="/" class="btn-primary">← Back to Homepage</a>
+    <a href="/ai-readiness.html" class="btn-secondary">Free AI Readiness Test</a>
+    <a href="/loss-calculator.html" class="btn-secondary">Free Loss Calculator</a>
+    <a href="/ai-policy-generator.html" class="btn-secondary">Free AI Policy Generator</a>
+  </div>
+</div>
+<footer>
+  <p class="footer-copy">© 2026 East Anglia AI Services Ltd · <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> · <a href="tel:+447466951175">07466 951175</a></p>
+</footer>
+</body>
+</html>
