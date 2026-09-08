@@ -299,7 +299,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
             <input id="g-phone" type="tel" name="phone" placeholder="07…" autocomplete="tel" toolparamdescription="Visitor's phone number (optional)">
           </div>
         </div>
-        <p class="gate-consent">We'll use these details to send your breakdown and follow up on it — nothing more. No spam, no marketing lists, and your data is handled under our <a href="/#contact" target="_blank" rel="noopener">privacy policy</a>.</p>
+        <p class="gate-consent">We'll use these details to send your breakdown and follow up on it — nothing more. No spam, no marketing lists, and your data is handled under our <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a>.</p>
         <p class="form-status" id="gateStatus" role="status" aria-live="polite"></p>
         <div class="ar-navrow" style="margin-top:6px;">
           <button type="button" class="ar-back" onclick="backToCalc()">← Back</button>
@@ -407,7 +407,7 @@ function renderFields(){
   const box=document.getElementById('calcFields');box.innerHTML='';
   FIELDS.forEach(f=>{
     const wrap=document.createElement('div');wrap.className='lc-field';
-    wrap.innerHTML='<div class="lc-field-head"><span class="lc-field-label">'+f.label+'</span><span class="lc-field-val" id="val-'+f.id+'">'+f.fmt(f.val)+'</span></div>'+
+    wrap.innerHTML='<div class="lc-field-head"><label class="lc-field-label" for="in-'+f.id+'">'+f.label+'</label><span class="lc-field-val" id="val-'+f.id+'">'+f.fmt(f.val)+'</span></div>'+
       '<input type="'+f.type+'" id="in-'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="'+f.step+'" value="'+f.val+'">';
     box.appendChild(wrap);
     const input=wrap.querySelector('input');
