@@ -931,7 +931,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </a>
   </div>
 
-  <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+  <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST" toolname="submit_contact_enquiry" tooldescription="Send a contact enquiry to East Anglia AI Services with the visitor's name, email, and message, so the team can follow up. Use this when a visitor wants to get in touch, ask a question, or request a call about AI automation, chatbots, or workflow automation services.">
     <input type="hidden" name="access_key" value="3be4d006-0b53-4f45-a1ce-eb6d337e4dac">
     <input type="hidden" name="subject" value="New enquiry from eastangliaaiservices.co.uk">
     <input type="hidden" name="from_name" value="East Anglia AI Services Website">
@@ -939,26 +939,26 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <div class="cf-row">
       <div>
         <label for="cf-name">Name</label>
-        <input id="cf-name" type="text" name="name" placeholder="Your name" required>
+        <input id="cf-name" type="text" name="name" placeholder="Your name" required toolparamdescription="Visitor's full name">
       </div>
       <div>
         <label for="cf-email">Email</label>
-        <input id="cf-email" type="email" name="email" placeholder="you@company.co.uk" required>
+        <input id="cf-email" type="email" name="email" placeholder="you@company.co.uk" required toolparamdescription="Visitor's email address, used to reply to the enquiry">
       </div>
     </div>
     <div class="cf-row">
       <div>
         <label for="cf-phone">Phone <span style="opacity:.5">(optional)</span></label>
-        <input id="cf-phone" type="tel" name="phone" placeholder="07…">
+        <input id="cf-phone" type="tel" name="phone" placeholder="07…" toolparamdescription="Visitor's phone number (optional)">
       </div>
       <div>
         <label for="cf-company">Company <span style="opacity:.5">(optional)</span></label>
-        <input id="cf-company" type="text" name="company" placeholder="Company name">
+        <input id="cf-company" type="text" name="company" placeholder="Company name" toolparamdescription="Visitor's company name (optional)">
       </div>
     </div>
     <div>
       <label for="cf-message">How can we help?</label>
-      <textarea id="cf-message" name="message" placeholder="Tell us a little about your business and what you'd like to automate…" required></textarea>
+      <textarea id="cf-message" name="message" placeholder="Tell us a little about your business and what you'd like to automate…" required toolparamdescription="What the visitor wants help with and any relevant details about their business"></textarea>
     </div>
     <button type="submit" class="cf-submit" id="cfSubmit">Send Enquiry</button>
     <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>

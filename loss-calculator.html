@@ -277,26 +277,26 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <p class="ar-kicker">Last step</p>
       <h2 class="ar-h2">Your full loss breakdown is ready.</h2>
       <p class="ar-p">Tell us where to send it and your personalised report will appear instantly — free, no obligation.</p>
-      <form class="gate-form" id="gateForm" novalidate>
+      <form class="gate-form" id="gateForm" novalidate toolname="unlock_loss_calculator_report" tooldescription="Reveal the visitor's personalised Business Loss Breakdown report after they've used the calculator, by submitting their name, business email, and company (phone optional). Use this once the visitor has entered their figures and reached the final 'breakdown is ready' step.">
         <input type="checkbox" name="botcheck" class="gate-hp" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
         <div class="gate-row">
           <div>
             <label for="g-name">Your name *</label>
-            <input id="g-name" type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input id="g-name" type="text" name="name" placeholder="Your name" required autocomplete="name" toolparamdescription="Visitor's full name">
           </div>
           <div>
             <label for="g-email">Business email *</label>
-            <input id="g-email" type="email" name="email" placeholder="you@company.co.uk" required autocomplete="email">
+            <input id="g-email" type="email" name="email" placeholder="you@company.co.uk" required autocomplete="email" toolparamdescription="Visitor's business email address, used to send and follow up on the breakdown">
           </div>
         </div>
         <div class="gate-row">
           <div>
             <label for="g-company">Company *</label>
-            <input id="g-company" type="text" name="company" placeholder="Company name" required autocomplete="organization">
+            <input id="g-company" type="text" name="company" placeholder="Company name" required autocomplete="organization" toolparamdescription="Visitor's company name">
           </div>
           <div>
             <label for="g-phone">Phone <span style="opacity:.5">(optional)</span></label>
-            <input id="g-phone" type="tel" name="phone" placeholder="07…" autocomplete="tel">
+            <input id="g-phone" type="tel" name="phone" placeholder="07…" autocomplete="tel" toolparamdescription="Visitor's phone number (optional)">
           </div>
         </div>
         <p class="gate-consent">We'll use these details to send your breakdown and follow up on it — nothing more. No spam, no marketing lists, and your data is handled under our <a href="/#contact" target="_blank" rel="noopener">privacy policy</a>.</p>
