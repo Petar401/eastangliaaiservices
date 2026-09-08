@@ -26,9 +26,15 @@
   </url>
   <url>
     <loc>https://eastangliaaiservices.co.uk/blog/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/blog/gpt-6-astra-vs-claude-fable-5-1-east-anglia.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://eastangliaaiservices.co.uk/blog/ai-consultant-vs-buy-rent-subscribe-east-anglia.html</loc>

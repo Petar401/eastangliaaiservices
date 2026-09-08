@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" font-family="'Space Mono', monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07071a"/>
+      <stop offset="0.55" stop-color="#0d0d2b"/>
+      <stop offset="1" stop-color="#010108"/>
+    </linearGradient>
+    <radialGradient id="glowL" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.38"/>
+      <stop offset="0.55" stop-color="#00ffe7" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#00ffe7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowR" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#bf00ff" stop-opacity="0.38"/>
+      <stop offset="0.55" stop-color="#bf00ff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#bf00ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bolt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#e8eaf6" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#bf00ff" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="softer" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#00ffe7" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="112" x2="1200" y2="112"/><line x1="0" y1="225" x2="1200" y2="225"/>
+    <line x1="0" y1="337" x2="1200" y2="337"/><line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="562" x2="1200" y2="562"/>
+    <line x1="150" y1="0" x2="150" y2="675"/><line x1="300" y1="0" x2="300" y2="675"/>
+    <line x1="450" y1="0" x2="450" y2="675"/><line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="750" y1="0" x2="750" y2="675"/><line x1="900" y1="0" x2="900" y2="675"/>
+    <line x1="1050" y1="0" x2="1050" y2="675"/>
+  </g>
+
+  <!-- ambient glows -->
+  <circle cx="330" cy="300" r="260" fill="url(#glowL)"/>
+  <circle cx="870" cy="300" r="260" fill="url(#glowR)"/>
+
+  <!-- ===================== LEFT CORE: GPT-6 ASTRA (cyan) ===================== -->
+  <g filter="url(#soft)" opacity="0.55">
+    <path d="M240 300
+             C 232 258, 268 226, 310 234
+             C 324 212, 360 210, 378 232
+             C 408 226, 436 254, 430 288
+             C 450 306, 446 342, 420 354
+             C 418 384, 386 402, 358 390
+             C 340 408, 304 406, 292 384
+             C 258 386, 236 362, 244 336
+             C 234 328, 234 310, 240 300 Z"
+          fill="none" stroke="#00ffe7" stroke-width="4"/>
+  </g>
+  <path d="M240 300
+           C 232 258, 268 226, 310 234
+           C 324 212, 360 210, 378 232
+           C 408 226, 436 254, 430 288
+           C 450 306, 446 342, 420 354
+           C 418 384, 386 402, 358 390
+           C 340 408, 304 406, 292 384
+           C 258 386, 236 362, 244 336
+           C 234 328, 234 310, 240 300 Z"
+        fill="none" stroke="#00ffe7" stroke-width="2.4" stroke-opacity="0.92"/>
+  <g fill="none" stroke="#00ffe7" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="round">
+    <path d="M312 244 C 300 278, 332 292, 318 326 C 306 354, 338 368, 330 396"/>
+    <path d="M370 238 C 388 266, 356 288, 386 314"/>
+  </g>
+  <g>
+    <line x1="278" y1="270" x2="336" y2="260" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="336" y1="260" x2="382" y2="288" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="278" y1="270" x2="300" y2="328" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="336" y1="260" x2="342" y2="332" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="300" y1="328" x2="342" y2="332" stroke="#00ffe7" stroke-opacity="0.5" stroke-width="1.4"/>
+  </g>
+  <g fill="#00ffe7">
+    <circle cx="278" cy="270" r="6"/>
+    <circle cx="336" cy="260" r="7.5"/>
+    <circle cx="382" cy="288" r="6"/>
+    <circle cx="300" cy="328" r="6.5"/>
+    <circle cx="342" cy="332" r="6"/>
+  </g>
+
+  <!-- ===================== RIGHT CORE: CLAUDE FABLE 5.1 (purple) ===================== -->
+  <g filter="url(#soft)" opacity="0.55">
+    <path d="M770 300
+             C 762 258, 798 226, 840 234
+             C 854 212, 890 210, 908 232
+             C 938 226, 966 254, 960 288
+             C 980 306, 976 342, 950 354
+             C 948 384, 916 402, 888 390
+             C 870 408, 834 406, 822 384
+             C 788 386, 766 362, 774 336
+             C 764 328, 764 310, 770 300 Z"
+          fill="none" stroke="#bf00ff" stroke-width="4"/>
+  </g>
+  <path d="M770 300
+           C 762 258, 798 226, 840 234
+           C 854 212, 890 210, 908 232
+           C 938 226, 966 254, 960 288
+           C 980 306, 976 342, 950 354
+           C 948 384, 916 402, 888 390
+           C 870 408, 834 406, 822 384
+           C 788 386, 766 362, 774 336
+           C 764 328, 764 310, 770 300 Z"
+        fill="none" stroke="#bf00ff" stroke-width="2.4" stroke-opacity="0.92"/>
+  <g fill="none" stroke="#bf00ff" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="round">
+    <path d="M842 244 C 830 278, 862 292, 848 326 C 836 354, 868 368, 860 396"/>
+    <path d="M900 238 C 918 266, 886 288, 916 314"/>
+  </g>
+  <g>
+    <line x1="808" y1="270" x2="866" y2="260" stroke="#bf00ff" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="866" y1="260" x2="912" y2="288" stroke="#bf00ff" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="808" y1="270" x2="830" y2="328" stroke="#bf00ff" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="866" y1="260" x2="872" y2="332" stroke="#bf00ff" stroke-opacity="0.5" stroke-width="1.4"/>
+    <line x1="830" y1="328" x2="872" y2="332" stroke="#bf00ff" stroke-opacity="0.5" stroke-width="1.4"/>
+  </g>
+  <g fill="#bf00ff">
+    <circle cx="808" cy="270" r="6"/>
+    <circle cx="866" cy="260" r="7.5"/>
+    <circle cx="912" cy="288" r="6"/>
+    <circle cx="830" cy="328" r="6.5"/>
+    <circle cx="872" cy="332" r="6"/>
+  </g>
+
+  <!-- ===================== CENTRE VS BOLT ===================== -->
+  <g filter="url(#softer)" opacity="0.6">
+    <path d="M600 168 L556 300 L594 300 L570 432 L660 268 L616 268 Z" fill="url(#bolt)"/>
+  </g>
+  <path d="M600 168 L556 300 L594 300 L570 432 L660 268 L616 268 Z" fill="url(#bolt)" opacity="0.92"/>
+  <g font-size="15" letter-spacing="3" font-weight="700">
+    <rect x="536" y="450" width="128" height="30" rx="15" fill="#010108" stroke="#e8eaf6" stroke-opacity="0.35"/>
+    <text x="565" y="470" fill="#e8eaf6">HEAD-TO-HEAD</text>
+  </g>
+
+  <!-- model name chips -->
+  <g font-size="14" letter-spacing="2" font-weight="700">
+    <rect x="220" y="430" width="180" height="32" rx="16" fill="#010108" stroke="#00ffe7" stroke-opacity="0.6"/>
+    <text x="242" y="452" fill="#00ffe7">GPT-6 ASTRA</text>
+    <rect x="750" y="430" width="220" height="32" rx="16" fill="#010108" stroke="#bf00ff" stroke-opacity="0.6"/>
+    <text x="772" y="452" fill="#bf00ff">CLAUDE FABLE 5.1</text>
+  </g>
+
+  <!-- label -->
+  <text x="80" y="600" fill="#00ffe7" font-size="19" letter-spacing="5" font-weight="700">GPT-6 ASTRA VS CLAUDE FABLE 5.1</text>
+  <text x="80" y="632" fill="#6b7280" font-size="15" letter-spacing="3">EAST ANGLIA AI SERVICES &#8212; NORWICH &#183; IPSWICH &#183; CAMBRIDGE &#183; NORFOLK &#183; SUFFOLK &#183; ESSEX</text>
+
+  <!-- corner ticks -->
+  <g stroke="#00ffe7" stroke-opacity="0.4" stroke-width="2">
+    <path d="M40 40 H80" fill="none"/><path d="M40 40 V80" fill="none"/>
+    <path d="M1160 635 H1120" fill="none"/><path d="M1160 635 V595" fill="none"/>
+  </g>
+</svg>
