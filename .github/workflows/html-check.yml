@@ -1,0 +1,56 @@
+name: HTML Validate & Link Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "sitemap.xml"
+      - ".github/workflows/html-check.yml"
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "sitemap.xml"
+      - ".github/workflows/html-check.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  html-validate:
+    name: HTML validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Non-blocking for now: this surfaces ~88 pre-existing findings (mostly
+      # missing button type="" and inline styles, both deliberate in this
+      # codebase's style) unrelated to any single change. Flip to blocking
+      # once those are triaged in a follow-up pass.
+      - name: Run html-validate
+        continue-on-error: true
+        run: npx --yes html-validate "**/*.html"
+
+  link-check:
+    name: Link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Non-blocking for now: this repo's outbound links have never been
+      # checked by CI before, so a first run may surface pre-existing dead
+      # links (e.g. a news article that moved) unrelated to any one change.
+      # Flip to blocking once a first run comes back clean or is triaged.
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        continue-on-error: true
+        with:
+          args: >-
+            --no-progress
+            --max-retries 2
+            --timeout 20
+            --accept 200,201,202,203,204,206,301,302,303,307,308
+            './**/*.html' './**/*.xml'
+          fail: true

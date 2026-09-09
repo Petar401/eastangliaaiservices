@@ -569,7 +569,7 @@ function renderReport(name,company){
   // strengths: dimensions scored 3, else top answers ≥2
   const idx=QUESTIONS.map((q,i)=>({i,v:answers[i]||0}));
   const strengths=idx.filter(x=>x.v>=2).sort((a,b)=>b.v-a.v).slice(0,3);
-  const gaps=idx.filter(x=>x.v<=2).sort((a,b)=>a.v-b.v).slice(0,3);
+  const gaps=idx.filter(x=>x.v<2).sort((a,b)=>a.v-b.v).slice(0,3);
   const sBox=document.getElementById('repStrengths');sBox.innerHTML='';
   if(strengths.length===0){
     sBox.innerHTML='<div class="rep-item"><h4>A clean slate</h4><p>Every area has room to grow — which also means every improvement you make from here will be visible, measurable progress. Businesses starting from scratch often move fastest because there are no half-built systems to untangle.</p></div>';

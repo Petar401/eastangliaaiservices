@@ -30,6 +30,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Blog post URLs below are hand-duplicated in /blog/index.html and /llms.txt — update all three when publishing or removing a post -->
   <url>
     <loc>https://eastangliaaiservices.co.uk/blog/gpt-6-astra-vs-claude-fable-5-1-east-anglia.html</loc>
     <lastmod>2026-09-08</lastmod>
