@@ -30,6 +30,61 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Industry landing page URLs below are hand-duplicated in /industries/index.html and /llms.txt. Update all three when publishing or removing one. -->
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/accounting-finance-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/recruitment-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/logistics-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/construction-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/manufacturing-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/professional-services-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/estate-agents-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eastangliaaiservices.co.uk/industries/healthcare-administration-ai-automation.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Blog post URLs below are hand-duplicated in /blog/index.html and /llms.txt — update all three when publishing or removing a post -->
   <url>
     <loc>https://eastangliaaiservices.co.uk/blog/gpt-6-astra-vs-claude-fable-5-1-east-anglia.html</loc>
