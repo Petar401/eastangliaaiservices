@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" font-family="'Space Mono', monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07071a"/>
+      <stop offset="0.55" stop-color="#0d0d2b"/>
+      <stop offset="1" stop-color="#010108"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00ffe7" stop-opacity="0.34"/>
+      <stop offset="0.55" stop-color="#00ffe7" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#00ffe7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowP" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#bf00ff" stop-opacity="0.36"/>
+      <stop offset="0.55" stop-color="#bf00ff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#bf00ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ffe7"/>
+      <stop offset="0.5" stop-color="#e8eaf6"/>
+      <stop offset="1" stop-color="#bf00ff"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#00ffe7" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="112" x2="1200" y2="112"/><line x1="0" y1="225" x2="1200" y2="225"/>
+    <line x1="0" y1="337" x2="1200" y2="337"/><line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="562" x2="1200" y2="562"/>
+    <line x1="150" y1="0" x2="150" y2="675"/><line x1="300" y1="0" x2="300" y2="675"/>
+    <line x1="450" y1="0" x2="450" y2="675"/><line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="750" y1="0" x2="750" y2="675"/><line x1="900" y1="0" x2="900" y2="675"/>
+    <line x1="1050" y1="0" x2="1050" y2="675"/>
+  </g>
+
+  <!-- ambient glows -->
+  <circle cx="255" cy="300" r="230" fill="url(#glowC)"/>
+  <circle cx="935" cy="290" r="240" fill="url(#glowP)"/>
+
+  <!-- ===================== LEFT: THE TEAM (cyan) ===================== -->
+  <g stroke="#00ffe7" stroke-opacity="0.35" stroke-width="1.4">
+    <line x1="170" y1="290" x2="255" y2="235"/><line x1="255" y1="235" x2="340" y2="290"/>
+    <line x1="170" y1="290" x2="215" y2="365"/><line x1="340" y1="290" x2="295" y2="365"/>
+    <line x1="215" y1="365" x2="295" y2="365"/><line x1="255" y1="235" x2="255" y2="315"/>
+    <line x1="170" y1="290" x2="255" y2="315"/><line x1="340" y1="290" x2="255" y2="315"/>
+  </g>
+  <g filter="url(#soft)" opacity="0.5" fill="none" stroke="#00ffe7" stroke-width="4">
+    <circle cx="255" cy="215" r="14"/><circle cx="170" cy="270" r="14"/><circle cx="340" cy="270" r="14"/>
+    <circle cx="215" cy="345" r="14"/><circle cx="295" cy="345" r="14"/>
+  </g>
+  <g fill="none" stroke="#00ffe7" stroke-width="2.4" stroke-opacity="0.92" stroke-linecap="round">
+    <circle cx="255" cy="215" r="14"/><path d="M231 255 Q255 225 279 255"/>
+    <circle cx="170" cy="270" r="14"/><path d="M146 310 Q170 280 194 310"/>
+    <circle cx="340" cy="270" r="14"/><path d="M316 310 Q340 280 364 310"/>
+    <circle cx="215" cy="345" r="14"/><path d="M191 385 Q215 355 239 385"/>
+    <circle cx="295" cy="345" r="14"/><path d="M271 385 Q295 355 319 385"/>
+  </g>
+  <circle cx="255" cy="315" r="6" fill="#00ffe7"/>
+
+  <!-- ===================== CENTRE: THE TRAINING PATH ===================== -->
+  <g filter="url(#soft)" opacity="0.55">
+    <path d="M370 330 C 410 330, 420 370, 448 368 M532 368 C 560 366, 560 312, 568 306 M652 306 C 680 304, 682 250, 690 244 M774 244 C 800 244, 812 270, 836 278" fill="none" stroke="url(#path)" stroke-width="5"/>
+  </g>
+  <path d="M370 330 C 410 330, 420 370, 448 368 M532 368 C 560 366, 560 312, 568 306 M652 306 C 680 304, 682 250, 690 244 M774 244 C 800 244, 812 270, 836 278" fill="none" stroke="url(#path)" stroke-width="2" stroke-dasharray="7 7" stroke-opacity="0.85"/>
+
+  <!-- step hexagons (pointy top, r=46) -->
+  <g filter="url(#soft)" opacity="0.5" fill="none" stroke-width="4">
+    <polygon points="490,322 530,345 530,391 490,414 450,391 450,345" stroke="#00ffe7"/>
+    <polygon points="610,260 650,283 650,329 610,352 570,329 570,283" stroke="#e8eaf6"/>
+    <polygon points="732,198 772,221 772,267 732,290 692,267 692,221" stroke="#bf00ff"/>
+  </g>
+  <g fill="#010108" fill-opacity="0.75" stroke-width="2.4">
+    <polygon points="490,322 530,345 530,391 490,414 450,391 450,345" stroke="#00ffe7"/>
+    <polygon points="610,260 650,283 650,329 610,352 570,329 570,283" stroke="#e8eaf6" stroke-opacity="0.9"/>
+    <polygon points="732,198 772,221 772,267 732,290 692,267 692,221" stroke="#bf00ff"/>
+  </g>
+  <g font-size="11" letter-spacing="2" font-weight="700" text-anchor="middle">
+    <text x="490" y="362" fill="#00ffe7" fill-opacity="0.6">01</text>
+    <text x="490" y="382" fill="#00ffe7">PROMPT</text>
+    <text x="610" y="300" fill="#e8eaf6" fill-opacity="0.6">02</text>
+    <text x="610" y="320" fill="#e8eaf6">CHECK</text>
+    <text x="732" y="238" fill="#bf00ff" fill-opacity="0.75">03</text>
+    <text x="732" y="258" fill="#bf00ff">APPLY</text>
+  </g>
+
+  <!-- ===================== RIGHT: CONFIDENT AI USE (purple) ===================== -->
+  <g transform="translate(70,-15)">
+    <g filter="url(#soft)" opacity="0.55">
+      <path d="M770 300 C 762 258, 798 226, 840 234 C 854 212, 890 210, 908 232 C 938 226, 966 254, 960 288 C 980 306, 976 342, 950 354 C 948 384, 916 402, 888 390 C 870 408, 834 406, 822 384 C 788 386, 766 362, 774 336 C 764 328, 764 310, 770 300 Z" fill="none" stroke="#bf00ff" stroke-width="4"/>
+    </g>
+    <path d="M770 300 C 762 258, 798 226, 840 234 C 854 212, 890 210, 908 232 C 938 226, 966 254, 960 288 C 980 306, 976 342, 950 354 C 948 384, 916 402, 888 390 C 870 408, 834 406, 822 384 C 788 386, 766 362, 774 336 C 764 328, 764 310, 770 300 Z" fill="none" stroke="#bf00ff" stroke-width="2.4" stroke-opacity="0.92"/>
+    <g fill="none" stroke="#bf00ff" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="round">
+      <path d="M842 244 C 830 278, 862 292, 848 326 C 836 354, 868 368, 860 396"/>
+      <path d="M900 238 C 918 266, 886 288, 916 314"/>
+    </g>
+    <g stroke="#bf00ff" stroke-opacity="0.5" stroke-width="1.4">
+      <line x1="808" y1="270" x2="866" y2="260"/><line x1="866" y1="260" x2="912" y2="288"/>
+      <line x1="808" y1="270" x2="830" y2="328"/><line x1="866" y1="260" x2="872" y2="332"/>
+      <line x1="830" y1="328" x2="872" y2="332"/>
+    </g>
+    <g fill="#bf00ff">
+      <circle cx="808" cy="270" r="6"/><circle cx="866" cy="260" r="7.5"/><circle cx="912" cy="288" r="6"/>
+      <circle cx="830" cy="328" r="6.5"/><circle cx="872" cy="332" r="6"/>
+    </g>
+  </g>
+
+  <!-- chips -->
+  <g font-size="14" letter-spacing="2" font-weight="700" text-anchor="middle">
+    <rect x="150" y="430" width="210" height="32" rx="16" fill="#010108" stroke="#00ffe7" stroke-opacity="0.6"/>
+    <text x="255" y="452" fill="#00ffe7">TEAM WORKSHOPS</text>
+    <rect x="845" y="430" width="180" height="32" rx="16" fill="#010108" stroke="#bf00ff" stroke-opacity="0.6"/>
+    <text x="935" y="452" fill="#bf00ff">SAFE AI USE</text>
+  </g>
+
+  <!-- label -->
+  <text x="80" y="600" fill="#00ffe7" font-size="19" letter-spacing="5" font-weight="700">AI TRAINING FOR BUSINESSES</text>
+  <text x="80" y="632" fill="#6b7280" font-size="15" letter-spacing="3">EAST ANGLIA AI SERVICES &#183; NORWICH &#183; IPSWICH &#183; CAMBRIDGE &#183; NORFOLK &#183; SUFFOLK &#183; ESSEX</text>
+
+  <!-- corner ticks -->
+  <g stroke="#00ffe7" stroke-opacity="0.4" stroke-width="2">
+    <path d="M40 40 H80" fill="none"/><path d="M40 40 V80" fill="none"/>
+    <path d="M1160 635 H1120" fill="none"/><path d="M1160 635 V595" fill="none"/>
+  </g>
+</svg>
