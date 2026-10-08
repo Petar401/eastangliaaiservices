@@ -37,7 +37,7 @@ This is a single-file static site. To enable GitHub Pages:
 
 ## 📍 About
 
-East Anglia AI Services specialises in AI automation solutions for businesses across East Anglia. We build custom AI agents, workflow automation, predictive intelligence systems, and LLM integrations.
+East Anglia AI Services specialises in AI automation solutions for businesses across East Anglia. We build custom AI agents, workflow automation, predictive intelligence systems, and LLM integrations, and run hands-on AI training for business teams.
 
 ---
 
