@@ -181,6 +181,15 @@ html.reduce-motion .scanlines{display:none!important;}
   .rep-cta{border:1px solid #ddd;background:#fff;}
   .rep-cta-btns{display:none;}
 }
+/* Touch targets at least 24px tall (WCAG 2.2 SC 2.5.8) */
+.nav-links a,.footer-copy a{display:inline-block;padding-top:5px;padding-bottom:5px;}
+/* explainer */
+.explainer{max-width:760px;margin:0 auto;padding:10px 24px 40px;}
+.explainer h2{font-family:var(--sans);font-size:1.3rem;font-weight:700;color:var(--text);margin:28px 0 10px;}
+.explainer p,.explainer li{font-family:var(--mono);font-size:.78rem;line-height:1.9;color:var(--dim);}
+.explainer p+p{margin-top:12px;}
+.explainer ul{margin:10px 0 0 18px;}
+.explainer a{color:var(--neon);}
 </style>
 </head>
 <body>
@@ -326,6 +335,24 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
 
   </div>
+</section>
+
+<section class="explainer no-print" id="about-policy">
+  <p class="section-label">About AI Use Policies</p>
+  <h2>What an AI use policy is, and why you need one</h2>
+  <p>An AI use policy is a short document that tells staff which AI tools they may use, what information must never go into them, and when a person has to check the output. If your team already uses ChatGPT, Claude, Copilot or Gemini, even informally, you need one. Without one, customer data or confidential figures can end up in tools you haven't approved, which creates UK GDPR risk and the chance of inaccurate output reaching customers.</p>
+  <h2>What the generated policy covers</h2>
+  <ul>
+    <li>Which AI tools are approved, based on the tools you select</li>
+    <li>Data handling rules for customer, financial and confidential information</li>
+    <li>When AI output needs a human check before it's sent, published or acted on</li>
+    <li>Acceptable and prohibited uses</li>
+    <li>Who staff should contact with questions or concerns</li>
+  </ul>
+  <h2>Who it's for</h2>
+  <p>It's for UK small and medium-sized businesses that don't have an in-house legal or IT team and want a clear, readable starting point in a few minutes, rather than a blank page.</p>
+  <h2>How to roll it out</h2>
+  <p>Read the draft through and adjust anything that doesn't fit how you work. Have it checked by a qualified adviser if you handle sensitive data. Then share it with staff and walk them through it rather than only emailing it. Review it every six months, because AI tools change quickly. Rules only work if people know how to follow them, so pair the policy with practical <a href="/ai-training.html">AI training for your team</a>. Our article on <a href="/blog/ai-training-for-business-east-anglia.html">why staff need AI training</a> explains why. To see how ready the rest of the business is, take the <a href="/ai-readiness.html">AI Readiness Assessment</a>.</p>
 </section>
 
 <section class="faq-section no-print" id="faq">

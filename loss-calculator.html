@@ -187,6 +187,15 @@ html.reduce-motion .scanlines{display:none!important;}
   .rep-cta{border:1px solid #ddd;background:#fff;}
   .rep-cta-btns{display:none;}
 }
+/* Touch targets at least 24px tall (WCAG 2.2 SC 2.5.8) */
+.nav-links a,.footer-copy a{display:inline-block;padding-top:5px;padding-bottom:5px;}
+/* explainer */
+.explainer{max-width:760px;margin:0 auto;padding:10px 24px 40px;}
+.explainer h2{font-family:var(--sans);font-size:1.3rem;font-weight:700;color:var(--text);margin:28px 0 10px;}
+.explainer p,.explainer li{font-family:var(--mono);font-size:.78rem;line-height:1.9;color:var(--dim);}
+.explainer p+p{margin-top:12px;}
+.explainer ul{margin:10px 0 0 18px;}
+.explainer a{color:var(--neon);}
 </style>
 </head>
 <body>
@@ -342,6 +351,22 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
 
   </div>
+</section>
+
+<section class="explainer no-print" id="about-calculator">
+  <p class="section-label">About the Calculator</p>
+  <h2>How the calculator works</h2>
+  <p>It adds up three costs that most small businesses never see on a report, each over a 48-week working year:</p>
+  <ul>
+    <li><strong>Missed calls:</strong> calls per week × % missed × your conversion rate × average customer value.</li>
+    <li><strong>Slow lead replies:</strong> leads per week × % answered after an hour or more × your conversion rate × average customer value, counted at half value, because a slow reply loses some of those leads, not all of them.</li>
+    <li><strong>Manual admin:</strong> admin hours per week × your fully-loaded hourly staff cost.</li>
+  </ul>
+  <p>Every figure comes from the numbers you enter. The tool doesn't add hidden multipliers, and results are rounded so they don't look more precise than they are.</p>
+  <h2>Who it's for</h2>
+  <p>It's most useful for businesses that rely on phone calls and enquiries: trades, clinics, salons, estate and letting agents, garages, hospitality and professional services. It also works for any team that spends hours a week re-typing data, chasing paperwork or answering the same questions.</p>
+  <h2>How to use the result</h2>
+  <p>Treat the total as a ballpark. Use it to decide which problem is worth fixing first, not as an accounting figure. If missed calls are the biggest cost, an AI receptionist or <a href="/blog/voice-agents-customer-service-east-anglia.html">voice agent</a> that answers 24/7 is usually the fastest payback. If slow replies are the biggest cost, instant automated lead replies help most. If admin is, workflow automation does. Compare the yearly loss with the cost of a fix, and you have a simple payback period. Not sure your business is ready? Take the <a href="/ai-readiness.html">AI Readiness Assessment</a> or <a href="/#contact">book a free strategy call</a>.</p>
 </section>
 
 <section class="faq-section no-print" id="faq">

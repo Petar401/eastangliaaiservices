@@ -109,6 +109,12 @@ picture{display:contents;}
 .related{margin:48px 0 0;padding-top:28px;border-top:1px solid rgba(0,255,231,.12);}
 .related ul{list-style:none;padding:0;margin:0;}
 .related li{margin:0 0 10px;}
+/* Touch targets at least 24px tall (WCAG 2.2 SC 2.5.8) */
+.nav-links a,.footer-copy a,.crumb a{display:inline-block;padding-top:5px;padding-bottom:5px;}
+.logo{display:inline-block;min-height:24px;}
+.nav-tel{color:var(--neon)!important;}
+.footer-nav{margin-top:10px;line-height:2;}
+@media(max-width:680px){.nav-desktop{display:none;}}
 </style>
 </head>
 <body>
@@ -125,8 +131,11 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <a href="/" class="logo">EAAIS</a>
   <ul class="nav-links">
     <li><a href="/#services">Services</a></li>
+    <li class="nav-desktop"><a href="/ai-training.html">Training</a></li>
+    <li><a href="/ai-readiness.html">Tools</a></li>
     <li><a href="/blog/">Blog</a></li>
     <li><a href="/#contact">Contact</a></li>
+    <li class="nav-desktop"><a class="nav-tel" href="tel:+447466951175">07466&nbsp;951175</a></li>
   </ul>
 </nav>
 
@@ -225,7 +234,8 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
 <footer>
   <div class="footer-logo-text">EAST ANGLIA AI SERVICES</div>
-  <p class="footer-copy">© 2026 East Anglia AI Services Ltd · Norfolk · Suffolk · Cambridgeshire · Essex · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/cookies.html">Cookies</a></p>
+  <p class="footer-copy">© 2026 East Anglia AI Services Ltd · Norfolk · Suffolk · Cambridgeshire · Essex</p>
+  <p class="footer-copy footer-nav"><a href="/">Home</a> · <a href="/ai-training.html">AI Training</a> · <a href="/ai-readiness.html">AI Readiness Test</a> · <a href="/loss-calculator.html">Loss Calculator</a> · <a href="/ai-policy-generator.html">AI Policy Generator</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy</a> · <a href="/cookies.html">Cookies</a><br><a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> · <a href="tel:+447466951175">07466&nbsp;951175</a></p>
   <div class="footer-preferred-source"><div google-add-preferred-source-btn data-theme="dark"></div></div>
 </footer>
 
