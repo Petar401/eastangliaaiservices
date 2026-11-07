@@ -4,6 +4,9 @@
  * - Loads Google Analytics 4, Microsoft Clarity and the Google Preferred
  *   Source button script ONLY after the visitor clicks Accept.
  * - Clears _ga, _clck and _clsk cookies on Reject.
+ * - Google Consent Mode v2 (basic): every signal defaults to "denied"; the
+ *   analytics signal is updated to "granted" only on Accept. Ad signals stay
+ *   denied because the site runs no advertising tags.
  * - Public API: window.EAAISConsent.{accept,reject,reopen,status}
  */
 (function () {
@@ -11,6 +14,24 @@
   var GA_ID = 'G-F6TTH896D0';
   var CLARITY_ID = 'ydpebg25fy';
   var HOSTNAME = (location.hostname || '').replace(/^www\./, '');
+
+  // Consent Mode v2 defaults must be queued before gtag.js ever loads.
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  window.gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+
+  function setConsent(granted) {
+    window.gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+    if (typeof window.clarity === 'function') window.clarity('consent', granted);
+  }
 
   function read() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
@@ -22,8 +43,6 @@
   function loadGA() {
     if (window.__eaaisGAloaded) return;
     window.__eaaisGAloaded = true;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', GA_ID, { anonymize_ip: true });
     var s = document.createElement('script');
@@ -40,6 +59,7 @@
     s.async = true;
     s.src = 'https://www.clarity.ms/tag/' + CLARITY_ID + '?ref=bwt';
     document.head.appendChild(s);
+    window.clarity('consent', true);
   }
 
   function loadPreferredSource() {
@@ -91,8 +111,8 @@
   function show() { makeBanner(); var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.add('show'); }
   function hide() { var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.remove('show'); }
 
-  function accept() { write('accepted'); loadGA(); loadClarity(); loadPreferredSource(); hide(); }
-  function reject() { write('rejected'); clearGACookies(); clearClarityCookies(); hide(); }
+  function accept() { write('accepted'); setConsent(true); loadGA(); loadClarity(); loadPreferredSource(); hide(); }
+  function reject() { write('rejected'); setConsent(false); clearGACookies(); clearClarityCookies(); hide(); }
   function reopen() { makeBanner(); show(); }
   function status() { return read(); }
 
@@ -101,7 +121,7 @@
   function boot() {
     makeBanner();
     var v = read();
-    if (v === 'accepted') { loadGA(); loadClarity(); loadPreferredSource(); }
+    if (v === 'accepted') { setConsent(true); loadGA(); loadClarity(); loadPreferredSource(); }
     else if (v === 'rejected') { clearGACookies(); clearClarityCookies(); }
     else setTimeout(show, 1200);
   }
