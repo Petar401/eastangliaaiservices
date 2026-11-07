@@ -2,7 +2,7 @@
 
 > Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines, AI ops and AI training for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex (UK). Founded and run by Petar Petkov.
 
-East Anglia AI Services (EAAIS) builds and deploys production AI systems for SMEs — not generic software, but automation designed around how a specific business already works. Typical engagements: invoice-processing automation, AI voice agents for customer service, predictive demand forecasting, LLM-powered chatbots grounded in a company's own documents, continuous AI ops monitoring for deployed models, and hands-on AI training for staff. Projects typically go from discovery to a live system in a matter of weeks. Contact: info@eastangliaaiservices.co.uk, +44 7466 951175.
+East Anglia AI Services (EAAIS) builds and deploys production AI systems for SMEs — not generic software, but automation designed around how a specific business already works. Typical engagements: invoice-processing automation, AI voice agents for customer service, predictive demand forecasting, LLM-powered chatbots grounded in a company's own documents, continuous AI ops monitoring for deployed models, and hands-on AI training for staff. Projects typically go from discovery to a live system in a matter of weeks. Based in Norwich, Norfolk. Contact: info@eastangliaaiservices.co.uk, +44 7466 951175.
 
 ## Pages
 
