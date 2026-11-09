@@ -1,0 +1,103 @@
+# East Anglia AI Services (EAAIS): full reference
+
+> AI automation consultancy based in Norwich, Norfolk, UK. We build custom AI agents, AI voice agents, workflow automation, LLM integrations, predictive models and data pipelines, and run AI training for staff, for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex.
+
+Last updated: 9 November 2026. Short version: https://eastangliaaiservices.co.uk/llms.txt
+
+## Company facts
+
+- Legal name: East Anglia AI Services Ltd (trading as EAAIS)
+- Company number: 17381169, registered in England & Wales, incorporated 4 August 2026
+- Registered office: 44 Amderley Drive, Norwich, NR4 6HZ, United Kingdom
+- Directors: Petar Petkov and Magdalena Peeva
+- Phone: +44 7466 951175 · Email: info@eastangliaaiservices.co.uk
+- Website: https://eastangliaaiservices.co.uk/
+- Areas served: Norfolk, Suffolk, Cambridgeshire and Essex, including Norwich, Ipswich, Cambridge, Colchester, Peterborough, Bury St Edmunds, Chelmsford and King's Lynn. On-site across East Anglia; remote delivery UK-wide.
+- LinkedIn: https://www.linkedin.com/in/petar-petkov-3b9471343/ · Facebook: https://www.facebook.com/profile.php?id=61589538308485 · TikTok: https://www.tiktok.com/@east.anglia.ai.se
+
+## People
+
+### Petar Petkov, Founder & AI Automation Consultant
+Petar Petkov is the Norwich-based founder of East Anglia AI Services. He is Bulgarian and has lived and worked in the UK since 2018. He studied marketing in Bulgaria and is currently studying business management and entrepreneurship in the UK. Before founding EAAIS he spent more than three years in data administration across logistics and warehousing, healthcare and care, retail and e-commerce, and finance and back-office operations. That is where he saw how much repetitive manual work small businesses could hand to AI. He leads discovery, solution design, delivery and AI training. Languages: English, Bulgarian, Serbian, Macedonian, Croatian, Bosnian and Slovenian, plus some German.
+Note: he is not the London solicitor of the same name.
+Profile: https://eastangliaaiservices.co.uk/about.html
+
+### Magdalena Peeva, Co-founder & Director
+Magdalena Peeva co-founded East Anglia AI Services and co-directs the company with Petar Petkov.
+
+## Services and starting prices (GBP, excluding VAT)
+
+Every project gets a fixed written quote after a free strategy call.
+
+- Strategy call: free, 30 minutes.
+- AI Opportunity Review: from £395. A half-day review of workflows and tools with a written, prioritised plan and ROI estimates.
+- Leadership AI briefing: from £295. Two hours for owners and managers on where AI pays, the risks and the rules staff need.
+- Team AI training: from £595. A hands-on half-day workshop for up to 8 staff on tools such as ChatGPT, Claude and Microsoft Copilot, built around their own work and UK GDPR-safe data rules. https://eastangliaaiservices.co.uk/ai-training.html
+- Workflow automation pilot: from £1,500. One fixed-scope automation connecting existing tools (Xero, HubSpot, Slack, Google Sheets, Outlook), for example invoice processing or lead follow-up.
+- AI voice agent: from £1,200 set-up plus £149/month. Answers every call, books jobs and takes messages 24/7.
+- Custom AI agent or LLM integration: from £3,000. Agents and chatbots grounded in a company's own documents and systems, with guardrails, audit trails and a hand-back-to-human path. Claude, GPT or open-source/local models depending on data-residency needs.
+- Predictive intelligence and data pipelines: from £3,000. Forecasting (demand, staffing, stock) and pipelines that unify data from existing systems into one trusted source.
+- AI Ops monitoring & support: from £199/month. Monitoring for accuracy, drift and cost, plus changes and support.
+
+## How we work
+
+1. Discovery & mapping: audit workflows, find automation opportunities, set ROI targets.
+2. Architecture design: models, pipelines, integrations and failure modes mapped.
+3. Build & train: build and test against real scenarios using the client's data.
+4. Deploy & evolve: go live with monitoring; improve with real usage.
+Most projects go from discovery to a live system in a matter of weeks.
+
+## Free tools
+
+- AI Readiness Assessment (10 questions, 2 minutes): https://eastangliaaiservices.co.uk/ai-readiness.html
+- Missed-call and admin Business Loss Calculator: https://eastangliaaiservices.co.uk/loss-calculator.html
+- AI Use Policy Generator (UK GDPR): https://eastangliaaiservices.co.uk/ai-policy-generator.html
+
+## Frequently asked questions
+
+### What does East Anglia AI Services actually do?
+We design, build and deploy custom AI agents, workflow automation, predictive intelligence and LLM integrations for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex — replacing manual, repetitive work with systems that run themselves.
+
+### How much does AI automation cost for a small business?
+Most first projects start small. AI staff training starts from £595 for a half-day team workshop, an AI Opportunity Review from £395, a workflow automation pilot from £1,500, an AI voice agent from £1,200 plus £149 a month, and a custom AI agent or LLM integration from £3,000. Every project gets a fixed written quote after a free strategy call, so there are no surprise bills.
+
+### Which areas do you cover?
+We work with businesses across Norfolk, Suffolk, Cambridgeshire and Essex, including Norwich, Ipswich, Cambridge, Colchester, Peterborough, Bury St Edmunds, Chelmsford and King's Lynn. On-site visits are available across the region, alongside fully remote delivery.
+
+### How is this different from buying off-the-shelf software?
+Off-the-shelf tools make you adapt your business to their workflow. We build the system around how you already operate — connecting the tools you use today (Xero, HubSpot, Slack, Sheets, Outlook and more) — so the automation fits your business, not the other way round.
+
+### How long does a typical project take?
+Most projects go from initial discovery to a live system in a matter of weeks, not months. Our process — discovery, architecture, build and deploy — is designed to get a working system in front of you fast, then refine it with real usage.
+
+### Do you offer ongoing support after deployment?
+Yes. Every system we deploy is continuously monitored for accuracy, drift and cost, with alerts and automated retraining built in, and we remain on hand for support, changes and scaling as your business grows.
+
+### Do you offer AI training for staff?
+Yes. We run hands-on AI training for businesses across Norfolk, Suffolk, Cambridgeshire and Essex, on-site or remotely: practical team workshops, short briefings for owners and managers, and sessions built around a single team's real tasks. Every programme covers how to check AI output and what data must never go into an AI tool. See our AI training page for details.
+
+## AI training: frequently asked questions
+
+### Who is your AI training for?
+Small and medium-sized businesses whose staff already use, or want to use, tools such as ChatGPT, Claude or Microsoft Copilot. That includes office and admin teams, sales, finance, customer service and the owners and managers who need to decide where AI is worth the effort.
+
+### Do staff need any technical knowledge?
+No. The sessions are built around the work people already do, such as writing, summarising, answering customers and checking figures. If someone can write an email and use a spreadsheet, they have all the background they need.
+
+### How much does AI training cost?
+Team workshops start from £595 for a half-day session with up to 8 people, and leadership briefings from £295 for two hours. Role-specific programmes are quoted on the number of people and the tailoring involved. We start with a free strategy call, then give you a fixed quote before anything is booked. Prices exclude VAT.
+
+### Can you train us on-site?
+Yes. We deliver training at your premises across Norfolk, Suffolk, Cambridgeshire and Essex, including Norwich, Ipswich, Cambridge, Colchester, Peterborough, Bury St Edmunds, Chelmsford and King's Lynn. Remote sessions are available anywhere in the UK.
+
+### Will the training cover data protection?
+Yes. Every programme covers which tools are approved, what information must never go into them and when a person has to check the output, in line with UK GDPR and ICO guidance. We can also help you put a written AI use policy in place.
+
+## Articles
+
+- https://eastangliaaiservices.co.uk/blog/ai-training-for-business-east-anglia.html
+- https://eastangliaaiservices.co.uk/blog/gpt-6-astra-vs-claude-fable-5-1-east-anglia.html
+- https://eastangliaaiservices.co.uk/blog/ai-consultant-vs-buy-rent-subscribe-east-anglia.html
+- https://eastangliaaiservices.co.uk/blog/local-llm-business-east-anglia.html
+- https://eastangliaaiservices.co.uk/blog/ai-growth-small-business-east-anglia.html
+- https://eastangliaaiservices.co.uk/blog/voice-agents-customer-service-east-anglia.html
