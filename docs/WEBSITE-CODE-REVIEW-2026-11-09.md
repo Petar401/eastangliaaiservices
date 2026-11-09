@@ -57,7 +57,7 @@ None of these is an emergency, but #1 and #2 should be fixed this week.
 |---|------|------|------------|----------|
 | 7 | `loss-calculator.html` | 448–459 | `type="number"` fields don't enforce `min`/`max` when typed, so `-500` or `99999999` produce negative or absurd "losses". The missed-call and slow-lead figures may also count the same enquiries twice. Clamp the values and add an "estimates may overlap" note. | Correctness |
 | 8 | All pages | `<head>` | No Content-Security-Policy, and GitHub Pages can't send security headers. Add a meta CSP and referrer policy (snippet below). Longer term, put Cloudflare (free) in front for HSTS, `X-Frame-Options`, `Permissions-Policy`. | Security |
-| 9 | `.github/workflows/html-check.yml` | 33, 44 | html-validate and lychee both have `continue-on-error: true`, so dead links and invalid HTML never fail CI. Triage the ~88 findings, then make both blocking. | Maintainability |
+| 9 | `.github/workflows/html-check.yml` | 34, 48 | html-validate and lychee both have `continue-on-error: true`, so dead links and invalid HTML never fail CI. Triage the ~88 findings, then make both blocking. | Maintainability |
 | 10 | `index.html` | hex grid `setInterval` | The 1.2 s interval runs forever, even with the tab hidden or reduced motion on. Pause it like the 3D hero. | Performance |
 | 11 | `index.html` | whole file (151 KB) | Large inline CSS and JS on every visit. Move them into `/assets/site.css` and `/assets/home.js` so they get cached; the other pages repeat the same CSS too. | Performance |
 | 12 | `og-image.png`, `blog/*.jpg` | — | `og-image.png` is 261 KB and the blog JPG fallbacks are up to 208 KB. Compress them (target < 120 KB for the OG image, < 100 KB for the JPGs). | Performance |
