@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://news.google.com; frame-src https://news.google.com https://accounts.google.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://news.google.com; frame-src https://news.google.com https://accounts.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Cookie consent + gated Google Analytics 4 -->
@@ -583,8 +583,9 @@ function showDeliveryWarning(on){
   if(!w){
     w=document.createElement('p');w.id='deliveryWarn';w.className='form-status err show delivery-warn';w.setAttribute('role','status');
     const a=document.createElement('a');a.href='mailto:info@eastangliaaiservices.co.uk';a.textContent='info@eastangliaaiservices.co.uk';a.style.color='inherit';
-    w.append("Your report is below, but we couldn't notify our team automatically. If you'd like us to follow up, please email ",a," or call 07466 951175.");
     const rep=document.getElementById('screen-report');rep.insertBefore(w,rep.firstChild);
+    // Add the text after the live region is in the DOM so screen readers announce it.
+    setTimeout(()=>{w.append("Your report is below, but we couldn't notify our team automatically. If you'd like us to follow up, please email ",a," or call 07466 951175.");},50);
   }
 }
 

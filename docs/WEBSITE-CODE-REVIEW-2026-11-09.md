@@ -195,3 +195,26 @@ Add or extend these sections:
 ## Verdict
 
 **Approve with changes.** No backdoors or security emergencies. Fix the silent lead loss and the privacy policy gaps first (P0), then the input-escaping and chatbot consistency items (P1).
+
+---
+
+## 8. Fix status (same PR)
+
+| # | Item | Status |
+|---|------|--------|
+| 1 | Gate tools silently losing leads | ✅ Fixed. All three tools check `res.ok && data.success`. On failure the report still shows, with a warning that links to email and phone; the warning is announced to screen readers and hidden when printing. |
+| 2 | Privacy policy gaps | ✅ Fixed. Now covers Clarity session recording, the Preferred Source `NID` cookie, free-tool answers, lawful basis, retention, processors and US transfers, and self-hosted fonts. **ICO registration number left out on purpose (owner's decision).** |
+| 3 | Policy generator self-XSS | ✅ Fixed (`esc()` on company and contact) |
+| 4 | ARIA chat self-XSS | ✅ Fixed (user text escaped in `addMsg`) |
+| 5 | ARIA contradicting FAQ | ✅ Fixed. Prices and timeline now match the FAQ, it lists eight services, it has a voice-agent answer and quotes training prices, and phrasings like "answer my phone", "missed calls" and "what do you charge" route correctly. |
+| 6 | Google Fonts before consent | ✅ Fixed. Syne and Space Mono are self-hosted in `assets/fonts/` (OFL). |
+| 7 | Calculator input clamping | ✅ Fixed (`clampField`); overlap note added to the report |
+| 8 | No CSP | ✅ Meta CSP and Referrer-Policy on all 22 pages, plus `vercel.json` headers (HSTS, `frame-ancestors`, nosniff, Permissions-Policy). The vercel.json headers only apply when Vercel serves the site. **To do: on the live site, accept cookies and check the DevTools console for CSP violations from GA4, Clarity or the Preferred Source button, because third-party sub-resources couldn't be tested offline.** |
+| 9 | Non-blocking CI | ✅ html-validate is clean (from 254 findings) and blocking. The link check was misconfigured (no `--root-dir`); now that it's fixed its first real run found no dead links, and it is blocking too. |
+| 10 | Hex grid / heavy homepage | ✅ The interval pauses when the tab is hidden or reduced motion is on |
+| 11 | Inline CSS/JS split-out | ✅ Moved to `assets/home.css` and `assets/home.js`; a pixel diff confirms the page renders the same |
+| 12 | Image weight | ✅ `og-image.png` 267 KB → 115 KB; JPG fallbacks are 34% smaller in total |
+| 13 | README | ✅ Rewritten |
+| 14 | Blog lists drifting | ✅ New CI check covering `sitemap.xml`, `blog/index.html`, `llms.txt` and `llms-full.txt` |
+| 15 | Residential address | ⏸ Owner's decision; unchanged |
+| 16 | Custom cursor / a11y | ✅ Partly. The closed accessibility panel is no longer an invisible keyboard trap. Other a11y markup issues found by html-validate are fixed (button types, carousel landmark, ARIA misuse). |
