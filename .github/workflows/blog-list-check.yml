@@ -1,0 +1,140 @@
+name: Blog post list sync check
+
+# Blog post URLs are hand-maintained in four places: sitemap.xml,
+# blog/index.html (the post cards), llms.txt and llms-full.txt. This check fails if any of
+# them is missing a post that exists in blog/, or lists a post that doesn't.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sitemap.xml"
+      - "blog/**"
+      - "llms.txt"
+      - "llms-full.txt"
+      - ".github/workflows/blog-list-check.yml"
+  pull_request:
+    paths:
+      - "sitemap.xml"
+      - "blog/**"
+      - "llms.txt"
+      - "llms-full.txt"
+      - ".github/workflows/blog-list-check.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  blog-list-sync:
+    name: Blog post lists in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare blog/*.html with sitemap.xml, blog/index.html, llms.txt and llms-full.txt
+        run: |
+          python3 - <<'PY'
+          import re
+          import sys
+          import xml.etree.ElementTree as ET
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urljoin, urlsplit
+
+          SITE = "https://eastangliaaiservices.co.uk/"
+          HOSTS = {"eastangliaaiservices.co.uk", "www.eastangliaaiservices.co.uk"}
+          POST_PATH = re.compile(r"^/blog/([^/]+\.html)$")
+          root = Path(".")
+
+
+          def post_name(url, base=SITE):
+              """Return the post filename for a URL pointing at a blog post, else None.
+
+              Ignores the /blog/ index itself, images and other assets, anchors,
+              query strings and off-site links.
+              """
+              parts = urlsplit(urljoin(base, url.strip()))
+              if parts.scheme not in ("http", "https") or parts.hostname not in HOSTS:
+                  return None
+              m = POST_PATH.match(parts.path)
+              if not m or m.group(1) == "index.html":
+                  return None
+              return m.group(1)
+
+
+          # 1. Posts that actually exist.
+          actual = {p.name for p in (root / "blog").glob("*.html") if p.name != "index.html"}
+
+          # 2. sitemap.xml <loc> entries.
+          sitemap = set()
+          for el in ET.parse(root / "sitemap.xml").getroot().iter():
+              if el.tag.rsplit("}", 1)[-1] == "loc" and el.text:
+                  name = post_name(el.text)
+                  if name:
+                      sitemap.add(name)
+
+
+          # 3. blog/index.html <a href> links (relative hrefs resolved against /blog/).
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.found = set()
+
+              def handle_starttag(self, tag, attrs):
+                  if tag != "a":
+                      return
+                  href = dict(attrs).get("href")
+                  if href:
+                      name = post_name(href, base=SITE + "blog/")
+                      if name:
+                          self.found.add(name)
+
+
+          parser = Links()
+          parser.feed((root / "blog" / "index.html").read_text(encoding="utf-8"))
+          index = parser.found
+
+          # 4. llms.txt and llms-full.txt: markdown link targets and bare URLs.
+          def llms_posts(fname):
+              text = (root / fname).read_text(encoding="utf-8")
+              candidates = re.findall(r"\]\(\s*([^)\s]+)", text)
+              candidates += re.findall(r"https?://[^\s)<>\"'\]]+", text)
+              return {n for n in (post_name(c) for c in candidates) if n}
+          llms = llms_posts("llms.txt")
+          llms_full = llms_posts("llms-full.txt")
+
+          sources = {
+              "sitemap.xml": sitemap,
+              "blog/index.html": index,
+              "llms.txt": llms,
+              "llms-full.txt": llms_full,
+          }
+
+          print(f"Blog posts in blog/ ({len(actual)}):")
+          for name in sorted(actual):
+              print(f"  - {name}")
+
+          problems = []
+          for label, found in sources.items():
+              missing = sorted(actual - found)
+              extra = sorted(found - actual)
+              status = "OK" if not (missing or extra) else "MISMATCH"
+              print(f"{label}: {len(found)} post(s) listed ... {status}")
+              for name in missing:
+                  problems.append(f"{label} is missing post: blog/{name}")
+              for name in extra:
+                  problems.append(f"{label} lists a post that does not exist: blog/{name}")
+
+          if problems:
+              print()
+              print("Blog post lists are out of sync:")
+              for p in problems:
+                  print(f"::error::{p}")
+              print()
+              print("When publishing or removing a post, update sitemap.xml, "
+                    "blog/index.html, llms.txt and llms-full.txt together.")
+              sys.exit(1)
+
+          print()
+          print("All blog post lists are in sync.")
+          PY
