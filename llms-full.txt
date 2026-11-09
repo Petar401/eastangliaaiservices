@@ -40,6 +40,24 @@ Every project gets a fixed written quote after a free strategy call.
 - Predictive intelligence and data pipelines: from £3,000. Forecasting (demand, staffing, stock) and pipelines that unify data from existing systems into one trusted source.
 - AI Ops monitoring & support: from £199/month. Monitoring for accuracy, drift and cost, plus changes and support.
 
+## AI voice agents (detail)
+
+Page: https://eastangliaaiservices.co.uk/ai-voice-agents.html
+- Answers every call 24/7 and answers common questions from the business's own information.
+- Books appointments into the business's calendar and sends SMS or email confirmations.
+- Can answer in English and other languages the business's customers use (each tested before go-live).
+- Transfers urgent or complex calls to a named person; takes messages when nobody is free.
+- Logs every call in the CRM or a spreadsheet and sends an SMS or email summary.
+- Tells callers it is an AI assistant; recordings and transcripts handled under UK GDPR.
+- Price: from £1,200 set-up plus £149/month (ex VAT); call usage agreed in the quote.
+
+## Areas
+
+- Norwich & Norfolk: https://eastangliaaiservices.co.uk/ai-consultant-norwich.html (based in Eaton, Norwich NR4; on-site across Norfolk)
+- Ipswich & Suffolk: https://eastangliaaiservices.co.uk/ai-consultant-ipswich.html (on-site in Ipswich, Felixstowe, Woodbridge, Stowmarket, Bury St Edmunds, Lowestoft)
+- Cambridge & Cambridgeshire: https://eastangliaaiservices.co.uk/ai-automation-cambridge.html (on-site in Cambridge, Ely, Huntingdon, St Neots, St Ives, Peterborough)
+- The first discovery visit is free everywhere; later visits are included in the fixed quote.
+
 ## How we work
 
 1. Discovery & mapping: audit workflows, find automation opportunities, set ROI targets.
