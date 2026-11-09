@@ -39,19 +39,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Non-blocking for now: this repo's outbound links have never been
-      # checked by CI before, so a first run may surface pre-existing dead
-      # links (e.g. a news article that moved) unrelated to any one change.
-      # Flip to blocking once a first run comes back clean or is triaged.
+      # Blocking. 403 (and LinkedIn's 999) are accepted because many
+      # government, academic and news sites refuse automated requests while
+      # the page itself is fine; genuinely dead links still fail (404, 410,
+      # DNS errors, timeouts). Web3Forms is a POST-only API endpoint, and
+      # mckinsey.com rejects lychee's HTTP/2 client, so both are excluded.
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
-        continue-on-error: true
         with:
           args: >-
             --no-progress
             --root-dir ${{ github.workspace }}
             --max-retries 2
             --timeout 20
-            --accept 200,201,202,203,204,206,301,302,303,307,308
+            --accept 200,201,202,203,204,206,301,302,303,307,308,403,999
+            --exclude ^https://api\.web3forms\.com/
+            --exclude ^https://www\.mckinsey\.com/
             './**/*.html' './**/*.xml'
           fail: true
