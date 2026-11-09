@@ -2,6 +2,8 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://news.google.com; frame-src https://news.google.com https://accounts.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/assets/consent.css">
 <script defer src="/assets/consent.js"></script>
@@ -23,7 +25,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eastangliaaiservices.co.uk/"},{"@type":"ListItem","position":2,"name":"Cookie Policy","item":"https://eastangliaaiservices.co.uk/cookies.html"}]}
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{--neon:#00ffe7;--neon2:#bf00ff;--dark:#010108;--dark2:#07071a;--dark3:#0d0d2b;--text:#e8eaf6;--dim:#8a93a6;--mono:'Space Mono',monospace;--sans:'Syne',sans-serif;}
@@ -114,7 +116,7 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <li><a href="/#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="/#contact">Book a Call</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
@@ -204,7 +206,7 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);backgroun
       <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved.</p>
       <div class="footer-preferred-source"><div google-add-preferred-source-btn data-theme="dark"></div></div>
     </div>
-    <p class="footer-copy"><a href="/">← Back to main site</a> &nbsp;·&nbsp; <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/cookies.html">Cookies</a> &nbsp;·&nbsp; <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> &nbsp;·&nbsp; <a href="tel:+447466951175">07466 951175</a></p>
+    <p class="footer-copy"><a href="/">← Back to main site</a> &nbsp;·&nbsp; <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/cookies.html">Cookies</a> &nbsp;·&nbsp; <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> &nbsp;·&nbsp; <a href="tel:+447466951175">07466&nbsp;951175</a></p>
   </div>
 </footer>
 

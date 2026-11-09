@@ -2,6 +2,8 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://news.google.com; frame-src https://news.google.com https://accounts.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/assets/consent.css">
 <script defer src="/assets/consent.js"></script>
@@ -23,7 +25,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eastangliaaiservices.co.uk/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://eastangliaaiservices.co.uk/privacy.html"}]}
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{--neon:#00ffe7;--neon2:#bf00ff;--dark:#010108;--dark2:#07071a;--dark3:#0d0d2b;--text:#e8eaf6;--dim:#8a93a6;--mono:'Space Mono',monospace;--sans:'Syne',sans-serif;}
@@ -104,7 +106,7 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);backgroun
     <li><a href="/#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="/#contact">Book a Call</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
@@ -135,23 +137,25 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);backgroun
   <div class="cp-sec">
     <h2>2. What Data We Collect</h2>
     <ul>
-      <li>Contact information (name, email, phone) when you enquire or book a call</li>
-      <li>Technical data (IP address, browser type, pages visited) via analytics</li>
-      <li>Communication data from emails or chat with ARIA</li>
-      <li>Business information you share during project scoping and delivery</li>
+      <li><strong>Contact information</strong> (name, email, phone, company) when you enquire, book a call or request a report from one of our free tools</li>
+      <li><strong>Free tool answers:</strong> your answers to the <a href="/ai-readiness.html">AI Readiness Assessment</a>, the figures you enter into the <a href="/loss-calculator.html">Business Loss Calculator</a>, and your answers to the <a href="/ai-policy-generator.html">AI Policy Generator</a>, which are sent to us with your contact details when you unlock your report</li>
+      <li><strong>Technical and usage data</strong> (IP address, browser and device type, pages visited, and — via Microsoft Clarity — clicks, scrolling, mouse movement and session recordings), only if you accept analytics cookies</li>
+      <li><strong>Communication data</strong> from emails, calls and messages you send us (ARIA chat content is not collected — see section 4)</li>
+      <li><strong>Business information</strong> you share during project scoping and delivery</li>
     </ul>
-    <p>Contact and report-request forms on this site are submitted via Web3Forms, a third-party form-processing service that relays your submission to us by email; Web3Forms acts as our data processor for this purpose.</p>
+    <p>Contact and report-request forms on this site are submitted via Web3Forms, a third-party form-processing service that relays your submission to us by email; Web3Forms acts as our data processor for this purpose. The free tools calculate your report in your browser; the report itself is not stored by us beyond the copy of your answers emailed to us.</p>
   </div>
 
   <div class="cp-sec">
     <h2>3. How We Use Your Data</h2>
     <ul>
       <li>To respond to enquiries and deliver agreed services</li>
+      <li>To follow up on a report you requested from one of our free tools — for example, a single email or call to discuss your results</li>
       <li>To send project updates and relevant communications</li>
-      <li>To improve our website and service quality</li>
+      <li>To understand how visitors use the site and improve it (only with your consent)</li>
       <li>To comply with legal obligations</li>
     </ul>
-    <p>We will never sell your data to third parties.</p>
+    <p>We will never sell your data to third parties, and we do not add free-tool users to marketing lists.</p>
   </div>
 
   <div class="cp-sec">
@@ -162,38 +166,58 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);backgroun
   <div class="cp-sec">
     <h2>5. Legal Basis for Processing</h2>
     <ul>
-      <li><strong>Contract:</strong> Processing necessary to deliver requested services</li>
-      <li><strong>Legitimate interests:</strong> Improving our services and relevant communications</li>
-      <li><strong>Consent:</strong> Marketing communications (withdraw at any time)</li>
-      <li><strong>Legal obligation:</strong> Where required by UK law</li>
+      <li><strong>Contract:</strong> Processing necessary to deliver requested services, or to take steps at your request before entering into a contract (for example, preparing a quote)</li>
+      <li><strong>Legitimate interests:</strong> Responding to enquiries, following up on a free-tool report you requested, and running our business. You can object at any time and we will stop.</li>
+      <li><strong>Consent:</strong> Analytics and session-recording cookies (Google Analytics 4, Microsoft Clarity), the Google Preferred Source button, and any marketing communications — withdraw at any time</li>
+      <li><strong>Legal obligation:</strong> Where required by UK law (for example, keeping accounting records)</li>
     </ul>
   </div>
 
   <div class="cp-sec">
     <h2>6. Data Retention</h2>
-    <p>Client data is retained for 7 years following project completion. Analytics data is retained for 26 months. You may request deletion at any time subject to legal obligations.</p>
+    <ul>
+      <li><strong>Client data:</strong> 7 years following project completion (for legal and accounting purposes)</li>
+      <li><strong>Enquiries and free-tool submissions</strong> that do not lead to a project: 24 months from your last contact with us, then deleted</li>
+      <li><strong>Google Analytics 4:</strong> event data is retained for up to 14 months; cookies last up to 13 months</li>
+      <li><strong>Microsoft Clarity:</strong> usage data is retained by Microsoft for up to 13 months (individual session recordings for a shorter period); cookies last up to 12 months</li>
+    </ul>
+    <p>You may request deletion at any time, subject to legal obligations.</p>
   </div>
 
   <div class="cp-sec">
-    <h2>7. Your Rights (UK GDPR)</h2>
+    <h2>7. Processors &amp; International Transfers</h2>
+    <p>We use a small number of trusted service providers to run this website:</p>
+    <ul>
+      <li><strong>Web3Forms</strong> — relays contact and free-tool form submissions to us by email</li>
+      <li><strong>Google</strong> — Google Analytics 4 and the Preferred Source button (only after you accept cookies)</li>
+      <li><strong>Our email provider</strong> — receives and stores the messages and form submissions sent to us</li>
+      <li><strong>Microsoft</strong> — Microsoft Clarity usage analytics and session recording (only after you accept cookies)</li>
+      <li><strong>Website hosting and content delivery</strong> — our hosting provider and Cloudflare's cdnjs (which serves a 3D graphics library on desktop browsers) receive your IP address as part of delivering the page</li>
+    </ul>
+    <p>Some of these providers are based in, or process data in, the United States. Where personal data is transferred outside the UK, it is protected by the UK–US Data Bridge (for certified US organisations) or by the UK International Data Transfer Agreement / Addendum to the EU Standard Contractual Clauses. Our web fonts are hosted on our own site, so no font requests are sent to Google.</p>
+  </div>
+
+  <div class="cp-sec">
+    <h2>8. Your Rights (UK GDPR)</h2>
     <ul>
       <li>Right to access your personal data</li>
       <li>Right to rectification of inaccurate data</li>
       <li>Right to erasure ("right to be forgotten")</li>
-      <li>Right to restrict or object to processing</li>
+      <li>Right to restrict or object to processing (including to any follow-up after a free-tool report)</li>
       <li>Right to data portability</li>
+      <li>Right to withdraw consent at any time, where processing is based on consent</li>
       <li>Right to complain to the ICO (ico.org.uk)</li>
     </ul>
   </div>
 
   <div class="cp-sec">
-    <h2>8. Cookies</h2>
-    <p>We set a small number of strictly-necessary items (your cookie choice, accessibility preferences) and, only after you click <strong>Accept</strong>, Google Analytics 4 cookies (<code>_ga</code>, <code>_ga_F6TTH896D0</code>) to measure aggregate traffic. Full details, retention periods and how to withdraw consent are in our <a href="/cookies.html">Cookie Policy</a>. You can change or withdraw your choice at any time via <strong>Cookie Settings</strong> in the footer.</p>
+    <h2>9. Cookies</h2>
+    <p>We set a small number of strictly-necessary items (your cookie choice, accessibility preferences). Only after you click <strong>Accept</strong>, we also load Google Analytics 4 (<code>_ga</code>, <code>_ga_F6TTH896D0</code>) to measure aggregate traffic, Microsoft Clarity (<code>_clck</code>, <code>_clsk</code>) to understand on-page behaviour through heatmaps and session recordings, and Google's Preferred Source button (Google's <code>NID</code> cookie). Full details, retention periods and how to withdraw consent are in our <a href="/cookies.html">Cookie Policy</a>. You can change or withdraw your choice at any time via <strong>Cookie Settings</strong> in the footer.</p>
   </div>
 
   <div class="cp-sec">
-    <h2>9. Contact</h2>
-    <p>To exercise your rights: <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> · <a href="tel:+447466951175">07466 951175</a> · Complaints: ico.org.uk</p>
+    <h2>10. Contact</h2>
+    <p>To exercise your rights: <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> · <a href="tel:+447466951175">07466&nbsp;951175</a> · Complaints: ico.org.uk</p>
   </div>
 
 </section>
@@ -206,7 +230,7 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);backgroun
       <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved.</p>
       <div class="footer-preferred-source"><div google-add-preferred-source-btn data-theme="dark"></div></div>
     </div>
-    <p class="footer-copy"><a href="/">← Back to main site</a> &nbsp;·&nbsp; <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/terms.html">Terms</a> &nbsp;·&nbsp; <a href="/cookies.html">Cookies</a> &nbsp;·&nbsp; <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> &nbsp;·&nbsp; <a href="tel:+447466951175">07466 951175</a></p>
+    <p class="footer-copy"><a href="/">← Back to main site</a> &nbsp;·&nbsp; <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/terms.html">Terms</a> &nbsp;·&nbsp; <a href="/cookies.html">Cookies</a> &nbsp;·&nbsp; <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> &nbsp;·&nbsp; <a href="tel:+447466951175">07466&nbsp;951175</a></p>
   </div>
 </footer>
 

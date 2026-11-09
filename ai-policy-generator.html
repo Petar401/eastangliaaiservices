@@ -2,6 +2,8 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://news.google.com; frame-src https://news.google.com https://accounts.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Cookie consent + gated Google Analytics 4 -->
 <link rel="stylesheet" href="/assets/consent.css">
@@ -40,7 +42,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Use Policy Generator","url":"https://eastangliaaiservices.co.uk/ai-policy-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Free tool that generates a tailored internal AI use policy for a business based on its industry, size, jurisdiction, AI tools in use and data sensitivity.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"ProfessionalService","name":"East Anglia AI Services Ltd","url":"https://eastangliaaiservices.co.uk/"}}
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{--neon:#00ffe7;--neon2:#bf00ff;--neon3:#ff0099;--dark:#010108;--dark2:#07071a;--dark3:#0d0d2b;--text:#e8eaf6;--dim:#8a93a6;--mono:'Space Mono',monospace;--sans:'Syne',sans-serif;}
@@ -127,6 +129,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:18px 24px;display:fl
 .form-status{font-family:var(--mono);font-size:.7rem;line-height:1.7;padding:12px 15px;border:1px solid transparent;display:none;}
 .form-status.show{display:block;}
 .form-status.err{color:#ff5e8a;border-color:rgba(255,0,153,.4);background:rgba(255,0,153,.06);}
+.delivery-warn{margin-bottom:18px;}
+@media print{.delivery-warn{display:none!important;}}
 /* ---- generated policy document ---- */
 .pol-doc{margin:8px 0 6px;}
 .pol-sec{margin-top:26px;}
@@ -217,7 +221,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <li><a href="/#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="#generator">Generate My Policy</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
@@ -259,7 +263,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         <li>Free, no obligation — just a clear starting point</li>
         <li>Print or save your policy as a PDF at the end</li>
       </ul>
-      <button class="btn-primary" onclick="startQuiz()">▶ Start the Generator</button>
+      <button type="button" class="btn-primary" onclick="startQuiz()">▶ Start the Generator</button>
     </div>
 
     <!-- QUIZ -->
@@ -269,10 +273,11 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         <span class="ar-progress-num" id="progressNum">1 / 8</span>
       </div>
       <p class="ar-dim" id="qDim"></p>
+      <!-- [html-validate-disable-next empty-heading -- filled in by script] -->
       <h2 class="ar-q" id="qText"></h2>
       <div class="ar-opts" id="qOpts"></div>
       <div class="ar-navrow">
-        <button class="ar-back" id="backBtn" onclick="prevStep()">← Back</button>
+        <button type="button" class="ar-back" id="backBtn" onclick="prevStep()">← Back</button>
         <span class="ar-progress-num" id="qHint" style="color:var(--dim)">Select an answer to continue</span>
         <div id="qNextWrap"></div>
       </div>
@@ -284,7 +289,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <h2 class="ar-h2">Your policy is ready.</h2>
       <p class="ar-p">Tell us where to send it and your personalised AI use policy will appear instantly — free, no obligation.</p>
       <form class="gate-form" id="gateForm" novalidate toolname="unlock_ai_policy_generator_report" tooldescription="Reveal the visitor's generated AI Use Policy document after they've completed the questionnaire, by submitting their name, business email, and company (phone optional). Use this once the visitor has answered the questions and reached the final 'policy is ready' step.">
-        <input type="checkbox" name="botcheck" class="gate-hp" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
+        <input type="checkbox" name="botcheck" class="gate-hp" tabindex="-1" aria-label="Leave this field empty">
         <div class="gate-row">
           <div>
             <label for="g-name">Your name *</label>
@@ -317,6 +322,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <!-- REPORT -->
     <div class="screen" id="screen-report">
       <p class="ar-kicker">AI Use Policy · <span id="repDate"></span></p>
+      <!-- [html-validate-disable-next empty-heading -- filled in by script] -->
       <h2 class="ar-h2" id="repFor"></h2>
       <div class="pol-doc" id="polDoc"></div>
       <p class="pol-disclaimer">This document is a general starting-point template generated automatically from your answers. It is provided for information only and does not constitute legal advice. Please have it reviewed by a qualified professional (such as an employment lawyer or data protection adviser) before formally adopting it, and adapt it to reflect your business's specific circumstances and any sector-specific regulatory requirements.</p>
@@ -325,8 +331,8 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         <p>Book a free 30-minute strategy call and we'll help you roll this out properly — tool approvals, staff training, and making sure AI is actually helping your business, safely.</p>
         <div class="rep-cta-btns">
           <a href="mailto:info@eastangliaaiservices.co.uk?subject=AI%20Policy%20follow-up%20call" class="btn-primary">Book a Free Strategy Call</a>
-          <button class="btn-secondary" onclick="window.print()">🖨 Print / Save as PDF</button>
-          <button class="btn-secondary" onclick="restartQuiz()">↺ Start Again</button>
+          <button type="button" class="btn-secondary" onclick="window.print()">🖨 Print / Save as PDF</button>
+          <button type="button" class="btn-secondary" onclick="restartQuiz()">↺ Start Again</button>
         </div>
         <div class="rep-cta-btns" style="margin-top:10px;flex-direction:column;gap:8px;">
           <a href="/ai-readiness.html" class="btn-secondary">Not sure if you're ready for AI? Take the free AI Readiness Test →</a>
@@ -395,7 +401,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved.</p>
       <div class="footer-preferred-source"><div google-add-preferred-source-btn data-theme="dark"></div></div>
     </div>
-    <p class="footer-copy"><a href="/">← Back to main site</a> &nbsp;·&nbsp; <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/cookies.html">Cookies</a> &nbsp;·&nbsp; <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> &nbsp;·&nbsp; <a href="tel:+447466951175">07466 951175</a></p>
+    <p class="footer-copy"><a href="/">← Back to main site</a> &nbsp;·&nbsp; <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/cookies.html">Cookies</a> &nbsp;·&nbsp; <a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> &nbsp;·&nbsp; <a href="tel:+447466951175">07466&nbsp;951175</a></p>
   </div>
 </footer>
 
@@ -530,10 +536,12 @@ function goToGate(){
 
 // ---------------- Policy generation (rules engine, entirely client-side) ----------------
 function opt(id){const s=STEPS.find(x=>x.id===id);return s.opts[answers[id]];}
-function contactPhrase(){return answers.contact?answers.contact:'a designated manager';}
+// Escape visitor-typed text before it is inserted into the policy HTML.
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function contactPhrase(){return answers.contact?esc(answers.contact):'a designated manager';}
 
 function buildPolicy(){
-  const company=answers.company||'[Your Company]';
+  const company=esc(answers.company||'[Your Company]');
   const industryIdx=answers.industry;
   const sizeIdx=answers.size;
   const jurisdictionIdx=answers.jurisdiction;
@@ -648,6 +656,7 @@ document.getElementById('gateForm').addEventListener('submit',async function(e){
     else{display=a||'—';}
     lines.push(s.dim+': '+display);
   });
+  let delivered=false;
   try{
     const fd=new FormData();
     fd.append('access_key',WEB3FORMS_KEY);
@@ -659,14 +668,31 @@ document.getElementById('gateForm').addEventListener('submit',async function(e){
     fd.append('phone',phone);
     fd.append('message',lines.join('\n'));
     fd.append('botcheck',this.querySelector('[name="botcheck"]').checked?'on':'');
-    await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:fd});
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:fd});
+    const data=await res.json().catch(()=>({}));
+    delivered=res.ok&&data.success===true;
   }catch(err){/* Never block the visitor's report on a network failure */}
   btn.disabled=false;btn.textContent=orig;
+  showDeliveryWarning(!delivered);
   renderReport(name,company);
   show('screen-report');
 });
 
 // ---------------- Report ----------------
+// Shown on the report screen when the lead notification could not be delivered,
+// so the visitor still gets their report but knows to contact us directly.
+function showDeliveryWarning(on){
+  let w=document.getElementById('deliveryWarn');
+  if(!on){if(w)w.remove();return;}
+  if(!w){
+    w=document.createElement('p');w.id='deliveryWarn';w.className='form-status err show delivery-warn';w.setAttribute('role','status');
+    const a=document.createElement('a');a.href='mailto:info@eastangliaaiservices.co.uk';a.textContent='info@eastangliaaiservices.co.uk';a.style.color='inherit';
+    const rep=document.getElementById('screen-report');rep.insertBefore(w,rep.firstChild);
+    // Add the text after the live region is in the DOM so screen readers announce it.
+    setTimeout(()=>{w.append("Your report is below, but we couldn't notify our team automatically. If you'd like us to follow up, please email ",a," or call 07466 951175.");},50);
+  }
+}
+
 function renderReport(name,company){
   document.getElementById('repDate').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   document.getElementById('repFor').textContent='Prepared for '+name+(company?' · '+company:'');
