@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://news.google.com; frame-src https://news.google.com https://accounts.google.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://news.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://news.google.com; frame-src https://news.google.com https://accounts.google.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Cookie consent + gated Google Analytics 4 -->
@@ -67,8 +67,8 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <li><a href="/ai-policy-generator.html">AI Policy</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="openChat()">Talk to ARIA</button>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button type="button" class="nav-cta" onclick="openChat()">Talk to ARIA</button>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
@@ -82,7 +82,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <a href="/loss-calculator.html" onclick="toggleMenu()">Loss Calculator</a>
   <a href="/ai-policy-generator.html" onclick="toggleMenu()">AI Policy</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <button class="m-cta" onclick="toggleMenu();openChat()">Talk to ARIA</button>
+  <button type="button" class="m-cta" onclick="toggleMenu();openChat()">Talk to ARIA</button>
 </div>
 
 <main id="main" tabindex="-1">
@@ -147,22 +147,22 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <div class="services-grid">
     <div class="service-card reveal" onclick="goToDemo(0)" tabindex="0" role="button" aria-label="AI Agent Development — see live demo"><div class="service-glow"></div><p class="service-num">01</p><span class="service-icon" aria-hidden="true">🧠</span><h3 class="service-name">AI Agent Development</h3><p class="service-desc">Custom AI agents — autonomous software workers that reason, plan, and act across your existing stack. We build them for East Anglia SMEs that want enterprise-grade automation without enterprise overhead.</p>
 <ul class="service-desc"><li>AI agents that drive software end-to-end the way a person would.</li><li>For a B2B agency in Norwich: an outbound agent that researches prospects, drafts personalised emails, and updates the CRM nightly.</li><li>Outcome: 8–12 hours of sales-team admin returned per week.</li></ul>
-<p class="service-desc">Each agent is grounded in your own data, with guardrails, audit trails, and a hand-back-to-human path when confidence is low.</p><span class="service-best">Best for</span><span class="service-best-list">Sales teams, B2B agencies, recruiters &amp; SMEs drowning in manual lead follow-up or repetitive research work.</span><span class="service-arrow-label">See demo</span><button class="service-arrow" onclick="event.stopPropagation();goToDemo(0)" aria-label="See AI Agent Development demo">→</button></div>
+<p class="service-desc">Each agent is grounded in your own data, with guardrails, audit trails, and a hand-back-to-human path when confidence is low.</p><span class="service-best">Best for</span><span class="service-best-list">Sales teams, B2B agencies, recruiters &amp; SMEs drowning in manual lead follow-up or repetitive research work.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(0)" aria-label="See AI Agent Development demo">→</button></div>
     <div class="service-card reveal reveal-delay-1" onclick="goToDemo(1)" tabindex="0" role="button" aria-label="Workflow Automation — see live demo"><div class="service-glow"></div><p class="service-num">02</p><span class="service-icon" aria-hidden="true">⚡</span><h3 class="service-name">Workflow Automation</h3><p class="service-desc">Workflow automation that connects the tools you already pay for — Xero, HubSpot, Slack, Sheets, Outlook — so the boring parts of operations run themselves.</p>
 <ul class="service-desc"><li>Workflow automation that removes manual hand-offs between systems.</li><li>For an accountancy practice in Ipswich, Suffolk: supplier invoices arrive by email, get categorised, posted to Xero, and flagged for approval — without a human touching them.</li><li>Outcome: invoice processing time cut from ~6 minutes to under 30 seconds.</li></ul>
-<p class="service-desc">We design around your existing process first, not a vendor's template, so the automation fits how your team actually works.</p><span class="service-best">Best for</span><span class="service-best-list">Finance, ops &amp; admin-heavy teams in professional services, accountancy, logistics &amp; e‑commerce wanting to cut manual processing costs.</span><span class="service-arrow-label">See demo</span><button class="service-arrow" onclick="event.stopPropagation();goToDemo(1)" aria-label="See Workflow Automation demo">→</button></div>
+<p class="service-desc">We design around your existing process first, not a vendor's template, so the automation fits how your team actually works.</p><span class="service-best">Best for</span><span class="service-best-list">Finance, ops &amp; admin-heavy teams in professional services, accountancy, logistics &amp; e‑commerce wanting to cut manual processing costs.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(1)" aria-label="See Workflow Automation demo">→</button></div>
     <div class="service-card reveal reveal-delay-2" onclick="goToDemo(3)" tabindex="0" role="button" aria-label="Predictive Intelligence — see live demo"><div class="service-glow"></div><p class="service-num">03</p><span class="service-icon" aria-hidden="true">🔮</span><h3 class="service-name">Predictive Intelligence</h3><p class="service-desc">Machine-learning models that forecast demand, flag anomalies, and surface opportunities — turning your historical data into decisions for next week, not next quarter.</p>
 <ul class="service-desc"><li>AI automation that learns from your past to predict your near future.</li><li>For a multi-site retailer in Cambridgeshire: a daily forecast of footfall and till volume per store, used to set staffing for the week ahead.</li><li>Outcome: 15–25% reduction in over-staffing costs without dropping service levels.</li></ul>
-<p class="service-desc">Models are explainable — you see <em>why</em> a forecast moved — and we re-train as your business changes (covered by our AI Ops service).</p><span class="service-best">Best for</span><span class="service-best-list">Retail, hospitality, manufacturing &amp; distribution businesses planning stock, staffing, pricing or maintenance from real data.</span><span class="service-arrow-label">See demo</span><button class="service-arrow" onclick="event.stopPropagation();goToDemo(3)" aria-label="See Predictive Intelligence demo">→</button></div>
+<p class="service-desc">Models are explainable — you see <em>why</em> a forecast moved — and we re-train as your business changes (covered by our AI Ops service).</p><span class="service-best">Best for</span><span class="service-best-list">Retail, hospitality, manufacturing &amp; distribution businesses planning stock, staffing, pricing or maintenance from real data.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(3)" aria-label="See Predictive Intelligence demo">→</button></div>
     <div class="service-card reveal reveal-delay-1" onclick="goToDemo(2)" tabindex="0" role="button" aria-label="LLM Integration — see live demo"><div class="service-glow"></div><p class="service-num">04</p><span class="service-icon" aria-hidden="true">💬</span><h3 class="service-name">LLM Integration</h3><p class="service-desc">Production deployments of large language models grounded in your own documents, with citations, guardrails, and a clean way to roll back when an answer is wrong.</p>
 <ul class="service-desc"><li>A private LLM that answers questions from your knowledge base, not the open web.</li><li>For a professional-services firm in Chelmsford, Essex: a triage assistant that drafts replies to inbound client emails using prior case notes and current policy documents.</li><li>Outcome: first-response time on tier-1 enquiries down from ~2 hours to under 5 minutes.</li></ul>
-<p class="service-desc">We integrate Claude, GPT, or open-source models depending on data-residency needs — everything stays in your tenant when that matters.</p><span class="service-best">Best for</span><span class="service-best-list">Customer support teams, legal &amp; professional services, healthcare admin and any business handling high volumes of documents or tier‑1 enquiries.</span><span class="service-arrow-label">See demo</span><button class="service-arrow" onclick="event.stopPropagation();goToDemo(2)" aria-label="See LLM Integration demo">→</button></div>
+<p class="service-desc">We integrate Claude, GPT, or open-source models depending on data-residency needs — everything stays in your tenant when that matters.</p><span class="service-best">Best for</span><span class="service-best-list">Customer support teams, legal &amp; professional services, healthcare admin and any business handling high volumes of documents or tier‑1 enquiries.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(2)" aria-label="See LLM Integration demo">→</button></div>
     <div class="service-card reveal reveal-delay-2" onclick="goToDemo(4)" tabindex="0" role="button" aria-label="Data Pipeline Architecture — see live demo"><div class="service-glow"></div><p class="service-num">05</p><span class="service-icon" aria-hidden="true">🔗</span><h3 class="service-name">Data Pipeline Architecture</h3><p class="service-desc">Real-time data pipelines that collect, clean, and route information across every system you run — so dashboards, AI models, and reports all draw from one trusted source.</p>
 <ul class="service-desc"><li>The plumbing that makes AI automation reliable: clean data, in the right place, on time.</li><li>For a regional logistics firm in King's Lynn, Norfolk: vehicle telemetry, driver hours, and customer ETAs unified into a single live ops view.</li><li>Outcome: stale spreadsheet exports eliminated; ETA accuracy improved from ~70% to ~94%.</li></ul>
-<p class="service-desc">We design pipelines that are observable end-to-end — you'll know within minutes if a feed breaks, not the morning after a board report.</p><span class="service-best">Best for</span><span class="service-best-list">Scaling SMEs, multi-site retailers, SaaS companies and operations teams stuck stitching spreadsheets between Stripe, Shopify, HubSpot, Xero, Sheets &amp; BI tools.</span><span class="service-arrow-label">See demo</span><button class="service-arrow" onclick="event.stopPropagation();goToDemo(4)" aria-label="See Data Pipeline demo">→</button></div>
+<p class="service-desc">We design pipelines that are observable end-to-end — you'll know within minutes if a feed breaks, not the morning after a board report.</p><span class="service-best">Best for</span><span class="service-best-list">Scaling SMEs, multi-site retailers, SaaS companies and operations teams stuck stitching spreadsheets between Stripe, Shopify, HubSpot, Xero, Sheets &amp; BI tools.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(4)" aria-label="See Data Pipeline demo">→</button></div>
     <div class="service-card reveal reveal-delay-3" onclick="goToDemo(5)" tabindex="0" role="button" aria-label="AI Ops &amp; Monitoring — see live demo"><div class="service-glow"></div><p class="service-num">06</p><span class="service-icon" aria-hidden="true">🛡️</span><h3 class="service-name">AI Ops &amp; Monitoring</h3><p class="service-desc">Continuous observability for everything we (or anyone) deploys: drift detection, performance monitoring, cost tracking, and automated retraining when accuracy slips.</p>
 <ul class="service-desc"><li>The maintenance layer that keeps AI automation accurate and on-budget.</li><li>For a manufacturer in Bury St Edmunds, Suffolk: alerts when a quality-control vision model starts mis-classifying parts after a packaging supplier change.</li><li>Outcome: model drift caught in hours rather than weeks, avoiding tens of thousands in scrap.</li></ul>
-<p class="service-desc">This is what separates an AI project that goes live from an AI capability that stays valuable two years on.</p><span class="service-best">Best for</span><span class="service-best-list">Any business already running AI/ML in production that needs assurance models stay accurate, compliant and cost-controlled over time.</span><span class="service-arrow-label">See demo</span><button class="service-arrow" onclick="event.stopPropagation();goToDemo(5)" aria-label="See AI Ops &amp; Monitoring demo">→</button></div>
+<p class="service-desc">This is what separates an AI project that goes live from an AI capability that stays valuable two years on.</p><span class="service-best">Best for</span><span class="service-best-list">Any business already running AI/ML in production that needs assurance models stay accurate, compliant and cost-controlled over time.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(5)" aria-label="See AI Ops &amp; Monitoring demo">→</button></div>
     <div class="service-card service-wide reveal" onclick="location.href='/ai-training.html'" tabindex="0" role="button" aria-label="AI Training for Businesses, view service"><div class="service-glow"></div><p class="service-num">07</p><span class="service-icon" aria-hidden="true">🎓</span><h3 class="service-name">AI Training for Businesses</h3><p class="service-desc">Hands-on AI training for your staff, built around the work they already do. We show teams how to get reliable results from tools like ChatGPT, Claude and Copilot, and how to keep company and customer data safe while they do it.</p>
 <ul class="service-desc"><li>Practical team workshops, leadership briefings and role-specific sessions, delivered on-site across East Anglia or remotely.</li><li>For a professional-services team in Colchester, Essex: a half-day workshop on drafting client letters and summarising case files, with clear rules on what data never goes into an AI tool.</li><li>Outcome: staff using approved tools with confidence, and a written AI use policy that people have actually read.</li></ul>
 <p class="service-desc">Every programme teaches people to check AI output as carefully as they write their prompts, so faster work doesn't mean less accurate work.</p><span class="service-best">Best for</span><span class="service-best-list">Owners, managers and office teams whose staff already use AI informally, or who want to roll it out safely with a clear policy from day one.</span><span class="service-arrow-label">View service</span><a class="service-arrow" href="/ai-training.html" onclick="event.stopPropagation()" aria-label="View AI Training for Businesses service">→</a></div>
@@ -193,12 +193,12 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <p class="section-label reveal">Live Demos</p>
   <h2 class="section-title reveal">See the <em style="color:var(--neon);font-style:normal;">automation</em> <br>in action.</h2>
   <div class="demo-tabs reveal">
-    <button class="demo-tab active" onclick="switchDemo(0,this)">🧠 AI Agent · Lead Qualification</button>
-    <button class="demo-tab" onclick="switchDemo(1,this)">⚡ Workflow · Invoice Processing</button>
-    <button class="demo-tab" onclick="switchDemo(2,this)">💬 LLM · Customer Support</button>
-    <button class="demo-tab" onclick="switchDemo(3,this)">🔮 Predictive · Demand Forecast</button>
-    <button class="demo-tab" onclick="switchDemo(4,this)">🔗 Data Pipeline · Live Sync</button>
-    <button class="demo-tab" onclick="switchDemo(5,this)">🛡️ AI Ops · Model Health</button>
+    <button type="button" class="demo-tab active" onclick="switchDemo(0,this)">🧠 AI Agent · Lead Qualification</button>
+    <button type="button" class="demo-tab" onclick="switchDemo(1,this)">⚡ Workflow · Invoice Processing</button>
+    <button type="button" class="demo-tab" onclick="switchDemo(2,this)">💬 LLM · Customer Support</button>
+    <button type="button" class="demo-tab" onclick="switchDemo(3,this)">🔮 Predictive · Demand Forecast</button>
+    <button type="button" class="demo-tab" onclick="switchDemo(4,this)">🔗 Data Pipeline · Live Sync</button>
+    <button type="button" class="demo-tab" onclick="switchDemo(5,this)">🛡️ AI Ops · Model Health</button>
   </div>
   <div class="demo-panels">
     <div class="demo-panel active" id="demo-0">
@@ -223,7 +223,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
             <div class="flow-step"><span class="fs-icon">✉️</span><div><div class="fs-name">Personalised Outreach Sent</div><div class="fs-detail">Custom email generated &amp; dispatched in 2.3s</div></div><span class="fs-status">⏳</span></div>
             <div class="flow-step"><span class="fs-icon">📅</span><div><div class="fs-name">Meeting Booked in CRM</div><div class="fs-detail">Calendly + HubSpot synced · Slack alert sent</div></div><span class="fs-status">⏳</span></div>
           </div>
-          <button class="demo-run-btn" onclick="runLeadDemo()">▶ Run Demo Again</button>
+          <button type="button" class="demo-run-btn" onclick="runLeadDemo()">▶ Run Demo Again</button>
         </div>
       </div>
     </div>
@@ -253,7 +253,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
             <div class="inv-row"><span class="inv-label">Anomaly Check</span><span class="inv-value">No flags</span><span class="inv-badge approved">CLEAR</span></div>
             <div class="inv-row"><span class="inv-label">Xero Post Status</span><span class="inv-value">Processing...</span><span class="inv-badge pending">PENDING</span></div>
           </div>
-          <button class="demo-run-btn" onclick="runInvoiceDemo()">▶ Process New Invoice</button>
+          <button type="button" class="demo-run-btn" onclick="runInvoiceDemo()">▶ Process New Invoice</button>
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         <div class="demo-visual-header"><div class="demo-dots"><span></span><span></span><span></span></div><span class="demo-vtitle">EAAIS Support Agent — Live Chat</span></div>
         <div class="demo-vbody">
           <div class="supp-msgs" id="suppChat"></div>
-          <button class="demo-run-btn" onclick="runSupportDemo()" style="margin-top:12px">▶ New Conversation</button>
+          <button type="button" class="demo-run-btn" onclick="runSupportDemo()" style="margin-top:12px">▶ New Conversation</button>
         </div>
       </div>
     </div>
@@ -300,7 +300,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
             <div class="fc-row warn"><span class="fc-name">SKU‑1242 · stockout risk</span><span class="fc-val">Reorder ✓</span></div>
             <div class="fc-row"><span class="fc-name">Staffing recommendation</span><span class="fc-val">+2 Sat shift</span></div>
           </div>
-          <button class="demo-run-btn" onclick="runForecastDemo()">▶ Recalculate Forecast</button>
+          <button type="button" class="demo-run-btn" onclick="runForecastDemo()">▶ Recalculate Forecast</button>
         </div>
       </div>
     </div>
@@ -331,7 +331,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
             <div class="pipe-counter"><b id="pipeLat">2.4s</b><span>Avg latency</span></div>
             <div class="pipe-counter"><b id="pipeErr">0.02%</b><span>Error rate</span></div>
           </div>
-          <button class="demo-run-btn" onclick="runPipelineDemo()">▶ Run New Sync</button>
+          <button type="button" class="demo-run-btn" onclick="runPipelineDemo()">▶ Run New Sync</button>
         </div>
       </div>
     </div>
@@ -362,7 +362,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
             <div class="pipe-counter"><b id="opsCost">£0.012</b><span>Cost / 1K calls</span></div>
             <div class="pipe-counter"><b id="opsRetrain">2</b><span>Auto-retrains today</span></div>
           </div>
-          <button class="demo-run-btn" onclick="runOpsDemo()">▶ Refresh Metrics</button>
+          <button type="button" class="demo-run-btn" onclick="runOpsDemo()">▶ Refresh Metrics</button>
         </div>
       </div>
     </div>
@@ -452,7 +452,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 <section class="blog" id="blog">
   <p class="section-label reveal">From the Blog</p>
   <h2 class="section-title reveal">AI insights for <br><em style="color:var(--neon);font-style:normal;">East Anglian business.</em></h2>
-  <div class="blog-carousel reveal" id="blogCarousel" aria-roledescription="carousel" aria-label="Articles from the blog">
+  <section class="blog-carousel reveal" id="blogCarousel" aria-roledescription="carousel" aria-label="Articles from the blog">
     <button class="blog-nav blog-prev" id="blogPrev" type="button" aria-label="Previous article">‹</button>
     <div class="blog-viewport">
       <div class="blog-track" id="blogTrack">
@@ -526,7 +526,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
     <button class="blog-nav blog-next" id="blogNext" type="button" aria-label="Next article">›</button>
     <div class="blog-dots" id="blogDots" role="group" aria-label="Choose article"></div>
-  </div>
+  </section>
 </section>
 
 <section class="faq-section" id="faq">
@@ -570,8 +570,8 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <div class="contact-grid">
     <a href="tel:+447466951175" class="contact-card reveal">
       <div class="contact-icon">📞</div>
-      <p class="contact-label">Call Us</p>
-      <p class="contact-value">07466 951175</p>
+      <p class="contact-label">Call&nbsp;Us</p>
+      <p class="contact-value">07466&nbsp;951175</p>
     </a>
     <a href="mailto:info@eastangliaaiservices.co.uk" class="contact-card reveal reveal-delay-1">
       <div class="contact-icon">✉️</div>
@@ -589,7 +589,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <input type="hidden" name="access_key" value="3be4d006-0b53-4f45-a1ce-eb6d337e4dac">
     <input type="hidden" name="subject" value="New enquiry from eastangliaaiservices.co.uk">
     <input type="hidden" name="from_name" value="East Anglia AI Services Website">
-    <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
+    <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" aria-label="Leave this field empty">
     <div class="cf-row">
       <div>
         <label for="cf-name">Name *</label>
@@ -619,7 +619,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
   </form>
 
-  <div class="contact-social reveal" aria-label="Follow East Anglia AI Services">
+  <div class="contact-social reveal" role="group" aria-label="Follow East Anglia AI Services">
     <a class="social-link" href="https://www.facebook.com/profile.php?id=61589538308485" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z"/></svg>
     </a>
@@ -642,14 +642,14 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <h2 class="cta-title reveal">Your competitors <br><span class="neon-text">are already using AI.</span></h2>
   <p class="cta-sub reveal">Let's build the systems that put East Anglia businesses 10 steps ahead. Book a free strategy session today.</p>
   <div class="reveal"><a href="mailto:info@eastangliaaiservices.co.uk" class="btn-primary">Book a Free Strategy Call</a></div>
-  <p class="reveal" style="margin-top:1rem;opacity:.7;font-size:.9rem;">Or call <a href="tel:+447466951175" style="color:var(--neon);">07466 951175</a></p>
+  <p class="reveal" style="margin-top:1rem;opacity:.7;font-size:.9rem;">Or call <a href="tel:+447466951175" style="color:var(--neon);">07466&nbsp;951175</a></p>
 </section>
 </main>
 
 <footer>
   <div class="footer-top">
     <div class="footer-brand"><div class="footer-logo-text">EAST ANGLIA AI SERVICES</div><p>Specialist AI automation for businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p>
-      <div class="footer-social" aria-label="Follow East Anglia AI Services">
+      <div class="footer-social" role="group" aria-label="Follow East Anglia AI Services">
         <a class="social-link" href="https://www.facebook.com/profile.php?id=61589538308485" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z"/></svg></a>
         <a class="social-link" href="https://www.linkedin.com/in/petar-petkov-3b9471343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
         <a class="social-link" href="https://www.tiktok.com/@east.anglia.ai.se" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 3.4-2.46V9.69a5.7 5.7 0 0 0-.81-.06A5.69 5.69 0 0 0 4.18 15.3 5.69 5.69 0 0 0 9.87 21a5.69 5.69 0 0 0 5.69-5.69V8.9a7.33 7.33 0 0 0 4.27 1.37V7.18a4.28 4.28 0 0 1-3.23-1.36Z"/></svg></a>
@@ -660,7 +660,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       </div>
     </div>
     <div class="footer-col"><h3>Services</h3><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li><li><a href="/ai-voice-agents.html">AI Voice Agents</a></li><li><a href="/ai-training.html">AI Training</a></li></ul></div>
-    <div class="footer-col"><h3>Company</h3><ul><li><a href="/about.html">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="/loss-calculator.html">Business Loss Calculator</a></li><li><a href="/ai-policy-generator.html">AI Use Policy Generator</a></li><li><a href="#process">Our Process</a></li><li><a href="#faq">FAQ</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466 951175</a></li></ul></div>
+    <div class="footer-col"><h3>Company</h3><ul><li><a href="/about.html">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="/loss-calculator.html">Business Loss Calculator</a></li><li><a href="/ai-policy-generator.html">AI Use Policy Generator</a></li><li><a href="#process">Our Process</a></li><li><a href="#faq">FAQ</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466&nbsp;951175</a></li></ul></div>
     <div class="footer-col"><h3>Legal</h3><ul><li><a href="/terms.html">Terms of Service</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/cookies.html">Cookie Policy</a></li><li><a href="/contactpolicy.html">Contact Policy</a></li><li><a href="/cookies.html" onclick="event.preventDefault();EAAISConsent.reopen();">Cookie Settings</a></li></ul></div>
   </div>
   <div class="footer-bottom">
@@ -673,24 +673,24 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
 <!-- ACCESSIBILITY -->
 <div id="a11y-wrapper">
-  <div id="a11y-panel" role="dialog" aria-label="Accessibility options" aria-hidden="true">
+  <div id="a11y-panel" role="dialog" aria-label="Accessibility options">
     <p class="a11y-title">Accessibility</p>
     <p class="a11y-intro">Adjust the site to suit you. Choices are saved on this device.</p>
     <div class="a11y-opt">
       <label id="a11y-motion-lbl">Reduce motion</label>
-      <button class="a11y-switch" data-opt="motion" aria-pressed="false" aria-labelledby="a11y-motion-lbl"></button>
+      <button type="button" class="a11y-switch" data-opt="motion" aria-pressed="false" aria-labelledby="a11y-motion-lbl"></button>
     </div>
     <div class="a11y-opt">
       <label id="a11y-contrast-lbl">Higher contrast</label>
-      <button class="a11y-switch" data-opt="contrast" aria-pressed="false" aria-labelledby="a11y-contrast-lbl"></button>
+      <button type="button" class="a11y-switch" data-opt="contrast" aria-pressed="false" aria-labelledby="a11y-contrast-lbl"></button>
     </div>
     <div class="a11y-opt">
       <label id="a11y-text-lbl">Larger text</label>
-      <button class="a11y-switch" data-opt="text" aria-pressed="false" aria-labelledby="a11y-text-lbl"></button>
+      <button type="button" class="a11y-switch" data-opt="text" aria-pressed="false" aria-labelledby="a11y-text-lbl"></button>
     </div>
-    <button class="a11y-reset" id="a11y-reset">Reset to defaults</button>
+    <button type="button" class="a11y-reset" id="a11y-reset">Reset to defaults</button>
   </div>
-  <button id="a11y-toggle" onclick="toggleA11y()" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
+  <button type="button" id="a11y-toggle" onclick="toggleA11y()" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8.5 4.74a1 1 0 0 0-1.22-.71l-4.79 1.28a8 8 0 0 1-5 0L4.72 6.03a1 1 0 1 0-.52 1.94l4.8 1.28V14l-1.9 6.04a1 1 0 0 0 1.9.6L10.8 15h2.4l1.8 5.64a1 1 0 0 0 1.9-.6L15 14V9.25l4.8-1.28a1 1 0 0 0 .7-1.23Z"/></svg>
   </button>
 </div>
@@ -704,18 +704,18 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
     <div class="chat-msgs" id="chatMsgs"></div>
     <div class="chat-chips" id="chatChips">
-      <button class="chip" onclick="sendChip(this)">What services do you offer?</button>
-      <button class="chip" onclick="sendChip(this)">How much does it cost?</button>
-      <button class="chip" onclick="sendChip(this)">How fast can you deploy?</button>
-      <button class="chip" onclick="sendChip(this)">Do you work with SMEs?</button>
+      <button type="button" class="chip" onclick="sendChip(this)">What services do you offer?</button>
+      <button type="button" class="chip" onclick="sendChip(this)">How much does it cost?</button>
+      <button type="button" class="chip" onclick="sendChip(this)">How fast can you deploy?</button>
+      <button type="button" class="chip" onclick="sendChip(this)">Do you work with SMEs?</button>
     </div>
     <div class="chat-input-row" id="chatInputRow">
       <textarea id="chat-input" placeholder="Ask ARIA anything..." aria-label="Message to ARIA assistant" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-      <button id="chat-send" onclick="sendMsg()" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+      <button type="button" id="chat-send" onclick="sendMsg()" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
     </div>
   </div>
-  <button id="chat-toggle" onclick="toggleChat()" aria-label="Open AI chat assistant" aria-expanded="false" aria-controls="chat-window">
-    <div class="chat-notif" id="chatNotif">1</div>
+  <button type="button" id="chat-toggle" onclick="toggleChat()" aria-label="Open AI chat assistant" aria-expanded="false" aria-controls="chat-window">
+    <span class="chat-notif" id="chatNotif">1</span>
     <svg class="chat-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     <svg class="chat-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
   </button>

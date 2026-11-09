@@ -6,11 +6,13 @@ on:
     paths:
       - "**/*.html"
       - "sitemap.xml"
+      - ".htmlvalidate.json"
       - ".github/workflows/html-check.yml"
   pull_request:
     paths:
       - "**/*.html"
       - "sitemap.xml"
+      - ".htmlvalidate.json"
       - ".github/workflows/html-check.yml"
   workflow_dispatch: {}
 
@@ -26,13 +28,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      # Non-blocking for now: this surfaces ~88 pre-existing findings (mostly
-      # missing button type="" and inline styles, both deliberate in this
-      # codebase's style) unrelated to any single change. Flip to blocking
-      # once those are triaged in a follow-up pass.
+      # Blocking: the site validates cleanly against .htmlvalidate.json
+      # (recommended rules, with inline styles allowed by design). Version is
+      # pinned so a new release can't start failing builds on its own.
       - name: Run html-validate
-        continue-on-error: true
-        run: npx --yes html-validate "**/*.html"
+        run: npx --yes html-validate@9 "**/*.html"
 
   link-check:
     name: Link check
