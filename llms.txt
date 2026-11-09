@@ -1,12 +1,14 @@
 # East Anglia AI Services
 
-> Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines, AI ops and AI training for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex (UK). Founded and run by Petar Petkov.
+> Specialist AI automation consultancy delivering custom AI agents, workflow automation, predictive intelligence, LLM integration, data pipelines, AI ops and AI training for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex (UK). Founded in Norwich in 2026 by Petar Petkov (Founder & AI Automation Consultant) and Magdalena Peeva (Co-founder & Director).
 
-East Anglia AI Services (EAAIS) builds and deploys production AI systems for SMEs — not generic software, but automation designed around how a specific business already works. Typical engagements: invoice-processing automation, AI voice agents for customer service, predictive demand forecasting, LLM-powered chatbots grounded in a company's own documents, continuous AI ops monitoring for deployed models, and hands-on AI training for staff. Projects typically go from discovery to a live system in a matter of weeks. Based in Norwich, Norfolk. Contact: info@eastangliaaiservices.co.uk, +44 7466 951175.
+East Anglia AI Services (EAAIS) builds and deploys production AI systems for SMEs — not generic software, but automation designed around how a specific business already works. Typical engagements: invoice-processing automation, AI voice agents for customer service, predictive demand forecasting, LLM-powered chatbots grounded in a company's own documents, continuous AI ops monitoring for deployed models, and hands-on AI training for staff. Projects typically go from discovery to a live system in a matter of weeks. Registered office: 44 Amderley Drive, Norwich, NR4 6HZ (East Anglia AI Services Ltd, company no. 17381169). Prices start from £295 (leadership AI briefing), £595 (team AI training), £1,500 (workflow automation pilot) and £1,200 + £149/month (AI voice agent); every project gets a fixed written quote. Contact: info@eastangliaaiservices.co.uk, +44 7466 951175.
 
 ## Pages
 
-- [Home](https://eastangliaaiservices.co.uk/): Overview of services, live interactive demos, regional coverage, process and FAQ.
+- [Home](https://eastangliaaiservices.co.uk/): Overview of services, live interactive demos, regional coverage, process, pricing and FAQ.
+- [About](https://eastangliaaiservices.co.uk/about.html): Who is behind EAAIS: founder Petar Petkov (Norwich-based AI automation consultant; background in marketing, business management and data administration; speaks English, Bulgarian and five other South Slavic languages), co-founder Magdalena Peeva, and company facts.
+- [Pricing](https://eastangliaaiservices.co.uk/#pricing): Published starting prices for every service.
 - [AI Training for Businesses](https://eastangliaaiservices.co.uk/ai-training.html): Hands-on AI training for staff, including team workshops, leadership briefings and role-specific sessions on safe, productive AI use, delivered on-site across East Anglia or remotely UK-wide.
 - [Free AI Readiness Assessment](https://eastangliaaiservices.co.uk/ai-readiness.html): A free 10-question, 2-minute quiz that scores a business's AI readiness and gives tailored recommendations.
 - [Business Loss Calculator](https://eastangliaaiservices.co.uk/loss-calculator.html): A free calculator that estimates how much a business is losing yearly to missed calls, slow lead response and manual admin — with an instant breakdown and recommendations.
@@ -18,6 +20,10 @@ East Anglia AI Services (EAAIS) builds and deploys production AI systems for SME
 - [Local LLMs for Business](https://eastangliaaiservices.co.uk/blog/local-llm-business-east-anglia.html): Why East Anglian firms are bringing AI in-house with private, locally-hosted models.
 - [How the Right AI Helps Small Businesses Grow](https://eastangliaaiservices.co.uk/blog/ai-growth-small-business-east-anglia.html): Evidence and starting points for AI-driven growth in East Anglia's small business sector.
 - [Voice Agents in Customer Service](https://eastangliaaiservices.co.uk/blog/voice-agents-customer-service-east-anglia.html): How AI voice agents answer every call, book jobs, and cut missed-call losses.
+
+## More detail
+
+- [llms-full.txt](https://eastangliaaiservices.co.uk/llms-full.txt): Full service descriptions, prices, founder bios and FAQs in one file.
 
 ## Service area
 
