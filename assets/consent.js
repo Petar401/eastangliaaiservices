@@ -1,7 +1,8 @@
 /*!
  * EAAIS consent + GA4/Clarity/Preferred-Source gate
  * - Injects the cookie banner into every page.
- * - Loads Google Analytics 4, Microsoft Clarity and the Google Preferred
+ * - GA4 (gtag.js) is inlined in each page head with consent denied by default;
+ *   this script loads Microsoft Clarity and the Google Preferred
  *   Source button script ONLY after the visitor clicks Accept.
  * - Clears _ga, _clck and _clsk cookies on Reject.
  * - Google Consent Mode v2 (basic): every signal defaults to "denied"; the
@@ -15,18 +16,11 @@
   var CLARITY_ID = 'ydpebg25fy';
   var HOSTNAME = (location.hostname || '').replace(/^www\./, '');
 
-  // Consent Mode v2 defaults must be queued before gtag.js ever loads.
+  // The Google tag (gtag.js) and Consent Mode v2 defaults (all denied) are
+  // inlined in every page's <head> so Google can detect the tag. Here we only
+  // update consent on the visitor's choice.
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-  window.gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
 
   function setConsent(granted) {
     window.gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
@@ -38,17 +32,6 @@
   }
   function write(value) {
     try { localStorage.setItem(STORAGE_KEY, value); } catch (e) { /* private mode */ }
-  }
-
-  function loadGA() {
-    if (window.__eaaisGAloaded) return;
-    window.__eaaisGAloaded = true;
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, { anonymize_ip: true });
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
   }
 
   function loadClarity() {
@@ -98,7 +81,7 @@
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-label', 'Cookie consent');
     wrap.innerHTML =
-      '<p class="eaais-cookie-text">We use essential storage plus optional Google Analytics 4, Microsoft Clarity and a Google Preferred Source button (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>, <code>_clck</code>, <code>_clsk</code>, and Google\'s own <code>NID</code> cookie) to measure aggregate traffic and session behaviour, and let you mark us as a preferred source in Google Search. Nothing loads until you choose. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
+      '<p class="eaais-cookie-text">We use essential storage plus Google Analytics 4 (cookieless until you accept), optional Microsoft Clarity and a Google Preferred Source button (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>, <code>_clck</code>, <code>_clsk</code>, and Google\'s own <code>NID</code> cookie) to measure aggregate traffic and session behaviour, and let you mark us as a preferred source in Google Search. Analytics cookies are only set if you accept. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
       '<div class="eaais-cookie-actions">' +
         '<button type="button" class="eaais-cookie-btn primary" data-eaais="accept">Accept</button>' +
         '<button type="button" class="eaais-cookie-btn" data-eaais="reject">Reject Non-Essential</button>' +
@@ -111,7 +94,7 @@
   function show() { makeBanner(); var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.add('show'); }
   function hide() { var b = document.getElementById('eaais-cookie-banner'); if (b) b.classList.remove('show'); }
 
-  function accept() { write('accepted'); setConsent(true); loadGA(); loadClarity(); loadPreferredSource(); hide(); }
+  function accept() { write('accepted'); setConsent(true); loadClarity(); loadPreferredSource(); hide(); }
   function reject() { write('rejected'); setConsent(false); clearGACookies(); clearClarityCookies(); hide(); }
   function reopen() { makeBanner(); show(); }
   function status() { return read(); }
@@ -121,7 +104,7 @@
   function boot() {
     makeBanner();
     var v = read();
-    if (v === 'accepted') { setConsent(true); loadGA(); loadClarity(); loadPreferredSource(); }
+    if (v === 'accepted') { setConsent(true); loadClarity(); loadPreferredSource(); }
     else if (v === 'rejected') { clearGACookies(); clearClarityCookies(); }
     else setTimeout(show, 1200);
   }
