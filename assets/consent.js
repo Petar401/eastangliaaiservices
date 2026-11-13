@@ -5,9 +5,11 @@
  *   this script loads Microsoft Clarity and the Google Preferred
  *   Source button script ONLY after the visitor clicks Accept.
  * - Clears _ga, _clck and _clsk cookies on Reject.
- * - Google Consent Mode v2 (basic): every signal defaults to "denied"; the
- *   analytics signal is updated to "granted" only on Accept. Ad signals stay
- *   denied because the site runs no advertising tags.
+ * - Google Consent Mode v2 (advanced): the Google tag itself loads on every
+ *   page with every signal defaulting to "denied", so before Accept it sets
+ *   no cookies but does send cookieless pings to Google. The analytics signal
+ *   is updated to "granted" only on Accept. Ad signals stay denied because
+ *   the site runs no advertising tags.
  * - Public API: window.EAAISConsent.{accept,reject,reopen,status}
  */
 (function () {

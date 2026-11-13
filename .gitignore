@@ -1,0 +1,15 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local tooling (the site has no build step; these only appear when running checks locally)
+node_modules/
+npm-debug.log*
+.lighthouseci/
+
+# Secrets must never be committed
+.env
+.env.*
