@@ -237,6 +237,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(0,255,231,.08);backgroun
 #chat-toggle.open .chat-open{display:none;}
 #chat-toggle.open .chat-close{display:block;}
 .chat-notif{position:absolute;top:-5px;right:-5px;width:17px;height:17px;background:var(--neon3);border-radius:50%;font-family:var(--mono);font-size:.5rem;color:#fff;display:flex;align-items:center;justify-content:center;animation:nPulse 2s infinite;}
+.chat-notif::after{content:"1";}
 @keyframes nPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,153,.4)}50%{box-shadow:0 0 0 8px rgba(255,0,153,0)}}
 #chat-window{position:absolute;bottom:68px;right:0;width:330px;background:var(--dark2);border:1px solid rgba(0,255,231,.2);box-shadow:0 0 50px rgba(0,0,0,.8),0 0 22px rgba(0,255,231,.08);display:flex;flex-direction:column;transform:translateY(14px) scale(.96);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.34,1.56,.64,1);max-height:510px;}
 #chat-window.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
