@@ -83,11 +83,11 @@
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-label', 'Cookie consent');
     wrap.innerHTML =
-      '<p class="eaais-cookie-text">We use essential storage plus Google Analytics 4 (cookieless until you accept), optional Microsoft Clarity and a Google Preferred Source button (cookies <code>_ga</code>, <code>_ga_F6TTH896D0</code>, <code>_clck</code>, <code>_clsk</code>, and Google\'s own <code>NID</code> cookie) to measure aggregate traffic and session behaviour, and let you mark us as a preferred source in Google Search. Analytics cookies are only set if you accept. See our <a href="/cookies.html">Cookie Policy</a>.</p>' +
+      '<p class="eaais-cookie-text">We use essential storage and cookieless Google Analytics. If you accept, we also set analytics cookies (Google Analytics, Microsoft Clarity) and load Google\'s Preferred Source button. Details and cookie names are in our <a href="/cookies.html">Cookie Policy</a>.</p>' +
       '<div class="eaais-cookie-actions">' +
         '<button type="button" class="eaais-cookie-btn primary" data-eaais="accept">Accept</button>' +
         '<button type="button" class="eaais-cookie-btn" data-eaais="reject">Reject Non-Essential</button>' +
-        '<a class="eaais-cookie-btn" href="/cookies.html">Cookie Settings</a>' +
+        '<a class="eaais-cookie-btn quiet" href="/cookies.html">Cookie Settings</a>' +
       '</div>';
     document.body.appendChild(wrap);
     wrap.querySelector('[data-eaais="accept"]').addEventListener('click', accept);
@@ -118,7 +118,7 @@
     var where = location.pathname;
     if (href.indexOf('tel:') === 0) { track('call_click', { link_location: where }); return; }
     if (href.indexOf('mailto:') === 0) { track('email_click', { link_location: where }); return; }
-    if (/(^|\s)(btn-primary|nav-cta|m-cta)(\s|$)/.test(el.className || '')) {
+    if (/(^|\s)(btn-primary|btn-secondary|btn-ghost|nav-cta|m-cta)(\s|$)/.test(el.className || '')) {
       track('cta_click', {
         cta_text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60),
         cta_target: href || 'button',

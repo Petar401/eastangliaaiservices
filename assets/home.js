@@ -3,14 +3,11 @@
  * referenced by inline onclick="" handlers stay global and the DOM is already parsed. */
 // CURSOR
 const cur=document.getElementById('cursor'),rng=document.getElementById('cursorRing');
-if(cur){let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-5+'px';cur.style.top=my-5+'px';});(function ar(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;if(rng){rng.style.left=rx-18+'px';rng.style.top=ry-18+'px';}requestAnimationFrame(ar);})();document.querySelectorAll('a,button,.service-card,.demo-tab,.chip').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.2)';if(rng)rng.style.transform='scale(1.4)';});el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';if(rng)rng.style.transform='scale(1)';});});}
-
-// HAMBURGER
-function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileNav').classList.contains('open')?'hidden':'';}
+if(cur&&window.matchMedia&&window.matchMedia('(pointer:fine)').matches){let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-5+'px';cur.style.top=my-5+'px';});(function ar(){requestAnimationFrame(ar);if(document.hidden||document.documentElement.classList.contains('reduce-motion'))return;rx+=(mx-rx)*.12;ry+=(my-ry)*.12;if(rng){rng.style.left=rx-18+'px';rng.style.top=ry-18+'px';}})();document.querySelectorAll('a,button,summary').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.2)';if(rng)rng.style.transform='scale(1.4)';});el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';if(rng)rng.style.transform='scale(1)';});});}
 
 // THREE.JS — loaded on demand. Phones, Save-Data connections and reduced-motion
 // visitors never download the ~600 KB library; they get the static CSS backdrop.
-function wants3D(){var c=navigator.connection;return window.innerWidth>=680&&!(c&&c.saveData)&&!document.documentElement.classList.contains('reduce-motion');}
+function wants3D(){var c=navigator.connection;return window.innerWidth>=960&&!(c&&c.saveData)&&!document.documentElement.classList.contains('reduce-motion');}
 var threeState=0;
 function loadThree(){if(threeState)return;threeState=1;var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.integrity='sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu';s.crossOrigin='anonymous';s.onload=function(){document.documentElement.classList.remove('no-3d');initHeroScene();};s.onerror=function(){threeState=0;};document.head.appendChild(s);}
 // Placeholder until initHeroScene() installs the real start/stop handlers
@@ -65,17 +62,20 @@ window.__hexStart=function(){if(hexTimer||document.hidden||document.documentElem
 document.addEventListener('visibilitychange',()=>{if(document.hidden)window.__hexStop();else window.__hexStart();});
 window.__hexStart();
 
+// Tool cards show their detail by default on wide screens; phones keep it collapsed.
+if(window.matchMedia('(min-width:1001px)').matches)document.querySelectorAll('.tool-more').forEach(d=>{d.open=true;});
+
 // SCROLL REVEAL
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -5% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // DEMO TABS
-function switchDemo(i,btn){document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.demo-panel').forEach(p=>p.classList.remove('active'));if(btn)btn.classList.add('active');else{const tabs=document.querySelectorAll('.demo-tab');if(tabs[i])tabs[i].classList.add('active');}document.getElementById('demo-'+i).classList.add('active');if(i===0)runLeadDemo();if(i===1)runInvoiceDemo();if(i===2)runSupportDemo();if(i===3)runForecastDemo();if(i===4)runPipelineDemo();if(i===5)runOpsDemo();}
+function switchDemo(i,btn){document.querySelectorAll('.demo-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});document.querySelectorAll('.demo-panel').forEach(p=>p.classList.remove('active'));if(!btn)btn=document.querySelectorAll('.demo-tab')[i];if(btn){btn.classList.add('active');btn.setAttribute('aria-selected','true');}document.getElementById('demo-'+i).classList.add('active');if(i===0)runLeadDemo();if(i===1)runInvoiceDemo();if(i===2)runSupportDemo();if(i===3)runForecastDemo();if(i===4)runPipelineDemo();if(i===5)runOpsDemo();}
 function goToDemo(i){switchDemo(i,null);const el=document.getElementById('demos');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 
 // LEAD DEMO
 function runLeadDemo(){const steps=document.querySelectorAll('#flow0 .flow-step');steps.forEach(s=>{s.classList.remove('active','done');s.querySelector('.fs-status').textContent='⏳';});steps[0].classList.add('active');steps[0].querySelector('.fs-status').textContent='🟢';steps.forEach((s,i)=>{if(i===0)return;setTimeout(()=>{steps[i-1].classList.remove('active');steps[i-1].classList.add('done');steps[i-1].querySelector('.fs-status').textContent='✅';steps[i].classList.add('active');steps[i].querySelector('.fs-status').textContent='🟢';if(i===steps.length-1){setTimeout(()=>{steps[i].classList.remove('active');steps[i].classList.add('done');steps[i].querySelector('.fs-status').textContent='✅';},1100);}},i*1200);});}
-runLeadDemo();
+(function(){const d=document.getElementById('demos');if(!d||!('IntersectionObserver' in window)){runLeadDemo();return;}const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();runLeadDemo();}},{threshold:.15});o.observe(d);})();
 
 // INVOICE DEMO
 function runInvoiceDemo(){const bar=document.getElementById('invBar');const bs=document.querySelectorAll('#demo-1 .inv-badge');bs.forEach(b=>{b.className='inv-badge pending';b.textContent='SCANNING...';});bar.style.width='0';setTimeout(()=>{bar.style.width='100%';},80);const lbls=['EXTRACTED','EXTRACTED','EXTRACTED','EXTRACTED','EXTRACTED','APPROVED','CLEAR','PENDING'];const cls=['extracted','extracted','extracted','extracted','extracted','approved','approved','pending'];bs.forEach((b,i)=>{setTimeout(()=>{b.className='inv-badge '+cls[i];b.textContent=lbls[i];},500+(i*320));});setTimeout(()=>{bs[7].className='inv-badge approved';bs[7].textContent='POSTED ✓';},500+7*320+700);}
@@ -90,18 +90,11 @@ function runPipelineDemo(){const stages=document.querySelectorAll('#pipeStages .
 
 function runOpsDemo(){const rows=document.querySelectorAll('#opsRows .ops-row');if(!rows.length)return;rows.forEach(r=>{const bar=r.querySelector('.ops-meter b');if(!bar)return;const w=bar.style.width;bar.style.width='0';setTimeout(()=>{bar.style.width=w;},120);});const h=document.getElementById('opsHealth');const c=document.getElementById('opsCost');const rt=document.getElementById('opsRetrain');if(h)h.textContent=(82+Math.floor(Math.random()*8))+'%';if(c)c.textContent='£'+(0.009+Math.random()*0.006).toFixed(3);if(rt)rt.textContent=String(1+Math.floor(Math.random()*3));}
 
-// Keyboard accessibility — let Enter/Space trigger the service-card click
-document.querySelectorAll('.service-card[onclick]').forEach(card=>{card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click();}});});
-
-// MODALS
-
-// COOKIE CONSENT — banner + GA gate live in /assets/consent.js (window.EAAISConsent)
-
 // CHATBOT
 let chatOpen=false,chatStarted=false,loading=false;
 showChatUI();
 function openChat(){if(!chatOpen)toggleChat();}
-function toggleChat(){chatOpen=!chatOpen;const tg=document.getElementById('chat-toggle');tg.classList.toggle('open',chatOpen);tg.setAttribute('aria-expanded',chatOpen?'true':'false');tg.setAttribute('aria-label',chatOpen?'Close AI chat assistant':'Open AI chat assistant');document.getElementById('chat-window').classList.toggle('open',chatOpen);if(chatOpen){document.getElementById('chatNotif').style.display='none';if(!chatStarted)greet();}}
+function toggleChat(){chatOpen=!chatOpen;const tg=document.getElementById('chat-toggle');tg.classList.toggle('open',chatOpen);tg.setAttribute('aria-expanded',chatOpen?'true':'false');tg.setAttribute('aria-label',chatOpen?'Close AI chat assistant':'Open AI chat assistant');document.getElementById('chat-window').classList.toggle('open',chatOpen);if(chatOpen){document.getElementById('chatNotif').style.display='none';if(!chatStarted)greet();if(window.EAAISNav)window.EAAISNav.close();if(window.matchMedia('(pointer:fine)').matches)document.getElementById('chat-input').focus();}}
 function showChatUI(){document.getElementById('chatMsgs').classList.add('active');document.getElementById('chatChips').classList.add('active');document.getElementById('chatInputRow').classList.add('active');}
 function greet(){addMsg('ai',"Hi! I'm **ARIA**, your East Anglia AI Services assistant 🤖\n\nI can answer questions about our services, pricing, and how AI automation could benefit your business. How can I help?");}
 function addMsg(role,text){const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='cmsg '+(role==='ai'?'ai':'user');const av=document.createElement('div');av.className='cmsg-av';av.textContent=role==='ai'?'🤖':'👤';const b=document.createElement('div');b.className='cmsg-bub';const safe=role==='ai'?text:String(text).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));b.innerHTML=safe.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');d.appendChild(av);d.appendChild(b);c.appendChild(d);c.scrollTop=c.scrollHeight;chatStarted=true;}
@@ -133,66 +126,8 @@ function localReply(text){
 function sendMsg(){if(loading)return;const inp=document.getElementById('chat-input');const text=inp.value.trim();if(!text)return;inp.value='';inp.style.height='auto';addMsg('user',text);loading=true;document.getElementById('chat-send').disabled=true;showTyping();const delay=600+Math.random()*500;setTimeout(()=>{removeTyping();addMsg('ai',localReply(text));loading=false;document.getElementById('chat-send').disabled=false;},delay);}
 setTimeout(()=>{if(!chatOpen)document.getElementById('chatNotif').style.display='flex';},3000);
 
-// CONTACT FORM (Web3Forms, AJAX submit — no page redirect)
-(function(){
-  const form=document.getElementById('contactForm');
-  if(!form)return;
-  const status=document.getElementById('formStatus');
-  const btn=document.getElementById('cfSubmit');
-  form.addEventListener('submit',async function(e){
-    e.preventDefault();
-    status.className='form-status';
-    btn.disabled=true;const orig=btn.textContent;btn.textContent='Sending…';
-    try{
-      const res=await fetch('https://api.web3forms.com/submit',{
-        method:'POST',
-        headers:{'Accept':'application/json'},
-        body:new FormData(form)
-      });
-      const data=await res.json();
-      if(res.ok&&data.success){
-        status.textContent="Thanks — your message is on its way. We'll be in touch within 1 business day.";
-        status.className='form-status ok show';
-        form.reset();
-        if(window.EAAISTrack)window.EAAISTrack('form_submit',{form_id:'contact'});
-      }else{
-        status.textContent=(data&&data.message)?data.message:'Something went wrong. Please email info@eastangliaaiservices.co.uk instead.';
-        status.className='form-status err show';
-        if(window.EAAISTrack)window.EAAISTrack('form_submit_failed',{form_id:'contact'});
-      }
-    }catch(err){
-      status.textContent='Network error — please email info@eastangliaaiservices.co.uk or call 07466 951175.';
-      status.className='form-status err show';
-    }finally{
-      btn.disabled=false;btn.textContent=orig;
-    }
-  });
-})();
-
-// ACCESSIBILITY PANEL
-function toggleA11y(){const p=document.getElementById('a11y-panel');const t=document.getElementById('a11y-toggle');const open=!p.classList.contains('open');p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true');t.setAttribute('aria-expanded',open?'true':'false');}
-(function(){
-  const root=document.documentElement;
-  const KEYS={motion:'eaais_a11y_motion',contrast:'eaais_a11y_contrast',text:'eaais_a11y_text'};
-  const CLS={motion:'reduce-motion',contrast:'high-contrast',text:'large-text'};
-  function save(k,v){try{localStorage.setItem(k,v);}catch(e){}}
-  function apply(opt,on,persist){
-    root.classList.toggle(CLS[opt],on);
-    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
-    if(btn)btn.setAttribute('aria-pressed',on?'true':'false');
-    if(persist)save(KEYS[opt],on?'1':'0');
-    if(opt==='motion'){if(on){if(window.__heroStop)window.__heroStop();window.__hexStop();}else{if(window.__heroStart)window.__heroStart();window.__hexStart();}}
-  }
-  ['motion','contrast','text'].forEach(function(opt){
-    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
-    if(!btn)return;
-    btn.setAttribute('aria-pressed',root.classList.contains(CLS[opt])?'true':'false');
-    btn.addEventListener('click',function(){apply(opt,!root.classList.contains(CLS[opt]),true);});
-  });
-  const reset=document.getElementById('a11y-reset');
-  if(reset)reset.addEventListener('click',function(){['motion','contrast','text'].forEach(function(opt){apply(opt,false,false);try{localStorage.removeItem(KEYS[opt]);}catch(e){}});});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){const p=document.getElementById('a11y-panel');if(p&&p.classList.contains('open'))toggleA11y();}});
-})();
+// The enquiry form and accessibility options are handled by /assets/site.js
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chatOpen){toggleChat();document.getElementById('chat-toggle').focus();}});
 
 // BLOG CAROUSEL
 (function(){

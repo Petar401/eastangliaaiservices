@@ -17,12 +17,13 @@
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TTH896D0"></script>
 <script defer src="/assets/consent.js"></script>
+<script defer src="/assets/site.js"></script>
 <title>AI Automation Agency East Anglia | Norfolk, Suffolk | EAAIS</title>
 <meta name="description" content="Custom AI agents, workflow automation and AI training for SMEs in Norfolk, Suffolk, Cambridgeshire and Essex. Live in weeks. Book a free strategy call.">
 <meta name="keywords" content="AI automation East Anglia, AI agency Norfolk, AI consultancy Suffolk, workflow automation UK, AI agents for SMEs, LLM integration, predictive analytics, data pipeline architecture, AI ops monitoring, business AI Cambridgeshire, AI services Essex">
 <meta name="author" content="East Anglia AI Services Ltd">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#00ffe7">
+<meta name="theme-color" content="#010108">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -45,7 +46,10 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How East Anglia AI Services delivers an AI automation project", "description": "From idea to live system in weeks: our four-stage process for delivering custom AI agents and workflow automation.", "step": [{"@type": "HowToStep", "position": 1, "name": "Discovery & Mapping", "text": "We audit your workflows, identify automation opportunities, and define ROI targets before writing a single line of code."}, {"@type": "HowToStep", "position": 2, "name": "Architecture Design", "text": "Our engineers design the full system — models, pipelines, integrations, and failure modes mapped in detail."}, {"@type": "HowToStep", "position": 3, "name": "Build & Train", "text": "We build, fine-tune, and rigorously test every component against real production scenarios with your data."}, {"@type": "HowToStep", "position": 4, "name": "Deploy & Evolve", "text": "Seamless deployment with full monitoring. Systems learn and improve continuously as your business grows."}]}</script>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link rel="preload" href="/assets/fonts/syne-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/syne-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/home.css">
 </head>
 <body>
@@ -53,7 +57,7 @@
 /* Apply saved accessibility preferences before paint (avoids flash) */
 (function(){var r=document.documentElement;function g(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 var m=g('eaais_a11y_motion');if(m===null){m=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)?'1':'0';}
-if(m==='1')r.classList.add('reduce-motion');
+r.classList.add('js',m==='1'?'reduce-motion':'motion-ok');
 if(g('eaais_a11y_contrast')==='1')r.classList.add('high-contrast');
 if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 </script>
@@ -63,36 +67,34 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 <div class="cursor-ring" id="cursorRing"></div>
 <canvas id="hero-canvas"></canvas>
 
-<nav>
+<nav class="site-nav" aria-label="Main">
   <a href="/" class="logo">EAAIS<small>East Anglia AI Services</small></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#demos">Demos</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/ai-readiness.html">AI Readiness</a></li>
-    <li><a href="/loss-calculator.html">Loss Calculator</a></li>
-    <li><a href="/ai-policy-generator.html">AI Policy</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button type="button" class="nav-cta" onclick="openChat()">Talk to ARIA</button>
-  <button type="button" class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-panel" id="navPanel">
+    <ul class="nav-links">
+      <li class="has-sub"><a href="#services">Services</a>
+        <ul class="sub">
+          <li><a href="/ai-voice-agents.html">AI Voice Agents</a></li>
+          <li><a href="/ai-training.html">AI Training</a></li>
+          <li><a href="#demos">Demos</a></li>
+        </ul>
+      </li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li class="has-sub"><button type="button" class="sub-btn" aria-expanded="false" aria-controls="subTools">Tools</button>
+        <ul class="sub" id="subTools">
+          <li><a href="/ai-readiness.html">AI Readiness</a></li>
+          <li><a href="/loss-calculator.html">Loss Calculator</a></li>
+          <li><a href="/ai-policy-generator.html">AI Policy</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="nav-phone"><a href="tel:+447466951175">07466&nbsp;951175</a></li>
+    </ul>
+  </div>
+  <a href="#contact" class="nav-cta">Book a Free Call</a>
+  <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navPanel"><span></span><span></span><span></span></button>
 </nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#demos" onclick="toggleMenu()">Demos</a>
-  <a href="#process" onclick="toggleMenu()">Process</a>
-  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
-  <a href="/about.html" onclick="toggleMenu()">About</a>
-  <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="/ai-readiness.html" onclick="toggleMenu()">AI Readiness</a>
-  <a href="/loss-calculator.html" onclick="toggleMenu()">Loss Calculator</a>
-  <a href="/ai-policy-generator.html" onclick="toggleMenu()">AI Policy</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <button type="button" class="m-cta" onclick="toggleMenu();openChat()">Talk to ARIA</button>
-</div>
 
 <main id="main" tabindex="-1">
 <section class="hero">
@@ -101,10 +103,9 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <p class="hero-sub">East Anglia's specialist AI automation agency — delivering intelligent systems to businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Book a Free Strategy Call</a>
-    <a href="/ai-readiness.html" class="btn-primary">Free AI Readiness Test</a>
-    <a href="#demos" class="btn-secondary">See Live Demos</a>
-    <a href="#services" class="btn-secondary">Our Services</a>
+    <a href="/ai-readiness.html" class="btn-secondary">Free AI Readiness Test</a>
   </div>
+  <p class="hero-links"><a href="#demos" class="text-link">See Live Demos</a><a href="#services" class="text-link">Our Services</a></p>
   <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll</span></div>
 </section>
 
@@ -116,7 +117,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <div class="about-grid">
     <div class="about-text">
       <p class="section-label reveal">Who We Are</p>
-      <h2 class="section-title reveal">Intelligence, <br>engineered for <br><em style="color:var(--neon);font-style:normal;">East Anglia.</em></h2>
+      <h2 class="section-title reveal">Intelligence, <br>engineered for <br><em class="hl">East Anglia.</em></h2>
       <div class="about-block reveal">
         <h3 class="about-block-title">How EAAIS began</h3>
         <p>EAAIS was created to bridge the gap between advanced AI tools and the everyday needs of East Anglia businesses. We started with one goal: make AI accessible, practical and profitable for local business.</p>
@@ -154,34 +155,69 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <p class="section-label reveal">What We Build</p>
   <h2 class="section-title reveal">Our core <br>capabilities.</h2>
   <div class="services-grid">
-    <div class="service-card reveal" onclick="goToDemo(0)"><div class="service-glow"></div><p class="service-num">01</p><span class="service-icon" aria-hidden="true">🧠</span><h3 class="service-name">AI Agent Development</h3><p class="service-desc">Custom AI agents — autonomous software workers that reason, plan, and act across your existing stack. We build them for East Anglia SMEs that want enterprise-grade automation without enterprise overhead.</p>
-<ul class="service-desc"><li>AI agents that drive software end-to-end the way a person would.</li><li>For a B2B agency in Norwich: an outbound agent that researches prospects, drafts personalised emails, and updates the CRM nightly.</li><li>Outcome: 8–12 hours of sales-team admin returned per week.</li></ul>
-<p class="service-desc">Each agent is grounded in your own data, with guardrails, audit trails, and a hand-back-to-human path when confidence is low.</p><span class="service-best">Best for</span><span class="service-best-list">Sales teams, B2B agencies, recruiters &amp; SMEs drowning in manual lead follow-up or repetitive research work.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(0)" aria-label="See AI Agent Development demo">→</button></div>
-    <div class="service-card reveal reveal-delay-1" onclick="goToDemo(1)"><div class="service-glow"></div><p class="service-num">02</p><span class="service-icon" aria-hidden="true">⚡</span><h3 class="service-name">Workflow Automation</h3><p class="service-desc">Workflow automation that connects the tools you already pay for — Xero, HubSpot, Slack, Sheets, Outlook — so the boring parts of operations run themselves.</p>
-<ul class="service-desc"><li>Workflow automation that removes manual hand-offs between systems.</li><li>For an accountancy practice in Ipswich, Suffolk: supplier invoices arrive by email, get categorised, posted to Xero, and flagged for approval — without a human touching them.</li><li>Outcome: invoice processing time cut from ~6 minutes to under 30 seconds.</li></ul>
-<p class="service-desc">We design around your existing process first, not a vendor's template, so the automation fits how your team actually works.</p><span class="service-best">Best for</span><span class="service-best-list">Finance, ops &amp; admin-heavy teams in professional services, accountancy, logistics &amp; e‑commerce wanting to cut manual processing costs.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(1)" aria-label="See Workflow Automation demo">→</button></div>
-    <div class="service-card reveal reveal-delay-2" onclick="goToDemo(3)"><div class="service-glow"></div><p class="service-num">03</p><span class="service-icon" aria-hidden="true">🔮</span><h3 class="service-name">Predictive Intelligence</h3><p class="service-desc">Machine-learning models that forecast demand, flag anomalies, and surface opportunities — turning your historical data into decisions for next week, not next quarter.</p>
-<ul class="service-desc"><li>AI automation that learns from your past to predict your near future.</li><li>For a multi-site retailer in Cambridgeshire: a daily forecast of footfall and till volume per store, used to set staffing for the week ahead.</li><li>Outcome: 15–25% reduction in over-staffing costs without dropping service levels.</li></ul>
-<p class="service-desc">Models are explainable — you see <em>why</em> a forecast moved — and we re-train as your business changes (covered by our AI Ops service).</p><span class="service-best">Best for</span><span class="service-best-list">Retail, hospitality, manufacturing &amp; distribution businesses planning stock, staffing, pricing or maintenance from real data.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(3)" aria-label="See Predictive Intelligence demo">→</button></div>
-    <div class="service-card reveal reveal-delay-1" onclick="goToDemo(2)"><div class="service-glow"></div><p class="service-num">04</p><span class="service-icon" aria-hidden="true">💬</span><h3 class="service-name">LLM Integration</h3><p class="service-desc">Production deployments of large language models grounded in your own documents, with citations, guardrails, and a clean way to roll back when an answer is wrong.</p>
-<ul class="service-desc"><li>A private LLM that answers questions from your knowledge base, not the open web.</li><li>For a professional-services firm in Chelmsford, Essex: a triage assistant that drafts replies to inbound client emails using prior case notes and current policy documents.</li><li>Outcome: first-response time on tier-1 enquiries down from ~2 hours to under 5 minutes.</li></ul>
-<p class="service-desc">We integrate Claude, GPT, or open-source models depending on data-residency needs — everything stays in your tenant when that matters.</p><span class="service-best">Best for</span><span class="service-best-list">Customer support teams, legal &amp; professional services, healthcare admin and any business handling high volumes of documents or tier‑1 enquiries.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(2)" aria-label="See LLM Integration demo">→</button></div>
-    <div class="service-card reveal reveal-delay-2" onclick="goToDemo(4)"><div class="service-glow"></div><p class="service-num">05</p><span class="service-icon" aria-hidden="true">🔗</span><h3 class="service-name">Data Pipeline Architecture</h3><p class="service-desc">Real-time data pipelines that collect, clean, and route information across every system you run — so dashboards, AI models, and reports all draw from one trusted source.</p>
-<ul class="service-desc"><li>The plumbing that makes AI automation reliable: clean data, in the right place, on time.</li><li>For a regional logistics firm in King's Lynn, Norfolk: vehicle telemetry, driver hours, and customer ETAs unified into a single live ops view.</li><li>Outcome: stale spreadsheet exports eliminated; ETA accuracy improved from ~70% to ~94%.</li></ul>
-<p class="service-desc">We design pipelines that are observable end-to-end — you'll know within minutes if a feed breaks, not the morning after a board report.</p><span class="service-best">Best for</span><span class="service-best-list">Scaling SMEs, multi-site retailers, SaaS companies and operations teams stuck stitching spreadsheets between Stripe, Shopify, HubSpot, Xero, Sheets &amp; BI tools.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(4)" aria-label="See Data Pipeline demo">→</button></div>
-    <div class="service-card reveal reveal-delay-3" onclick="goToDemo(5)"><div class="service-glow"></div><p class="service-num">06</p><span class="service-icon" aria-hidden="true">🛡️</span><h3 class="service-name">AI Ops &amp; Monitoring</h3><p class="service-desc">Continuous observability for everything we (or anyone) deploys: drift detection, performance monitoring, cost tracking, and automated retraining when accuracy slips.</p>
-<ul class="service-desc"><li>The maintenance layer that keeps AI automation accurate and on-budget.</li><li>For a manufacturer in Bury St Edmunds, Suffolk: alerts when a quality-control vision model starts mis-classifying parts after a packaging supplier change.</li><li>Outcome: model drift caught in hours rather than weeks, avoiding tens of thousands in scrap.</li></ul>
-<p class="service-desc">This is what separates an AI project that goes live from an AI capability that stays valuable two years on.</p><span class="service-best">Best for</span><span class="service-best-list">Any business already running AI/ML in production that needs assurance models stay accurate, compliant and cost-controlled over time.</span><span class="service-arrow-label">See demo</span><button type="button" class="service-arrow" onclick="event.stopPropagation();goToDemo(5)" aria-label="See AI Ops &amp; Monitoring demo">→</button></div>
-    <div class="service-card service-wide reveal" onclick="location.href='/ai-training.html'"><div class="service-glow"></div><p class="service-num">07</p><span class="service-icon" aria-hidden="true">🎓</span><h3 class="service-name">AI Training for Businesses</h3><p class="service-desc">Hands-on AI training for your staff, built around the work they already do. We show teams how to get reliable results from tools like ChatGPT, Claude and Copilot, and how to keep company and customer data safe while they do it.</p>
-<ul class="service-desc"><li>Practical team workshops, leadership briefings and role-specific sessions, delivered on-site across East Anglia or remotely.</li><li>For a professional-services team in Colchester, Essex: a half-day workshop on drafting client letters and summarising case files, with clear rules on what data never goes into an AI tool.</li><li>Outcome: staff using approved tools with confidence, and a written AI use policy that people have actually read.</li></ul>
-<p class="service-desc">Every programme teaches people to check AI output as carefully as they write their prompts, so faster work doesn't mean less accurate work.</p><span class="service-best">Best for</span><span class="service-best-list">Owners, managers and office teams whose staff already use AI informally, or who want to roll it out safely with a clear policy from day one.</span><span class="service-arrow-label">View service</span><a class="service-arrow" href="/ai-training.html" onclick="event.stopPropagation()" aria-label="View AI Training for Businesses service">→</a></div>
+    <article class="service-card reveal"><div class="service-glow"></div><p class="service-num">01</p><span class="service-icon" aria-hidden="true">🧠</span><h3 class="service-name">AI Agent Development</h3>
+      <p class="service-desc">Custom AI agents — autonomous software workers that reason, plan, and act across your existing stack. We build them for East Anglia SMEs that want enterprise-grade automation without enterprise overhead.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Sales teams, B2B agencies, recruiters &amp; SMEs drowning in manual lead follow-up or repetitive research work.</p>
+        <ul class="service-desc"><li>AI agents that drive software end-to-end the way a person would.</li><li>For a B2B agency in Norwich: an outbound agent that researches prospects, drafts personalised emails, and updates the CRM nightly.</li><li>Outcome: 8–12 hours of sales-team admin returned per week.</li></ul>
+        <p class="service-desc">Each agent is grounded in your own data, with guardrails, audit trails, and a hand-back-to-human path when confidence is low.</p>
+      </details>
+      <button type="button" class="service-link" onclick="goToDemo(0)">See <span class="vh">AI Agent Development </span>demo →</button></article>
+    <article class="service-card reveal reveal-delay-1"><div class="service-glow"></div><p class="service-num">02</p><span class="service-icon" aria-hidden="true">⚡</span><h3 class="service-name">Workflow Automation</h3>
+      <p class="service-desc">Workflow automation that connects the tools you already pay for — Xero, HubSpot, Slack, Sheets, Outlook — so the boring parts of operations run themselves.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Finance, ops &amp; admin-heavy teams in professional services, accountancy, logistics &amp; e‑commerce wanting to cut manual processing costs.</p>
+        <ul class="service-desc"><li>Workflow automation that removes manual hand-offs between systems.</li><li>For an accountancy practice in Ipswich, Suffolk: supplier invoices arrive by email, get categorised, posted to Xero, and flagged for approval — without a human touching them.</li><li>Outcome: invoice processing time cut from ~6 minutes to under 30 seconds.</li></ul>
+        <p class="service-desc">We design around your existing process first, not a vendor's template, so the automation fits how your team actually works.</p>
+      </details>
+      <button type="button" class="service-link" onclick="goToDemo(1)">See <span class="vh">Workflow Automation </span>demo →</button></article>
+    <article class="service-card reveal reveal-delay-2"><div class="service-glow"></div><p class="service-num">03</p><span class="service-icon" aria-hidden="true">🔮</span><h3 class="service-name">Predictive Intelligence</h3>
+      <p class="service-desc">Machine-learning models that forecast demand, flag anomalies, and surface opportunities — turning your historical data into decisions for next week, not next quarter.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Retail, hospitality, manufacturing &amp; distribution businesses planning stock, staffing, pricing or maintenance from real data.</p>
+        <ul class="service-desc"><li>AI automation that learns from your past to predict your near future.</li><li>For a multi-site retailer in Cambridgeshire: a daily forecast of footfall and till volume per store, used to set staffing for the week ahead.</li><li>Outcome: 15–25% reduction in over-staffing costs without dropping service levels.</li></ul>
+        <p class="service-desc">Models are explainable — you see <em>why</em> a forecast moved — and we re-train as your business changes (covered by our AI Ops service).</p>
+      </details>
+      <button type="button" class="service-link" onclick="goToDemo(3)">See <span class="vh">Predictive Intelligence </span>demo →</button></article>
+    <article class="service-card reveal reveal-delay-1"><div class="service-glow"></div><p class="service-num">04</p><span class="service-icon" aria-hidden="true">💬</span><h3 class="service-name">LLM Integration</h3>
+      <p class="service-desc">Production deployments of large language models grounded in your own documents, with citations, guardrails, and a clean way to roll back when an answer is wrong.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Customer support teams, legal &amp; professional services, healthcare admin and any business handling high volumes of documents or tier‑1 enquiries.</p>
+        <ul class="service-desc"><li>A private LLM that answers questions from your knowledge base, not the open web.</li><li>For a professional-services firm in Chelmsford, Essex: a triage assistant that drafts replies to inbound client emails using prior case notes and current policy documents.</li><li>Outcome: first-response time on tier-1 enquiries down from ~2 hours to under 5 minutes.</li></ul>
+        <p class="service-desc">We integrate Claude, GPT, or open-source models depending on data-residency needs — everything stays in your tenant when that matters.</p>
+      </details>
+      <button type="button" class="service-link" onclick="goToDemo(2)">See <span class="vh">LLM Integration </span>demo →</button></article>
+    <article class="service-card reveal reveal-delay-2"><div class="service-glow"></div><p class="service-num">05</p><span class="service-icon" aria-hidden="true">🔗</span><h3 class="service-name">Data Pipeline Architecture</h3>
+      <p class="service-desc">Real-time data pipelines that collect, clean, and route information across every system you run — so dashboards, AI models, and reports all draw from one trusted source.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Scaling SMEs, multi-site retailers, SaaS companies and operations teams stuck stitching spreadsheets between Stripe, Shopify, HubSpot, Xero, Sheets &amp; BI tools.</p>
+        <ul class="service-desc"><li>The plumbing that makes AI automation reliable: clean data, in the right place, on time.</li><li>For a regional logistics firm in King's Lynn, Norfolk: vehicle telemetry, driver hours, and customer ETAs unified into a single live ops view.</li><li>Outcome: stale spreadsheet exports eliminated; ETA accuracy improved from ~70% to ~94%.</li></ul>
+        <p class="service-desc">We design pipelines that are observable end-to-end — you'll know within minutes if a feed breaks, not the morning after a board report.</p>
+      </details>
+      <button type="button" class="service-link" onclick="goToDemo(4)">See <span class="vh">Data Pipeline Architecture </span>demo →</button></article>
+    <article class="service-card reveal reveal-delay-3"><div class="service-glow"></div><p class="service-num">06</p><span class="service-icon" aria-hidden="true">🛡️</span><h3 class="service-name">AI Ops &amp; Monitoring</h3>
+      <p class="service-desc">Continuous observability for everything we (or anyone) deploys: drift detection, performance monitoring, cost tracking, and automated retraining when accuracy slips.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Any business already running AI/ML in production that needs assurance models stay accurate, compliant and cost-controlled over time.</p>
+        <ul class="service-desc"><li>The maintenance layer that keeps AI automation accurate and on-budget.</li><li>For a manufacturer in Bury St Edmunds, Suffolk: alerts when a quality-control vision model starts mis-classifying parts after a packaging supplier change.</li><li>Outcome: model drift caught in hours rather than weeks, avoiding tens of thousands in scrap.</li></ul>
+        <p class="service-desc">This is what separates an AI project that goes live from an AI capability that stays valuable two years on.</p>
+      </details>
+      <button type="button" class="service-link" onclick="goToDemo(5)">See <span class="vh">AI Ops &amp; Monitoring </span>demo →</button></article>
+    <article class="service-card service-wide reveal"><div class="service-glow"></div><p class="service-num">07</p><span class="service-icon" aria-hidden="true">🎓</span><h3 class="service-name">AI Training for Businesses</h3>
+      <p class="service-desc">Hands-on AI training for your staff, built around the work they already do. We show teams how to get reliable results from tools like ChatGPT, Claude and Copilot, and how to keep company and customer data safe while they do it.</p>
+      <details class="service-more"><summary>Who it's for and an example</summary>
+        <p class="service-best">Best for</p><p class="service-best-list">Owners, managers and office teams whose staff already use AI informally, or who want to roll it out safely with a clear policy from day one.</p>
+        <ul class="service-desc"><li>Practical team workshops, leadership briefings and role-specific sessions, delivered on-site across East Anglia or remotely.</li><li>For a professional-services team in Colchester, Essex: a half-day workshop on drafting client letters and summarising case files, with clear rules on what data never goes into an AI tool.</li><li>Outcome: staff using approved tools with confidence, and a written AI use policy that people have actually read.</li></ul>
+        <p class="service-desc">Every programme teaches people to check AI output as carefully as they write their prompts, so faster work doesn't mean less accurate work.</p>
+      </details>
+      <a class="service-link" href="/ai-training.html">View <span class="vh">AI Training for Businesses </span>service →</a></article>
   </div>
-  <div class="reveal" style="text-align:center;margin-top:48px;"><a href="#contact" class="btn-primary">Book a Free Strategy Call</a></div>
+  <div class="section-cta reveal"><a href="#contact" class="btn-primary">Book a Free Strategy Call</a></div>
 </section>
 
 <section id="pricing">
   <p class="section-label reveal">Pricing</p>
-  <h2 class="section-title reveal">Clear starting <em style="color:var(--neon);font-style:normal;">prices.</em></h2>
+  <h2 class="section-title reveal">Clear starting <em class="hl">prices.</em></h2>
   <p class="pricing-intro reveal">Every project gets a fixed written quote before any work starts. These are typical starting points for small and medium businesses in East Anglia. All prices exclude VAT.</p>
   <div class="pricing-grid">
     <div class="price-card reveal"><p class="price-amount">Free</p><h3 class="price-name">Strategy call</h3><p class="price-desc">30 minutes on where AI would save you the most time, and what it would cost. No obligation.</p></div>
@@ -193,24 +229,24 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <div class="price-card reveal"><p class="price-amount"><span class="price-from">from</span>£3,000</p><h3 class="price-name">Custom AI agent or LLM integration</h3><p class="price-desc">An AI agent or chatbot grounded in your own documents and systems, with guardrails and audit trails.</p></div>
     <div class="price-card reveal"><p class="price-amount"><span class="price-from">from</span>£199<span class="price-unit">/month</span></p><h3 class="price-name">AI Ops monitoring &amp; support</h3><p class="price-desc">Ongoing monitoring for accuracy, drift and cost, plus changes and support. From £199/month.</p></div>
   </div>
-  <div class="reveal" style="text-align:center;margin-top:40px;"><a href="#contact" class="btn-primary">Get a Fixed Quote</a></div>
+  <div class="section-cta reveal"><a href="#contact" class="btn-primary">Get a Fixed Quote</a></div>
 </section>
 
 <div class="div-marquee" aria-hidden="true"><div class="div-inner"><span class="div-item">AUTOMATE</span><span class="div-item f">◆</span><span class="div-item">INNOVATE</span><span class="div-item f">◆</span><span class="div-item">SCALE</span><span class="div-item f">◆</span><span class="div-item">AUTOMATE</span><span class="div-item f">◆</span><span class="div-item">INNOVATE</span><span class="div-item f">◆</span><span class="div-item">SCALE</span><span class="div-item f">◆</span><span class="div-item">AUTOMATE</span><span class="div-item f">◆</span><span class="div-item">INNOVATE</span><span class="div-item f">◆</span><span class="div-item">SCALE</span><span class="div-item f">◆</span></div></div>
 
 <section class="demos" id="demos">
   <p class="section-label reveal">Live Demos</p>
-  <h2 class="section-title reveal">See the <em style="color:var(--neon);font-style:normal;">automation</em> <br>in action.</h2>
-  <div class="demo-tabs reveal">
-    <button type="button" class="demo-tab active" onclick="switchDemo(0,this)">🧠 AI Agent · Lead Qualification</button>
-    <button type="button" class="demo-tab" onclick="switchDemo(1,this)">⚡ Workflow · Invoice Processing</button>
-    <button type="button" class="demo-tab" onclick="switchDemo(2,this)">💬 LLM · Customer Support</button>
-    <button type="button" class="demo-tab" onclick="switchDemo(3,this)">🔮 Predictive · Demand Forecast</button>
-    <button type="button" class="demo-tab" onclick="switchDemo(4,this)">🔗 Data Pipeline · Live Sync</button>
-    <button type="button" class="demo-tab" onclick="switchDemo(5,this)">🛡️ AI Ops · Model Health</button>
+  <h2 class="section-title reveal">See the <em class="hl">automation</em> <br>in action.</h2>
+  <div class="demo-tabs reveal" role="tablist" aria-label="Live demos">
+    <button type="button" class="demo-tab active" role="tab" id="demo-tab-0" aria-controls="demo-0" aria-selected="true" onclick="switchDemo(0,this)">🧠 AI Agent · Lead Qualification</button>
+    <button type="button" class="demo-tab" role="tab" id="demo-tab-1" aria-controls="demo-1" aria-selected="false" onclick="switchDemo(1,this)">⚡ Workflow · Invoice Processing</button>
+    <button type="button" class="demo-tab" role="tab" id="demo-tab-2" aria-controls="demo-2" aria-selected="false" onclick="switchDemo(2,this)">💬 LLM · Customer Support</button>
+    <button type="button" class="demo-tab" role="tab" id="demo-tab-3" aria-controls="demo-3" aria-selected="false" onclick="switchDemo(3,this)">🔮 Predictive · Demand Forecast</button>
+    <button type="button" class="demo-tab" role="tab" id="demo-tab-4" aria-controls="demo-4" aria-selected="false" onclick="switchDemo(4,this)">🔗 Data Pipeline · Live Sync</button>
+    <button type="button" class="demo-tab" role="tab" id="demo-tab-5" aria-controls="demo-5" aria-selected="false" onclick="switchDemo(5,this)">🛡️ AI Ops · Model Health</button>
   </div>
   <div class="demo-panels">
-    <div class="demo-panel active" id="demo-0">
+    <div class="demo-panel active" id="demo-0" role="tabpanel" aria-labelledby="demo-tab-0">
       <div class="demo-info">
         <h3 class="demo-title">Lead Qualification Bot</h3>
         <p class="demo-desc">An AI agent monitors inbound channels 24/7, scores leads using your criteria, qualifies automatically, and books meetings directly into your CRM — without a single human touch.</p>
@@ -236,7 +272,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         </div>
       </div>
     </div>
-    <div class="demo-panel" id="demo-1">
+    <div class="demo-panel" id="demo-1" role="tabpanel" aria-labelledby="demo-tab-1">
       <div class="demo-info">
         <h3 class="demo-title">Invoice Processing AI</h3>
         <p class="demo-desc">Upload any invoice — scanned, PDF, or email attachment. Our AI extracts all fields with 99.2% accuracy, validates against POs, flags anomalies, routes for approval, and posts to your accounting software.</p>
@@ -266,7 +302,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         </div>
       </div>
     </div>
-    <div class="demo-panel" id="demo-2">
+    <div class="demo-panel" id="demo-2" role="tabpanel" aria-labelledby="demo-tab-2">
       <div class="demo-info">
         <h3 class="demo-title">Customer Support AI</h3>
         <p class="demo-desc">A fine-tuned AI trained on your products, policies, and FAQs. Handles tier-1 queries instantly, escalates complex issues to the right human with full context, and learns from every interaction.</p>
@@ -286,7 +322,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         </div>
       </div>
     </div>
-    <div class="demo-panel" id="demo-3">
+    <div class="demo-panel" id="demo-3" role="tabpanel" aria-labelledby="demo-tab-3">
       <div class="demo-info">
         <h3 class="demo-title">Demand Forecasting Engine</h3>
         <p class="demo-desc">A predictive model trained on your sales, weather, events and seasonality. Forecasts next week's demand by SKU or service, flags stockout risk, and automatically triggers reorders or staffing adjustments.</p>
@@ -313,7 +349,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         </div>
       </div>
     </div>
-    <div class="demo-panel" id="demo-4">
+    <div class="demo-panel" id="demo-4" role="tabpanel" aria-labelledby="demo-tab-4">
       <div class="demo-info">
         <h3 class="demo-title">Real-Time Data Pipeline</h3>
         <p class="demo-desc">A unified pipeline that pulls live data from Stripe, Shopify, HubSpot and Xero, cleans and normalises it, and lands a single trusted dataset in your warehouse — ready for dashboards, AI models, or BI tools in seconds, not days.</p>
@@ -344,7 +380,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         </div>
       </div>
     </div>
-    <div class="demo-panel" id="demo-5">
+    <div class="demo-panel" id="demo-5" role="tabpanel" aria-labelledby="demo-tab-5">
       <div class="demo-info">
         <h3 class="demo-title">AI Ops &amp; Model Health Dashboard</h3>
         <p class="demo-desc">Continuous monitoring of every model in production — accuracy, drift, latency, cost per call. The system raises alerts, A/B tests new versions, and triggers automated retraining when performance degrades.</p>
@@ -380,7 +416,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
 <section class="process" id="process">
   <p class="section-label reveal">How It Works</p>
-  <h2 class="section-title reveal">From idea to <br><em style="color:var(--neon);font-style:normal;">live system</em> in weeks.</h2>
+  <h2 class="section-title reveal">From idea to <br><em class="hl">live system</em> in weeks.</h2>
   <div class="process-steps">
     <div class="step reveal"><div class="step-dot">🔍</div><p class="step-num">Step 01</p><h3 class="step-title">Discovery &amp; Mapping</h3><p class="step-desc">We audit your workflows, identify automation opportunities, and define ROI targets before writing a single line of code.</p></div>
     <div class="step reveal reveal-delay-1"><div class="step-dot">🏗️</div><p class="step-num">Step 02</p><h3 class="step-title">Architecture Design</h3><p class="step-desc">Our engineers design the full system — models, pipelines, integrations, and failure modes mapped in detail.</p></div>
@@ -389,78 +425,48 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   </div>
 </section>
 
-<section id="ai-readiness" style="background:var(--dark3);">
-  <p class="section-label reveal">Free AI Readiness Test</p>
-  <h2 class="section-title reveal">Is your business <br><em style="color:var(--neon);font-style:normal;">ready for AI?</em></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p class="reveal">Answer <strong>10 quick questions</strong> about your goals, data, systems and team — and get an <strong>instant, personalised AI readiness report</strong>: your score out of 30, your readiness level, and the practical next steps we'd recommend for your business.</p>
-      <p class="reveal">It takes about <strong>2 minutes</strong>, it's <strong>completely free</strong>, and you can print or save your report as a PDF. No obligation — just a clear picture of where you stand.</p>
-      <div class="reveal" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="/ai-readiness.html" class="btn-primary">▶ Take the Free Test</a>
-        <a href="/ai-readiness.html" class="btn-secondary">10 questions · 2 minutes</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="demo-stats-grid">
-        <div class="demo-stat"><div class="demo-stat-num">10</div><div class="demo-stat-label">Quick questions</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">2 min</div><div class="demo-stat-label">To complete</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">/30</div><div class="demo-stat-label">Scored report</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">£0</div><div class="demo-stat-label">Free, no obligation</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="loss-calculator" style="background:var(--dark3);">
-  <p class="section-label reveal">Free Business Loss Calculator</p>
-  <h2 class="section-title reveal">What are missed calls <br><em style="color:var(--neon);font-style:normal;">really costing you?</em></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p class="reveal">Answer a few quick questions about your calls, leads and admin hours — and see an <strong>instant, categorised breakdown</strong> of what missed calls, slow lead response and manual admin cost your business every year.</p>
-      <p class="reveal">It takes about <strong>60 seconds</strong>, it's <strong>completely free</strong>, and you can print or save your breakdown as a PDF. No obligation — just a clear picture of what's leaking.</p>
-      <div class="reveal" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="/loss-calculator.html" class="btn-primary">▶ Calculate My Losses</a>
-        <a href="/loss-calculator.html" class="btn-secondary">60 seconds · Instant breakdown</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="demo-stats-grid">
-        <div class="demo-stat"><div class="demo-stat-num">60s</div><div class="demo-stat-label">To complete</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">3</div><div class="demo-stat-label">Loss categories</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">Instant</div><div class="demo-stat-label">Breakdown</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">£0</div><div class="demo-stat-label">Free, no obligation</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="ai-policy-generator" style="background:var(--dark3);">
-  <p class="section-label reveal">Free AI Use Policy Generator</p>
-  <h2 class="section-title reveal">Does your team <br><em style="color:var(--neon);font-style:normal;">have AI rules yet?</em></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p class="reveal">Answer <strong>8 quick questions</strong> about your industry, your team and the AI tools you already use — and get an <strong>instant, tailored AI use policy</strong>: data handling rules, acceptable use, human review requirements and UK GDPR compliance, ready to adapt.</p>
-      <p class="reveal">It takes about <strong>3 minutes</strong>, it's <strong>completely free</strong>, and you can print or save your policy as a PDF. No obligation — just a clear, practical starting point.</p>
-      <div class="reveal" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="/ai-policy-generator.html" class="btn-primary">▶ Generate My Policy</a>
-        <a href="/ai-policy-generator.html" class="btn-secondary">8 questions · 3 minutes</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="demo-stats-grid">
-        <div class="demo-stat"><div class="demo-stat-num">8</div><div class="demo-stat-label">Quick questions</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">3 min</div><div class="demo-stat-label">To complete</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">12</div><div class="demo-stat-label">Policy sections</div></div>
-        <div class="demo-stat"><div class="demo-stat-num">£0</div><div class="demo-stat-label">Free, no obligation</div></div>
-      </div>
-    </div>
+<section class="tools" id="tools">
+  <p class="section-label reveal">Free Tools</p>
+  <div class="tools-grid">
+    <article class="tool-card reveal" id="ai-readiness">
+      <p class="tool-kicker">Free AI Readiness Test</p>
+      <h2 class="tool-title">Is your business <br><em class="hl">ready for AI?</em></h2>
+      <p class="tool-text">Answer <strong>10 quick questions</strong> about your goals, data, systems and team — and get an <strong>instant, personalised AI readiness report</strong>: your score out of 30, your readiness level, and the practical next steps we'd recommend for your business.</p>
+      <details class="tool-more"><summary>What you get</summary>
+      <p class="tool-text">It takes about <strong>2 minutes</strong>, it's <strong>completely free</strong>, and you can print or save your report as a PDF. No obligation — just a clear picture of where you stand.</p>
+      <ul class="tool-stats"><li><b>10</b> Quick questions</li><li><b>2 min</b> To complete</li><li><b>/30</b> Scored report</li><li><b>£0</b> Free, no obligation</li></ul>
+      </details>
+      <a href="/ai-readiness.html" class="btn-primary">▶ Take the Free Test</a>
+      <p class="tool-meta">10 questions · 2 minutes</p>
+    </article>
+    <article class="tool-card reveal" id="loss-calculator">
+      <p class="tool-kicker">Free Business Loss Calculator</p>
+      <h2 class="tool-title">What are missed calls <br><em class="hl">really costing you?</em></h2>
+      <p class="tool-text">Answer a few quick questions about your calls, leads and admin hours — and see an <strong>instant, categorised breakdown</strong> of what missed calls, slow lead response and manual admin cost your business every year.</p>
+      <details class="tool-more"><summary>What you get</summary>
+      <p class="tool-text">It takes about <strong>60 seconds</strong>, it's <strong>completely free</strong>, and you can print or save your breakdown as a PDF. No obligation — just a clear picture of what's leaking.</p>
+      <ul class="tool-stats"><li><b>60s</b> To complete</li><li><b>3</b> Loss categories</li><li><b>Instant</b> Breakdown</li><li><b>£0</b> Free, no obligation</li></ul>
+      </details>
+      <a href="/loss-calculator.html" class="btn-primary">▶ Calculate My Losses</a>
+      <p class="tool-meta">60 seconds · Instant breakdown</p>
+    </article>
+    <article class="tool-card reveal" id="ai-policy-generator">
+      <p class="tool-kicker">Free AI Use Policy Generator</p>
+      <h2 class="tool-title">Does your team <br><em class="hl">have AI rules yet?</em></h2>
+      <p class="tool-text">Answer <strong>8 quick questions</strong> about your industry, your team and the AI tools you already use — and get an <strong>instant, tailored AI use policy</strong>: data handling rules, acceptable use, human review requirements and UK GDPR compliance, ready to adapt.</p>
+      <details class="tool-more"><summary>What you get</summary>
+      <p class="tool-text">It takes about <strong>3 minutes</strong>, it's <strong>completely free</strong>, and you can print or save your policy as a PDF. No obligation — just a clear, practical starting point.</p>
+      <ul class="tool-stats"><li><b>8</b> Quick questions</li><li><b>3 min</b> To complete</li><li><b>12</b> Policy sections</li><li><b>£0</b> Free, no obligation</li></ul>
+      </details>
+      <a href="/ai-policy-generator.html" class="btn-primary">▶ Generate My Policy</a>
+      <p class="tool-meta">8 questions · 3 minutes</p>
+    </article>
   </div>
 </section>
 
 <section class="blog" id="blog">
   <p class="section-label reveal">From the Blog</p>
-  <h2 class="section-title reveal">AI insights for <br><em style="color:var(--neon);font-style:normal;">East Anglian business.</em></h2>
+  <h2 class="section-title reveal">AI insights for <br><em class="hl">East Anglian business.</em></h2>
   <section class="blog-carousel reveal" id="blogCarousel" aria-roledescription="carousel" aria-label="Articles from the blog">
     <button class="blog-nav blog-prev" id="blogPrev" type="button" aria-label="Previous article">‹</button>
     <div class="blog-viewport">
@@ -540,42 +546,42 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
 <section class="faq-section" id="faq">
   <p class="section-label reveal">Frequently Asked Questions</p>
-  <h2 class="section-title reveal">Straight answers, <br><em style="color:var(--neon);font-style:normal;">no jargon.</em></h2>
+  <h2 class="section-title reveal">Straight answers, <br><em class="hl">no jargon.</em></h2>
   <div class="faq-list">
-    <div class="faq-item reveal">
-      <h3 class="faq-q">What does East Anglia AI Services actually do?</h3>
+    <details class="faq-item reveal" open>
+      <summary><h3 class="faq-q">What does East Anglia AI Services actually do?</h3></summary>
       <p class="faq-a">We design, build and deploy custom AI agents, workflow automation, predictive intelligence and LLM integrations for small and medium businesses across Norfolk, Suffolk, Cambridgeshire and Essex — replacing manual, repetitive work with systems that run themselves.</p>
-    </div>
-    <div class="faq-item reveal reveal-delay-1">
-      <h3 class="faq-q">How much does AI automation cost for a small business?</h3>
+    </details>
+    <details class="faq-item reveal">
+      <summary><h3 class="faq-q">How much does AI automation cost for a small business?</h3></summary>
       <p class="faq-a">Most first projects start small. AI staff training starts from £595 for a half-day team workshop, an AI Opportunity Review from £395, a workflow automation pilot from £1,500, an AI voice agent from £1,200 plus £149 a month, and a custom AI agent or LLM integration from £3,000. Every project gets a fixed written quote after a free strategy call, so there are no surprise bills. See our <a href="#pricing">pricing</a>.</p>
-    </div>
-    <div class="faq-item reveal reveal-delay-2">
-      <h3 class="faq-q">Which areas do you cover?</h3>
+    </details>
+    <details class="faq-item reveal">
+      <summary><h3 class="faq-q">Which areas do you cover?</h3></summary>
       <p class="faq-a">We work with businesses across Norfolk, Suffolk, Cambridgeshire and Essex, including Norwich, Ipswich, Cambridge, Colchester, Peterborough, Bury St Edmunds, Chelmsford and King's Lynn. On-site visits are available across the region, alongside fully remote delivery.</p>
-    </div>
-    <div class="faq-item reveal reveal-delay-3">
-      <h3 class="faq-q">How is this different from buying off-the-shelf software?</h3>
+    </details>
+    <details class="faq-item reveal">
+      <summary><h3 class="faq-q">How is this different from buying off-the-shelf software?</h3></summary>
       <p class="faq-a">Off-the-shelf tools make you adapt your business to their workflow. We build the system around how you already operate — connecting the tools you use today (Xero, HubSpot, Slack, Sheets, Outlook and more) — so the automation fits your business, not the other way round.</p>
-    </div>
-    <div class="faq-item reveal">
-      <h3 class="faq-q">How long does a typical project take?</h3>
+    </details>
+    <details class="faq-item reveal">
+      <summary><h3 class="faq-q">How long does a typical project take?</h3></summary>
       <p class="faq-a">Most projects go from initial discovery to a live system in a matter of weeks, not months. Our process — discovery, architecture, build and deploy — is designed to get a working system in front of you fast, then refine it with real usage.</p>
-    </div>
-    <div class="faq-item reveal reveal-delay-1">
-      <h3 class="faq-q">Do you offer ongoing support after deployment?</h3>
+    </details>
+    <details class="faq-item reveal">
+      <summary><h3 class="faq-q">Do you offer ongoing support after deployment?</h3></summary>
       <p class="faq-a">Yes. Every system we deploy is continuously monitored for accuracy, drift and cost, with alerts and automated retraining built in, and we remain on hand for support, changes and scaling as your business grows.</p>
-    </div>
-    <div class="faq-item reveal reveal-delay-2">
-      <h3 class="faq-q">Do you offer AI training for staff?</h3>
+    </details>
+    <details class="faq-item reveal">
+      <summary><h3 class="faq-q">Do you offer AI training for staff?</h3></summary>
       <p class="faq-a">Yes. We run hands-on AI training for businesses across Norfolk, Suffolk, Cambridgeshire and Essex, on-site or remotely: practical team workshops, short briefings for owners and managers, and sessions built around a single team's real tasks. Every programme covers how to check AI output and what data must never go into an AI tool. See our <a href="/ai-training.html">AI training page</a> for details.</p>
-    </div>
+    </details>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <p class="section-label reveal">Get In Touch</p>
-  <h2 class="section-title reveal">Talk to an <br><em style="color:var(--neon);font-style:normal;">AI engineer.</em></h2>
+  <h2 class="section-title reveal">Talk to an <br><em class="hl">AI engineer.</em></h2>
   <div class="contact-grid">
     <a href="tel:+447466951175" class="contact-card reveal">
       <div class="contact-icon">📞</div>
@@ -602,21 +608,21 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <div class="cf-row">
       <div>
         <label for="cf-name">Name *</label>
-        <input id="cf-name" type="text" name="name" placeholder="Your name" required toolparamdescription="Visitor's full name">
+        <input id="cf-name" type="text" name="name" autocomplete="name" placeholder="Your name" required toolparamdescription="Visitor's full name">
       </div>
       <div>
         <label for="cf-email">Email *</label>
-        <input id="cf-email" type="email" name="email" placeholder="you@company.co.uk" required toolparamdescription="Visitor's email address, used to reply to the enquiry">
+        <input id="cf-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@company.co.uk" required toolparamdescription="Visitor's email address, used to reply to the enquiry">
       </div>
     </div>
     <div class="cf-row">
       <div>
-        <label for="cf-phone">Phone <span style="opacity:.5">(optional)</span></label>
-        <input id="cf-phone" type="tel" name="phone" placeholder="07…" toolparamdescription="Visitor's phone number (optional)">
+        <label for="cf-phone">Phone <span>(optional)</span></label>
+        <input id="cf-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="07…" toolparamdescription="Visitor's phone number (optional)">
       </div>
       <div>
-        <label for="cf-company">Company <span style="opacity:.5">(optional)</span></label>
-        <input id="cf-company" type="text" name="company" placeholder="Company name" toolparamdescription="Visitor's company name (optional)">
+        <label for="cf-company">Company <span>(optional)</span></label>
+        <input id="cf-company" type="text" name="company" autocomplete="organization" placeholder="Company name" toolparamdescription="Visitor's company name (optional)">
       </div>
     </div>
     <div>
@@ -651,11 +657,11 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
   <h2 class="cta-title reveal">Your competitors <br><span class="neon-text">are already using AI.</span></h2>
   <p class="cta-sub reveal">Let's build the systems that put East Anglia businesses 10 steps ahead. Book a free strategy session today.</p>
   <div class="reveal"><a href="#contact" class="btn-primary">Book a Free Strategy Call</a></div>
-  <p class="reveal" style="margin-top:1rem;opacity:.7;font-size:.9rem;">Or call <a href="tel:+447466951175" style="color:var(--neon);">07466&nbsp;951175</a></p>
+  <p class="cta-call reveal">Or call <a href="tel:+447466951175">07466&nbsp;951175</a></p>
 </section>
 </main>
 
-<footer>
+<footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand"><div class="footer-logo-text">EAST ANGLIA AI SERVICES</div><p>Specialist AI automation for businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p>
       <div class="footer-social" role="group" aria-label="Follow East Anglia AI Services">
@@ -668,9 +674,10 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
         <div google-add-preferred-source-btn data-theme="dark"></div>
       </div>
     </div>
-    <div class="footer-col"><h3>Services</h3><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li><li><a href="/ai-voice-agents.html">AI Voice Agents</a></li><li><a href="/ai-training.html">AI Training</a></li></ul></div>
-    <div class="footer-col"><h3>Company</h3><ul><li><a href="/about.html">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="/loss-calculator.html">Business Loss Calculator</a></li><li><a href="/ai-policy-generator.html">AI Use Policy Generator</a></li><li><a href="#process">Our Process</a></li><li><a href="#faq">FAQ</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466&nbsp;951175</a></li></ul></div>
-    <div class="footer-col"><h3>Legal</h3><ul><li><a href="/terms.html">Terms of Service</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/cookies.html">Cookie Policy</a></li><li><a href="/contactpolicy.html">Contact Policy</a></li><li><a href="/cookies.html" onclick="event.preventDefault();EAAISConsent.reopen();">Cookie Settings</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Services</p><ul><li><a href="#services">AI Agent Development</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#services">Predictive Intelligence</a></li><li><a href="#services">LLM Integration</a></li><li><a href="#services">Data Pipelines</a></li><li><a href="/ai-voice-agents.html">AI Voice Agents</a></li><li><a href="/ai-training.html">AI Training</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Company</p><ul><li><a href="/about.html">About Us</a></li><li><a href="#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="/loss-calculator.html">Business Loss Calculator</a></li><li><a href="/ai-policy-generator.html">AI Use Policy Generator</a></li><li><a href="#process">Our Process</a></li><li><a href="#faq">FAQ</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466&nbsp;951175</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Areas</p><ul><li><a href="/ai-consultant-norwich.html">Norwich</a></li><li><a href="/ai-consultant-ipswich.html">Ipswich</a></li><li><a href="/ai-automation-cambridge.html">Cambridge</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Legal</p><ul><li><a href="/terms.html">Terms of Service</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/cookies.html">Cookie Policy</a></li><li><a href="/contactpolicy.html">Contact Policy</a></li><li><a href="/cookies.html" onclick="event.preventDefault();EAAISConsent.reopen();">Cookie Settings</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved. Registered in England &amp; Wales · Company No. 17381169 · Registered office: 44 Amderley Drive, Norwich, NR4 6HZ.</p>
@@ -680,29 +687,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
 <!-- Cookie banner is injected by /assets/consent.js -->
 
-<!-- ACCESSIBILITY -->
-<div id="a11y-wrapper">
-  <div id="a11y-panel" role="dialog" aria-label="Accessibility options">
-    <p class="a11y-title">Accessibility</p>
-    <p class="a11y-intro">Adjust the site to suit you. Choices are saved on this device.</p>
-    <div class="a11y-opt">
-      <label id="a11y-motion-lbl">Reduce motion</label>
-      <button type="button" class="a11y-switch" data-opt="motion" aria-pressed="false" aria-labelledby="a11y-motion-lbl"></button>
-    </div>
-    <div class="a11y-opt">
-      <label id="a11y-contrast-lbl">Higher contrast</label>
-      <button type="button" class="a11y-switch" data-opt="contrast" aria-pressed="false" aria-labelledby="a11y-contrast-lbl"></button>
-    </div>
-    <div class="a11y-opt">
-      <label id="a11y-text-lbl">Larger text</label>
-      <button type="button" class="a11y-switch" data-opt="text" aria-pressed="false" aria-labelledby="a11y-text-lbl"></button>
-    </div>
-    <button type="button" class="a11y-reset" id="a11y-reset">Reset to defaults</button>
-  </div>
-  <button type="button" id="a11y-toggle" onclick="toggleA11y()" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8.5 4.74a1 1 0 0 0-1.22-.71l-4.79 1.28a8 8 0 0 1-5 0L4.72 6.03a1 1 0 1 0-.52 1.94l4.8 1.28V14l-1.9 6.04a1 1 0 0 0 1.9.6L10.8 15h2.4l1.8 5.64a1 1 0 0 0 1.9-.6L15 14V9.25l4.8-1.28a1 1 0 0 0 .7-1.23Z"/></svg>
-  </button>
-</div>
+<!-- Accessibility options are injected by /assets/site.js -->
 
 <!-- CHATBOT -->
 <div id="chat-wrapper">
