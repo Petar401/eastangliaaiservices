@@ -542,6 +542,7 @@ document.getElementById('gateForm').addEventListener('submit',async function(e){
     delivered=res.ok&&data.success===true;
   }catch(err){/* Never block the visitor's report on a network failure */}
   btn.disabled=false;btn.textContent=orig;
+  if(window.EAAISTrack){window.EAAISTrack(delivered?'form_submit':'form_submit_failed',{form_id:'loss_calculator'});}
   showDeliveryWarning(!delivered);
   renderReport(name,company,vals,loss);
   show('screen-report');
