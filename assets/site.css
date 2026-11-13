@@ -153,3 +153,43 @@ html.high-contrast{--dim:#cfd3e6;--body:#eef0fa;}
 html.high-contrast .logo,html.high-contrast .footer-logo-text{text-shadow:none!important;}
 html.large-text{font-size:118%;}
 @media print{.site-nav,#a11y-wrapper,#eaais-cookie-banner{display:none!important;}}
+
+/* ---- Cookie banner (markup injected by consent.js) ---- */
+#eaais-cookie-banner{
+  position:fixed;bottom:12px;left:12px;right:12px;
+  max-width:1040px;margin:0 auto;
+  background:#07071a;
+  border:1px solid rgba(0,255,231,.28);
+  padding:16px 20px;
+  z-index:9999;
+  display:none;align-items:center;gap:14px 22px;
+  box-shadow:0 0 40px rgba(0,0,0,.75),0 0 22px rgba(0,255,231,.08);
+  color:#e8eaf6;
+  font-family:'Syne',system-ui,sans-serif;
+}
+#eaais-cookie-banner.show{display:flex;animation:eaaisFadeUp .4s ease;}
+.eaais-cookie-text{font-size:.9rem;line-height:1.5;color:#e8eaf6;flex:1;}
+.eaais-cookie-text a{color:#00ffe7;text-decoration:underline;text-underline-offset:3px;}
+.eaais-cookie-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.eaais-cookie-btn{
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  font-family:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;
+  min-height:44px;padding:6px 14px;
+  border:1px solid rgba(0,255,231,.45);
+  background:transparent;color:#e8eaf6;
+  cursor:pointer;font-weight:700;text-decoration:none;
+  transition:border-color .25s,color .25s,box-shadow .25s;
+}
+.eaais-cookie-btn.primary{background:#00ffe7;color:#010108;border-color:#00ffe7;}
+.eaais-cookie-btn.primary:hover{box-shadow:0 0 22px rgba(0,255,231,.6);}
+.eaais-cookie-btn:not(.primary):hover{border-color:#00ffe7;color:#00ffe7;}
+.eaais-cookie-btn.quiet{min-height:44px;border:none;padding:0;font-weight:400;text-decoration:underline;text-underline-offset:3px;color:#c5cade;}
+@keyframes eaaisFadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:700px){
+  #eaais-cookie-banner{flex-direction:column;align-items:stretch;bottom:8px;left:8px;right:8px;padding:14px;gap:12px;}
+  .eaais-cookie-actions{display:grid;grid-template-columns:1fr 1fr;}
+  .eaais-cookie-btn.quiet{grid-column:1/-1;min-height:36px;}
+  .eaais-cookie-text{font-size:.85rem;}
+}
+@media(prefers-reduced-motion:reduce){#eaais-cookie-banner.show{animation:none;}}

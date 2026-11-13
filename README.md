@@ -20,7 +20,8 @@ Source for [eastangliaaiservices.co.uk](https://eastangliaaiservices.co.uk): a m
 |---|---|
 | `index.html` | Homepage markup |
 | `assets/home.css`, `assets/home.js` | Homepage styles and scripts (hero, demos, ARIA, contact form, carousel) |
-| `assets/consent.js`, `assets/consent.css` | Cookie banner + consent-gated analytics, used on every page |
+| `assets/consent.js` | Cookie banner + consent-gated analytics, used on every page |
+| `assets/site.css`, `assets/site.js` | Shared header, mobile menu, footer, buttons, enquiry form, accessibility options and cookie banner styles, used on every page |
 | `assets/fonts.css`, `assets/fonts/` | Self-hosted Syne and Space Mono (OFL) — no requests to Google Fonts |
 | `*.html` | Other pages; each carries its own inline styles |
 | `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt` | SEO / AI-crawler files |

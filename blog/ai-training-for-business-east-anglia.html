@@ -6,7 +6,6 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Cookie consent + gated Google Analytics 4 -->
-<link rel="stylesheet" href="/assets/consent.css">
 <!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,12 +16,13 @@
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TTH896D0"></script>
 <script defer src="/assets/consent.js"></script>
+<script defer src="/assets/site.js"></script>
 <title>AI Training for Staff: Has Anyone Shown Them? | EAAIS</title>
 <meta name="description" content="Most staff already use AI at work, but few are trained to use it well. The research, the risks, and what practical AI training looks like for local firms.">
 <meta name="keywords" content="AI training for businesses, AI training for staff, AI workshops UK, AI upskilling small business, ChatGPT training for teams, Copilot training, shadow AI, AI literacy, AI skills, AI training Norwich, AI training Ipswich, AI training Cambridge, AI training Norfolk Suffolk Cambridgeshire Essex">
 <meta name="author" content="Petar Petkov">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#00ffe7">
+<meta name="theme-color" content="#010108">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -54,119 +54,102 @@
 <link rel="preload" href="/assets/fonts/syne-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/space-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{--neon:#00ffe7;--neon2:#bf00ff;--dark:#010108;--dark2:#07071a;--dark3:#0d0d2b;--text:#e8eaf6;--dim:#8a93a6;--mono:'Space Mono',monospace;--sans:'Syne',sans-serif;}
-html{scroll-behavior:smooth;}
-body{background:var(--dark);color:var(--text);font-family:var(--sans);overflow-x:hidden;line-height:1.7;}
+body{line-height:1.7;}
 a{color:var(--neon);}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 40px;background:rgba(1,1,8,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,255,231,.08);}
-.logo{font-family:var(--mono);font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--neon);text-shadow:0 0 18px var(--neon);text-transform:uppercase;text-decoration:none;}
-.nav-links{display:flex;gap:26px;list-style:none;align-items:center;}
-.nav-links a{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;}
-.nav-links a:hover{color:var(--neon);}
-.article-wrap{max-width:760px;margin:0 auto;padding:130px 24px 40px;}
-.crumb{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:22px;}
-.crumb a{color:var(--neon);text-decoration:none;}
-.article-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--neon);margin-bottom:16px;}
-h1{font-family:var(--sans);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.01em;margin-bottom:20px;}
-.byline{font-family:var(--mono);font-size:.7rem;color:var(--dim);margin-bottom:32px;}
+.article-wrap{max-width:760px;margin:0 auto;padding:calc(var(--nav-h) + 56px) var(--gutter) 40px;}
+.crumb{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;}
+.crumb a{color:var(--neon);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;min-width:44px;}
+.article-meta{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:16px;}
+h1{font-family:var(--sans);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.01em;margin-bottom:20px;overflow-wrap:break-word;}
+.byline{font-family:var(--mono);font-size:.8rem;line-height:1.7;color:var(--dim);margin-bottom:32px;}
 .byline strong{color:var(--text);}
-.hero-img{width:100%;height:auto;border:1px solid rgba(0,255,231,.14);box-shadow:0 18px 50px rgba(0,0,0,.5);margin-bottom:40px;display:block;}
-.article-body p{font-family:var(--sans);font-size:1.06rem;color:#cfd3e6;margin-bottom:22px;text-align:justify;text-justify:auto;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}
-.article-body h2{font-family:var(--sans);font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:700;color:var(--text);margin:44px 0 16px;line-height:1.25;}
+.hero-img{width:100%;height:auto;border:1px solid rgba(0,255,231,.14);box-shadow:0 18px 50px rgba(0,0,0,.5);margin-bottom:32px;display:block;}
+.toc{border:1px solid rgba(0,255,231,.2);background:rgba(7,7,26,.6);padding:18px 22px 10px;margin:0 0 38px;}
+.toc-title{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--neon);margin-bottom:6px;}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;column-gap:36px;}
+.toc a{font-family:var(--sans);font-size:.95rem;line-height:1.4;color:var(--body);text-decoration:none;display:flex;align-items:center;min-height:44px;padding:6px 0;border-bottom:1px solid rgba(0,255,231,.08);}
+.toc a:hover{color:var(--neon);}
+@media(min-width:760px){.toc-wide ol{grid-template-columns:1fr 1fr;}}
+.article-body p{font-family:var(--sans);font-size:1.06rem;line-height:1.7;color:var(--body);margin-bottom:22px;text-align:left;overflow-wrap:break-word;}
+.article-body h2{font-family:var(--sans);font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:700;color:var(--text);margin:44px 0 16px;line-height:1.25;overflow-wrap:break-word;}
 .article-body h2 .accent{color:var(--neon);}
-.article-body h3{font-family:var(--sans);font-size:1.2rem;font-weight:700;color:var(--text);margin:30px 0 12px;}
+.article-body h3{font-family:var(--sans);font-size:1.2rem;font-weight:700;color:var(--text);margin:30px 0 12px;line-height:1.35;}
 .article-body ul{margin:0 0 22px 0;padding-left:0;list-style:none;}
-.article-body li{font-family:var(--sans);font-size:1.04rem;color:#cfd3e6;padding-left:26px;position:relative;margin-bottom:12px;text-align:justify;text-justify:auto;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}
+.article-body li{font-family:var(--sans);font-size:1.06rem;line-height:1.7;color:var(--body);padding-left:26px;position:relative;margin-bottom:12px;text-align:left;overflow-wrap:break-word;}
 .article-body li::before{content:'';position:absolute;left:0;top:11px;width:9px;height:9px;background:var(--neon);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
 .article-body strong{color:var(--text);}
-.pull{border-left:2px solid var(--neon);background:rgba(0,255,231,.04);padding:18px 24px;margin:34px 0;font-family:var(--sans);font-size:1.15rem;color:var(--text);font-style:italic;}
+.article-body p a,.article-body li a{text-decoration:underline;text-underline-offset:3px;}
+.article-body .inline-cta{border-left:3px solid var(--neon);background:rgba(0,255,231,.06);padding:16px 20px;margin:32px 0;font-size:1.02rem;color:var(--text);box-shadow:-6px 0 22px -10px rgba(0,255,231,.55);}
+.article-body .inline-cta a{font-weight:700;}
+.pull{border-left:2px solid var(--neon);background:rgba(0,255,231,.04);padding:18px 24px;margin:34px 0;font-family:var(--sans);font-size:1.15rem;line-height:1.6;color:var(--text);font-style:italic;}
 .faq{margin-top:46px;border-top:1px solid rgba(0,255,231,.1);padding-top:36px;}
 .faq h3{margin-top:24px;}
 .cta-box{margin:54px 0 20px;background:var(--dark3);border:1px solid rgba(0,255,231,.16);padding:36px 28px;text-align:center;}
 .cta-box h2{margin-top:0;}
-.cta-box p{color:var(--dim);font-family:var(--mono);font-size:.78rem;margin-bottom:24px;}
-.btn-primary{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);background:var(--neon);padding:14px 28px;border:none;cursor:pointer;font-weight:700;box-shadow:0 0 28px rgba(0,255,231,.35);transition:all .3s;text-decoration:none;display:inline-block;}
-.btn-primary:hover{box-shadow:0 0 50px rgba(0,255,231,.7);transform:translateY(-2px);}
+.article-body .cta-box p{color:var(--body);font-family:var(--sans);font-size:1rem;line-height:1.65;margin-bottom:24px;}
 .cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
-.btn-ghost{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);background:transparent;padding:13px 26px;border:1px solid var(--neon);font-weight:700;text-decoration:none;display:inline-block;transition:all .3s;}
-.btn-ghost:hover{background:rgba(0,255,231,.08);box-shadow:0 0 28px rgba(0,255,231,.25);}
+.cta-box .enquiry-title{font-size:1.2rem;margin:0 0 6px;}
+.article-body .cta-box .enquiry-note{font-size:.95rem;line-height:1.6;margin:0;}
+.article-body .cta-box .cf-consent{font-size:.85rem;line-height:1.6;color:var(--dim);margin:0;}
+.article-body .cta-box .form-status{font-size:1rem;line-height:1.6;margin:0;}
+.cta-box .cf-consent a{text-decoration:underline;}
 .refs{margin-top:46px;border-top:1px solid rgba(0,255,231,.1);padding-top:30px;}
 .refs h2{font-family:var(--sans);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:16px;}
 .refs ol{list-style:none;counter-reset:ref;padding:0;margin:0;}
-.refs li{font-family:var(--mono);font-size:.72rem;line-height:1.85;color:var(--dim);padding-left:26px;position:relative;margin-bottom:14px;text-align:left;overflow-wrap:break-word;word-break:break-word;}
-.refs li::before{counter-increment:ref;content:counter(ref);position:absolute;left:0;top:0;color:var(--neon);font-weight:700;}
-.refs a{color:var(--neon);text-decoration:underline;text-underline-offset:2px;word-break:break-all;}
-.refs a:hover{text-decoration:underline;}
-footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var(--dark2);text-align:center;}
-.footer-logo-text{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--neon);text-shadow:0 0 12px var(--neon);margin-bottom:10px;}
-.footer-copy{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--dim);}
-.footer-preferred-source{margin-top:14px;display:flex;justify-content:center;}
-.footer-copy a{color:var(--dim);}
-.crumb a,.article-body p a,.article-body li a,.refs a,.footer-copy a{text-decoration:underline;text-underline-offset:3px;}
-@media(max-width:680px){nav{padding:14px 18px;}.nav-links{gap:16px;}.nav-links a{font-size:.6rem;}.article-wrap{padding:104px 18px 30px;}}
-/* ---- Accessibility ---- */
-.skip-link{position:fixed;top:-80px;left:14px;z-index:2000;background:var(--neon);color:var(--dark);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;text-decoration:none;transition:top .2s;}
-.skip-link:focus{top:14px;outline:2px solid #fff;outline-offset:2px;}
-#a11y-wrapper{position:fixed;bottom:20px;left:14px;z-index:500;}
-#a11y-toggle{width:52px;height:52px;background:var(--dark2);border:1px solid var(--neon);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 22px rgba(0,255,231,.35);transition:box-shadow .3s,transform .3s;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);color:var(--neon);}
-#a11y-toggle:hover{box-shadow:0 0 38px rgba(0,255,231,.65);transform:scale(1.05);}
-#a11y-toggle svg{width:24px;height:24px;}
-#a11y-panel{position:absolute;bottom:64px;left:0;width:262px;background:var(--dark2);border:1px solid rgba(0,255,231,.2);box-shadow:0 0 50px rgba(0,0,0,.8),0 0 22px rgba(0,255,231,.08);padding:16px 18px;transform:translateY(14px) scale(.96);opacity:0;pointer-events:none;visibility:hidden;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s,visibility .3s;}
-#a11y-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;visibility:visible;}
-.a11y-title{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--neon);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
-.a11y-intro{font-family:var(--mono);font-size:.56rem;color:var(--dim);line-height:1.6;margin-bottom:8px;}
-.a11y-opt{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid rgba(0,255,231,.08);}
-.a11y-opt label{font-family:var(--mono);font-size:.66rem;color:var(--text);}
-.a11y-switch{position:relative;width:40px;height:21px;min-width:40px;background:rgba(255,255,255,.08);border:1px solid rgba(0,255,231,.2);cursor:pointer;flex-shrink:0;transition:background .3s,border-color .3s;border-radius:11px;padding:0;}
-.a11y-switch::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--dim);border-radius:50%;transition:left .3s,background .3s;}
-.a11y-switch[aria-pressed="true"]{background:rgba(0,255,231,.22);border-color:var(--neon);}
-.a11y-switch[aria-pressed="true"]::after{left:21px;background:var(--neon);box-shadow:0 0 8px var(--neon);}
-.a11y-switch:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
-.a11y-reset{width:100%;margin-top:14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);background:transparent;border:1px solid rgba(0,255,231,.2);padding:9px;cursor:pointer;transition:border-color .25s,color .25s;}
-.a11y-reset:hover{border-color:var(--neon);color:var(--neon);}
-html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
-html.high-contrast{--dim:#cfd3e6;}
-html.high-contrast .logo,html.high-contrast .footer-logo-text{text-shadow:none!important;}
-html.large-text{font-size:118%;}
-picture{display:contents;}
+.refs li{font-family:var(--sans);font-size:.95rem;line-height:1.65;color:var(--dim);padding-left:26px;position:relative;margin-bottom:14px;text-align:left;overflow-wrap:anywhere;}
+.refs li::before{counter-increment:ref;content:counter(ref);position:absolute;left:0;top:0;width:auto;height:auto;background:none;clip-path:none;color:var(--neon);font-weight:700;}
+.refs a{color:var(--neon);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere;}
 .related{margin:48px 0 0;padding-top:28px;border-top:1px solid rgba(0,255,231,.12);}
 .related ul{list-style:none;padding:0;margin:0;}
-.related li{margin:0 0 10px;}
-/* Touch targets at least 24px tall (WCAG 2.2 SC 2.5.8) */
-.nav-links a,.footer-copy a,.crumb a{display:inline-block;padding-top:5px;padding-bottom:5px;}
-.logo{display:inline-block;min-height:24px;}
-.nav-tel{color:var(--neon)!important;}
-.footer-nav{margin-top:10px;line-height:2;}
-@media(max-width:680px){.nav-desktop{display:none;}}
+.related li{margin:0 0 4px;}
+.related li a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;}
+@media(max-width:680px){.article-wrap{padding-bottom:30px;}.cta-box{padding:30px 18px;}}
 </style>
 </head>
 <body>
 <script>
-/* Apply saved accessibility preferences before paint */
+/* Apply saved accessibility preferences before paint (avoids flash) */
 (function(){var r=document.documentElement;function g(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 var m=g('eaais_a11y_motion');if(m===null){m=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)?'1':'0';}
-if(m==='1')r.classList.add('reduce-motion');
+r.classList.add('js',m==='1'?'reduce-motion':'motion-ok');
 if(g('eaais_a11y_contrast')==='1')r.classList.add('high-contrast');
 if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 </script>
 <a class="skip-link" href="#main">Skip to content</a>
-<nav>
-  <a href="/" class="logo">EAAIS</a>
-  <ul class="nav-links">
-    <li><a href="/#services">Services</a></li>
-    <li class="nav-desktop"><a href="/ai-training.html">Training</a></li>
-    <li class="nav-desktop"><a href="/about.html">About</a></li>
-    <li><a href="/ai-readiness.html">Tools</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/#contact">Contact</a></li>
-    <li class="nav-desktop"><a class="nav-tel" href="tel:+447466951175">07466&nbsp;951175</a></li>
-  </ul>
+<nav class="site-nav" aria-label="Main">
+  <a href="/" class="logo">EAAIS<small>East Anglia AI Services</small></a>
+  <div class="nav-panel" id="navPanel">
+    <ul class="nav-links">
+      <li class="has-sub"><a href="/#services">Services</a>
+        <ul class="sub">
+          <li><a href="/ai-voice-agents.html">AI Voice Agents</a></li>
+          <li><a href="/ai-training.html">AI Training</a></li>
+          <li><a href="/#demos">Demos</a></li>
+        </ul>
+      </li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li class="has-sub"><button type="button" class="sub-btn" aria-expanded="false" aria-controls="subTools">Tools</button>
+        <ul class="sub" id="subTools">
+          <li><a href="/ai-readiness.html">AI Readiness</a></li>
+          <li><a href="/loss-calculator.html">Loss Calculator</a></li>
+          <li><a href="/ai-policy-generator.html">AI Policy</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/blog/" aria-current="page">Blog</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li class="nav-phone"><a href="tel:+447466951175">07466&nbsp;951175</a></li>
+    </ul>
+  </div>
+  <a href="/#contact" class="nav-cta">Book a Free Call</a>
+  <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navPanel"><span></span><span></span><span></span></button>
 </nav>
 
 
-<article class="article-wrap" id="main" tabindex="-1">
+<main id="main" tabindex="-1">
+<article class="article-wrap">
   <p class="crumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / AI Skills</p>
   <p class="article-meta">8 October 2026 · AI Skills</p>
   <h1>Your Team Is Already Using AI. Has Anyone Shown Them How?</h1>
@@ -174,19 +157,34 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
   <picture><source type="image/webp" srcset="/blog/ai-training-east-anglia.webp"><img class="hero-img" src="/blog/ai-training-east-anglia.jpg" alt="Neon illustration of a team of five people linked in a network, following a path of three hexagon steps marked prompt, check and apply towards a glowing brain, representing AI training for businesses across East Anglia" width="1200" height="675" fetchpriority="high"></picture>
 
+  <nav class="toc toc-wide" aria-label="On this page">
+    <p class="toc-title">On this page</p>
+    <ol>
+      <li><a href="#the-ai-your-business-never-chose">The AI your business never chose</a></li>
+      <li><a href="#why-training-changes-the-results-not-just-the-confidence">Why training changes the results, not just the confidence</a></li>
+      <li><a href="#the-risk-nobody-signed-off">The risk nobody signed off</a></li>
+      <li><a href="#what-useful-ai-training-actually-looks-like">What useful AI training actually looks like</a></li>
+      <li><a href="#where-smaller-firms-fit-in">Where smaller firms fit in</a></li>
+      <li><a href="#a-sensible-way-to-start">A sensible way to start</a></li>
+      <li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+    </ol>
+  </nav>
+
   <div class="article-body">
     <p>A conversation we have fairly often goes something like this. The owner of a small firm in Norwich or Ipswich says they haven't really done anything with AI yet. Twenty minutes later it turns out the office manager drafts most customer emails in ChatGPT, someone in accounts has been pasting supplier queries into a free chatbot on their phone, and the newest member of the team tidies up meeting notes with Copilot. Nobody was hiding it. Nobody had asked.</p>
 
     <p>That isn't a criticism of anyone involved. People found a tool that saved them time and started using it, which is exactly what you'd hope staff would do. The trouble is what usually comes with it: no shared rules, no idea which tools are in use, and a team that has taught itself mostly by trial and error. Some of them are getting genuinely good results. Others are quietly getting it wrong, and there's no one in a position to notice.</p>
 
-    <h2>The AI your business never <span class="accent">chose</span></h2>
+    <h2 id="the-ai-your-business-never-chose">The AI your business never <span class="accent">chose</span></h2>
     <p>This pattern is far from unusual. When Microsoft and LinkedIn surveyed 31,000 people across 31 countries, they found that 75% of knowledge workers were already using AI at work. More telling, 78% of those users were bringing their own AI tools rather than waiting for their employer to provide them, and in small and medium-sized companies the figure rose to 80% (Microsoft and LinkedIn, 2024). The same report found that only 39% of people using AI at work had received any training on it from their company.</p>
 
     <p>Put those two numbers side by side and you have the real position in a lot of offices across the region. Plenty of use, very little guidance. Staff are picking whatever tool they happened to sign up for, working out what it can do as they go, and forming habits that nobody has looked at.</p>
 
     <p>The government has noticed the gap too. In June 2025 the Department for Science, Innovation and Technology announced a partnership with major technology firms to give 7.5 million UK workers AI skills training by 2030 (Department for Science, Innovation and Technology, 2025). In January 2026 that was widened into the AI Skills Boost programme, with free short online courses open to every adult and a new target of 10 million workers. Research published alongside the announcement found that only 21% of UK workers feel confident using AI at work (Department for Science, Innovation and Technology, 2026). Free courses are welcome, and we'd encourage staff to take them. But a general course can't tell your team what your client data rules are, which tools you've approved, or how to apply any of it to the jobs on their desk on a Monday morning.</p>
 
-    <h2>Why training changes the results, not just the confidence</h2>
+    <p class="inline-cta">Want to know where AI would save your business the most time? <a href="/ai-readiness.html">Take the free 2-minute AI Readiness Test</a> or <a href="/#contact">book a free strategy call</a>.</p>
+
+    <h2 id="why-training-changes-the-results-not-just-the-confidence">Why training changes the results, not just the confidence</h2>
     <p>The most useful piece of research on this is a field experiment run by Harvard Business School and Boston Consulting Group with 758 of BCG's consultants. On tasks that sat comfortably within the AI's capabilities, consultants using GPT-4 completed 12.2% more tasks, finished them 25.1% more quickly and produced work rated more than 40% higher in quality than a control group working without it. On a task deliberately chosen to sit just outside what the AI could do well, the picture flipped: consultants using AI were 19 percentage points less likely to reach the correct answer than those working alone (Dell'Acqua et al., 2023).</p>
 
     <p>The researchers describe this as a "jagged technological frontier". The line between what AI handles well and what it gets wrong doesn't fall where you'd expect, and you can't see it by looking at how confident the answer sounds. That second finding is the one we'd want every team to hear. The tool didn't fail loudly. It produced fluent, well-structured answers that happened to be wrong, and highly capable professionals accepted them. Knowing roughly where the edges are, and getting into the habit of checking, is a skill. People can learn it, but they rarely learn it on their own.</p>
@@ -195,12 +193,12 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
 
     <p>There's a more encouraging side to the evidence as well. A large study of more than 5,000 customer support agents found that giving them an AI assistant raised the number of issues resolved per hour by around 15% on average. The biggest improvements went to newer and less experienced agents, who effectively picked up the working habits of their best colleagues much faster than they otherwise would have (Brynjolfsson, Li and Raymond, 2025). The point for a small business is that AI pays off most when it's used inside a clearly defined job, by people who know what good output looks like for that job. That's precisely what role-specific training sets out to build.</p>
 
-    <h2>The risk nobody signed off</h2>
+    <h2 id="the-risk-nobody-signed-off">The risk nobody signed off</h2>
     <p>Then there's the data. If someone pastes a customer complaint, an employee's sickness record or a client's accounts into a free consumer chatbot, the business is still responsible for what happens to that information. Under the Information Commissioner's Office's guidance on AI, an organisation using personal data in AI systems remains accountable for it: it needs a lawful basis, it should use only what it needs, it has to keep that data secure and it must be able to explain what the system does with it (Information Commissioner's Office, 2023). Those duties are hard to meet when you don't know which tools your staff are using in the first place.</p>
 
     <p>Owners are well aware of this. The Federation of Small Businesses (2026) found that 92% of small business owners worry about the risks of AI, with accuracy, security and where their data ends up high on the list. In our experience, worry without training tends to go one of two ways. Either there's a blanket ban that people work around on their own phones, or there are no rules at all. Neither is much of a plan. Training is the practical middle ground. It tells people which tools the business uses, what can go into them, what must never go into them, and when a person has to check the answer before it goes anywhere.</p>
 
-    <h2>What useful AI training actually looks like</h2>
+    <h2 id="what-useful-ai-training-actually-looks-like">What useful AI training actually looks like</h2>
     <p>It isn't a one-hour webinar on the future of work. The sessions that make a lasting difference tend to have a few things in common:</p>
     <ul>
       <li><strong>They're built on the team's own work.</strong> An office team at a Lowestoft logistics firm practises on its own delivery queries. An accountancy practice in Chelmsford works through real, anonymised client letters. People remember what they've done with their own material far better than a generic demo.</li>
@@ -211,12 +209,12 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
       <li><strong>They follow up.</strong> The best questions come a few weeks later, once people have tried things on real work and hit the awkward cases. A short check-in at that point is often worth more than the first session.</li>
     </ul>
 
-    <h2>Where smaller firms <span class="accent">fit in</span></h2>
+    <h2 id="where-smaller-firms-fit-in">Where smaller firms <span class="accent">fit in</span></h2>
     <p>The Office for National Statistics found that around a quarter of UK businesses were using some form of AI by late 2025, compared with 44% of businesses with 250 or more employees (Office for National Statistics, 2026). Large organisations have learning and development teams whose job is to roll this kind of thing out. A ten-person firm in King's Lynn or a family business outside Bury St Edmunds doesn't, and that's most of the difference. The tools cost the same for everyone. What smaller firms tend to lack is the time to work out how to use them properly, and someone to show their staff.</p>
 
     <p>That's also why a modest amount of training goes a long way in a small business. When there are only a handful of people, one afternoon spent together on the tasks that eat everyone's week can change how the whole place works. It often makes more difference than another software subscription.</p>
 
-    <h2>A sensible way to start</h2>
+    <h2 id="a-sensible-way-to-start">A sensible way to start</h2>
     <p>You don't need a transformation programme. A practical first pass looks something like this:</p>
     <ul>
       <li>Ask your team what they already use, and make it clear nobody is in trouble. You'll only get an honest answer if it's safe to give one.</li>
@@ -231,7 +229,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <p>None of this needs a big budget. It needs someone to sit down with your team, look at the work they actually do, and show them how to get the useful part of these tools while leaving the risky part behind. Most of your staff have already started on their own. They'd probably appreciate a hand.</p>
 
     <div class="faq">
-      <h2>Frequently asked questions</h2>
+      <h2 id="frequently-asked-questions">Frequently asked questions</h2>
       <h3>Do my staff need technical skills to get something out of AI training?</h3>
       <p>No. Good AI training for a business team is about the work people already do: writing, summarising, answering customers, checking figures. If someone can write an email and use a spreadsheet, they have all the background they need. The technical side is our job, not theirs.</p>
       <h3>How long does AI training take?</h3>
@@ -243,7 +241,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
 
     <div class="related">
-      <h2>Related articles</h2>
+      <h2 id="related-articles">Related articles</h2>
       <ul>
         <li><a href="/blog/ai-consultant-vs-buy-rent-subscribe-east-anglia.html">Buy, Rent, Subscribe or Ask First?</a></li>
         <li><a href="/blog/local-llm-business-east-anglia.html">Local LLMs for Business: Why East Anglian Firms Are Bringing AI In-House</a></li>
@@ -251,16 +249,54 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
 
     <div class="cta-box">
-      <h2>Want your team using AI safely and well?</h2>
+      <h2 id="want-your-team-using-ai-safely-and-well">Want your team using AI safely and well?</h2>
       <p>We run hands-on AI training built around your own work, for businesses across Norfolk, Suffolk, Cambridgeshire and Essex. It starts with a free, no-pressure strategy call.</p>
       <div class="cta-actions">
         <a href="/ai-training.html" class="btn-primary">See Our AI Training</a>
         <a href="/#contact" class="btn-ghost">Book a Free Strategy Call</a>
       </div>
+      <div class="enquiry">
+        <h3 class="enquiry-title">Or send a quick enquiry</h3>
+        <p class="enquiry-note">Tell us what you'd like to sort out and we'll reply within 1 business day.</p>
+        <form class="contact-form" data-form-id="blog-ai-training" id="contactForm" action="https://api.web3forms.com/submit" method="POST" toolname="submit_contact_enquiry" tooldescription="Send a contact enquiry to East Anglia AI Services with the visitor's name, email, and message, so the team can follow up. Use this when a visitor wants to get in touch, ask a question, or request a call about AI automation, chatbots, or workflow automation services.">
+          <input type="hidden" name="access_key" value="3be4d006-0b53-4f45-a1ce-eb6d337e4dac">
+          <input type="hidden" name="subject" value="New enquiry from eastangliaaiservices.co.uk">
+          <input type="hidden" name="from_name" value="East Anglia AI Services Website">
+          <input type="hidden" name="page" value="blog-ai-training">
+          <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" aria-label="Leave this field empty">
+          <div class="cf-row">
+            <div>
+              <label for="cf-name">Name *</label>
+              <input id="cf-name" type="text" name="name" autocomplete="name" placeholder="Your name" required toolparamdescription="Visitor's full name">
+            </div>
+            <div>
+              <label for="cf-email">Email *</label>
+              <input id="cf-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@company.co.uk" required toolparamdescription="Visitor's email address, used to reply to the enquiry">
+            </div>
+          </div>
+          <div class="cf-row">
+            <div>
+              <label for="cf-phone">Phone <span>(optional)</span></label>
+              <input id="cf-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="07…" toolparamdescription="Visitor's phone number (optional)">
+            </div>
+            <div>
+              <label for="cf-company">Company <span>(optional)</span></label>
+              <input id="cf-company" type="text" name="company" autocomplete="organization" placeholder="Company name" toolparamdescription="Visitor's company name (optional)">
+            </div>
+          </div>
+          <div>
+            <label for="cf-message">How can we help? *</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us a little about your business and what you'd like to automate…" required toolparamdescription="What the visitor wants help with and any relevant details about their business"></textarea>
+          </div>
+          <p class="cf-consent">* Required. We'll only use these details to respond to your enquiry — no spam, no marketing lists. Handled under our <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+          <button type="submit" class="cf-submit" id="cfSubmit">Send Enquiry</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
 
     <div class="refs">
-      <h2>References</h2>
+      <h2 id="references">References</h2>
       <ol>
         <li>Brynjolfsson, E., Li, D. and Raymond, L. (2025) 'Generative AI at work', <em>The Quarterly Journal of Economics</em>, 140(2), pp. 889-942. Available at: <a href="https://doi.org/10.1093/qje/qjae044" rel="nofollow noopener" target="_blank">https://doi.org/10.1093/qje/qjae044</a> (Accessed: 8 October 2026).</li>
         <li>Dell'Acqua, F., McFowland III, E., Mollick, E.R., Lifshitz-Assaf, H., Kellogg, K., Rajendran, S., Krayer, L., Candelon, F. and Lakhani, K.R. (2023) <em>Navigating the jagged technological frontier: field experimental evidence of the effects of AI on knowledge worker productivity and quality</em>. Harvard Business School Working Paper 24-013. Boston, MA: Harvard Business School. Available at: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" rel="nofollow noopener" target="_blank">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321</a> (Accessed: 8 October 2026).</li>
@@ -274,62 +310,31 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     </div>
   </div>
 </article>
+</main>
 
 
-<footer>
-  <div class="footer-logo-text">EAST ANGLIA AI SERVICES</div>
-  <p class="footer-copy">© 2026 East Anglia AI Services Ltd · Norfolk · Suffolk · Cambridgeshire · Essex</p>
-  <p class="footer-copy footer-nav"><a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/ai-training.html">AI Training</a> · <a href="/ai-voice-agents.html">AI Voice Agents</a> · <a href="/ai-readiness.html">AI Readiness Test</a> · <a href="/loss-calculator.html">Loss Calculator</a> · <a href="/ai-policy-generator.html">AI Policy Generator</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy</a> · <a href="/cookies.html">Cookies</a><br><a href="mailto:info@eastangliaaiservices.co.uk">info@eastangliaaiservices.co.uk</a> · <a href="tel:+447466951175">07466&nbsp;951175</a></p>
-  <p class="footer-copy footer-nav">Areas: <a href="/ai-consultant-norwich.html">Norwich</a> · <a href="/ai-consultant-ipswich.html">Ipswich</a> · <a href="/ai-automation-cambridge.html">Cambridge</a></p>
-  <div class="footer-preferred-source"><div google-add-preferred-source-btn data-theme="dark"></div></div>
-</footer>
-
-<!-- ACCESSIBILITY -->
-<div id="a11y-wrapper">
-  <div id="a11y-panel" role="dialog" aria-label="Accessibility options">
-    <p class="a11y-title">Accessibility</p>
-    <p class="a11y-intro">Adjust the site to suit you. Choices are saved on this device.</p>
-    <div class="a11y-opt">
-      <label id="a11y-motion-lbl">Reduce motion</label>
-      <button type="button" class="a11y-switch" data-opt="motion" aria-pressed="false" aria-labelledby="a11y-motion-lbl"></button>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand"><div class="footer-logo-text">EAST ANGLIA AI SERVICES</div><p>Specialist AI automation for businesses across Norfolk, Suffolk, Cambridgeshire &amp; Essex.</p>
+      <div class="footer-social" role="group" aria-label="Follow East Anglia AI Services">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61589538308485" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z"/></svg></a>
+        <a class="social-link" href="https://www.linkedin.com/in/petar-petkov-3b9471343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a class="social-link" href="https://www.tiktok.com/@east.anglia.ai.se" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 3.4-2.46V9.69a5.7 5.7 0 0 0-.81-.06A5.69 5.69 0 0 0 4.18 15.3 5.69 5.69 0 0 0 9.87 21a5.69 5.69 0 0 0 5.69-5.69V8.9a7.33 7.33 0 0 0 4.27 1.37V7.18a4.28 4.28 0 0 1-3.23-1.36Z"/></svg></a>
+        <a class="social-link" href="https://maps.app.goo.gl/rdxBxaq8md67cA9Q7" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile" title="Google Business Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></a>
+      </div>
+      <div class="footer-preferred-source">
+        <div google-add-preferred-source-btn data-theme="dark"></div>
+      </div>
     </div>
-    <div class="a11y-opt">
-      <label id="a11y-contrast-lbl">Higher contrast</label>
-      <button type="button" class="a11y-switch" data-opt="contrast" aria-pressed="false" aria-labelledby="a11y-contrast-lbl"></button>
-    </div>
-    <div class="a11y-opt">
-      <label id="a11y-text-lbl">Larger text</label>
-      <button type="button" class="a11y-switch" data-opt="text" aria-pressed="false" aria-labelledby="a11y-text-lbl"></button>
-    </div>
-    <button type="button" class="a11y-reset" id="a11y-reset">Reset to defaults</button>
+    <div class="footer-col"><p class="footer-h">Services</p><ul><li><a href="/#services">AI Agent Development</a></li><li><a href="/#services">Workflow Automation</a></li><li><a href="/#services">Predictive Intelligence</a></li><li><a href="/#services">LLM Integration</a></li><li><a href="/#services">Data Pipelines</a></li><li><a href="/ai-voice-agents.html">AI Voice Agents</a></li><li><a href="/ai-training.html">AI Training</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Company</p><ul><li><a href="/about.html">About Us</a></li><li><a href="/#demos">Live Demos</a></li><li><a href="/ai-readiness.html">AI Readiness Test</a></li><li><a href="/loss-calculator.html">Business Loss Calculator</a></li><li><a href="/ai-policy-generator.html">AI Use Policy Generator</a></li><li><a href="/#process">Our Process</a></li><li><a href="/#faq">FAQ</a></li><li><a href="mailto:info@eastangliaaiservices.co.uk">Contact</a></li><li><a href="tel:+447466951175">07466&nbsp;951175</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Areas</p><ul><li><a href="/ai-consultant-norwich.html">Norwich</a></li><li><a href="/ai-consultant-ipswich.html">Ipswich</a></li><li><a href="/ai-automation-cambridge.html">Cambridge</a></li></ul></div>
+    <div class="footer-col"><p class="footer-h">Legal</p><ul><li><a href="/terms.html">Terms of Service</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/cookies.html">Cookie Policy</a></li><li><a href="/contactpolicy.html">Contact Policy</a></li><li><a href="/cookies.html" onclick="event.preventDefault();EAAISConsent.reopen();">Cookie Settings</a></li></ul></div>
   </div>
-  <button type="button" id="a11y-toggle" onclick="toggleA11y()" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8.5 4.74a1 1 0 0 0-1.22-.71l-4.79 1.28a8 8 0 0 1-5 0L4.72 6.03a1 1 0 1 0-.52 1.94l4.8 1.28V14l-1.9 6.04a1 1 0 0 0 1.9.6L10.8 15h2.4l1.8 5.64a1 1 0 0 0 1.9-.6L15 14V9.25l4.8-1.28a1 1 0 0 0 .7-1.23Z"/></svg>
-  </button>
-</div>
-<script>
-function toggleA11y(){const p=document.getElementById('a11y-panel');const t=document.getElementById('a11y-toggle');const open=!p.classList.contains('open');p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true');t.setAttribute('aria-expanded',open?'true':'false');}
-(function(){
-  const root=document.documentElement;
-  const KEYS={motion:'eaais_a11y_motion',contrast:'eaais_a11y_contrast',text:'eaais_a11y_text'};
-  const CLS={motion:'reduce-motion',contrast:'high-contrast',text:'large-text'};
-  function save(k,v){try{localStorage.setItem(k,v);}catch(e){}}
-  function apply(opt,on,persist){
-    root.classList.toggle(CLS[opt],on);
-    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
-    if(btn)btn.setAttribute('aria-pressed',on?'true':'false');
-    if(persist)save(KEYS[opt],on?'1':'0');
-  }
-  ['motion','contrast','text'].forEach(function(opt){
-    const btn=document.querySelector('.a11y-switch[data-opt="'+opt+'"]');
-    if(!btn)return;
-    btn.setAttribute('aria-pressed',root.classList.contains(CLS[opt])?'true':'false');
-    btn.addEventListener('click',function(){apply(opt,!root.classList.contains(CLS[opt]),true);});
-  });
-  const reset=document.getElementById('a11y-reset');
-  if(reset)reset.addEventListener('click',function(){['motion','contrast','text'].forEach(function(opt){apply(opt,false,false);try{localStorage.removeItem(KEYS[opt]);}catch(e){}});});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){const p=document.getElementById('a11y-panel');if(p&&p.classList.contains('open'))toggleA11y();}});
-})();
-</script>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 East Anglia AI Services Ltd. All rights reserved. Registered in England &amp; Wales · Company No. 17381169 · Registered office: 44 Amderley Drive, Norwich, NR4 6HZ.</p>
+    <div class="footer-legal"><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/cookies.html">Cookies</a></div>
+  </div>
+</footer>
 </body>
 </html>
