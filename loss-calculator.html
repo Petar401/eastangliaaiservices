@@ -51,6 +51,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is my annual business loss actually calculated?","acceptedAnswer":{"@type":"Answer","text":"We combine three things you tell us — how many calls and leads you get, how many you miss or respond to slowly, and how much manual admin costs in staff time — with conservative, industry-standard assumptions, including a 50% lower conversion rate for leads answered after an hour. The result is a categorised estimate designed to show where the biggest gaps are, not a formal audit."}},{"@type":"Question","name":"Is this calculator actually free, and is there a catch?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no obligation. You see your full breakdown on screen immediately. We ask for your contact details so we can send you the report and, if useful, follow up with tailored next steps — nothing is sold to you as part of using the tool."}},{"@type":"Question","name":"How much do UK small businesses typically lose to missed calls?","acceptedAnswer":{"@type":"Answer","text":"Small businesses commonly miss 20-30% of incoming calls, and unanswered calls rarely call back — most go straight to a competitor. For a business getting even 40 calls a week, that can mean losing several thousand pounds a year in unconverted enquiries alone."}},{"@type":"Question","name":"Why does response speed to leads matter so much?","acceptedAnswer":{"@type":"Answer","text":"Research into lead response times consistently shows conversion odds fall sharply once a lead has waited more than an hour for a reply — often by half or more. An AI chatbot or voice receptionist that responds instantly, day or night, directly closes that gap."}},{"@type":"Question","name":"What can I actually do to reduce these losses?","acceptedAnswer":{"@type":"Answer","text":"The three biggest levers are: never missing a call (an AI voice receptionist answers every time), responding to leads within minutes instead of hours (an AI chatbot or automated follow-up), and automating the manual admin that eats staff hours. Book a free strategy call and we'll show you which would pay back fastest for your business specifically."}},{"@type":"Question","name":"Does this replace a proper AI readiness or ROI assessment?","acceptedAnswer":{"@type":"Answer","text":"No — this is a quick estimate to size the opportunity. For a fuller picture of where your business stands and what to prioritise, pair this with our free AI Readiness Assessment, or book a strategy call for a tailored ROI breakdown."}}]}
 </script>
+<link rel="preload" href="/assets/fonts/syne-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/syne-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -167,6 +170,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:18px 24px;display:fl
 .faq-item:first-child{margin-top:0;}
 .faq-q{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px;}
 .faq-a{font-family:var(--mono);font-size:.78rem;line-height:1.9;color:var(--dim);}
+.faq-a a{color:var(--neon);text-decoration:none;border-bottom:1px solid rgba(0,255,231,.3);}
 /* footer */
 footer{padding:40px 24px 28px;border-top:1px solid rgba(0,255,231,.08);background:var(--dark2);}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:1100px;margin:0 auto;}
@@ -538,6 +542,7 @@ document.getElementById('gateForm').addEventListener('submit',async function(e){
     delivered=res.ok&&data.success===true;
   }catch(err){/* Never block the visitor's report on a network failure */}
   btn.disabled=false;btn.textContent=orig;
+  if(window.EAAISTrack){window.EAAISTrack(delivered?'form_submit':'form_submit_failed',{form_id:'loss_calculator'});}
   showDeliveryWarning(!delivered);
   renderReport(name,company,vals,loss);
   show('screen-report');

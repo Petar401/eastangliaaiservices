@@ -50,6 +50,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is GPT-6 Astra, and is it the same as “ChatGPT 5.6 Astra”?","acceptedAnswer":{"@type":"Answer","text":"Not quite. GPT-5.6 was OpenAI's model family before this release, sold under names such as Sol. GPT-6 Astra is the new generation that replaced it, launched in early September 2026. If you searched for “ChatGPT 5.6 Astra”, GPT-6 Astra, the version now live in ChatGPT, is almost certainly what you meant."}},{"@type":"Question","name":"What is Claude Fable 5.1?","acceptedAnswer":{"@type":"Answer","text":"Claude Fable 5.1 is Anthropic's latest coding and knowledge-work model, released on 1 September 2026 alongside a more capable but access-restricted sibling called Claude Mythos 5.1. Anthropic built it for long, ambitious jobs such as working across an entire codebase or running with less supervision over several days at a time."}},{"@type":"Question","name":"Which is cheaper, GPT-6 Astra or Claude Fable 5.1?","acceptedAnswer":{"@type":"Answer","text":"On the published list price, they are the same: $10 per million input tokens and $50 per million output tokens through each company's API. The real difference shows up in caching. Anthropic cut the price of cached input for Fable 5.1 to $0.25 per million tokens, which it says brings the typical running cost down by around 25% compared with the previous Fable model. For everyday chat use through ChatGPT Plus or the Claude app rather than the API, the monthly subscription price matters more than either figure."}},{"@type":"Question","name":"Which model should a small business in East Anglia actually use?","acceptedAnswer":{"@type":"Answer","text":"Neither answer is right until someone has looked at the job you actually want doing. A firm in Norwich needing careful, long-running coding work might prefer Fable 5.1's approach to multi-day tasks; a business in Ipswich after fast, general-purpose help across writing, research and everyday computer use might get more from Astra's broader agentic skills. The honest answer is usually a short conversation, not a leaderboard."}}]}
 </script>
+<link rel="preload" href="/assets/fonts/syne-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/syne-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -105,7 +108,7 @@ h1{font-family:var(--sans);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-h
 .refs ol{list-style:none;counter-reset:ref;padding:0;margin:0;}
 .refs li{font-family:var(--mono);font-size:.72rem;line-height:1.85;color:var(--dim);padding-left:26px;position:relative;margin-bottom:14px;text-align:left;overflow-wrap:break-word;}
 .refs li::before{counter-increment:ref;content:counter(ref);position:absolute;left:0;top:0;color:var(--neon);font-weight:700;}
-.refs a{color:var(--neon);text-decoration:none;word-break:break-all;}
+.refs a{color:var(--neon);text-decoration:underline;text-underline-offset:2px;word-break:break-all;}
 .refs a:hover{text-decoration:underline;}
 footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var(--dark2);text-align:center;}
 .footer-logo-text{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--neon);text-shadow:0 0 12px var(--neon);margin-bottom:10px;}
@@ -200,7 +203,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <p>List pricing for Fable 5.1 matches Astra's: $10 per million input tokens and $50 per million output tokens. Where it differs is caching. Anthropic cut the price of cached input tokens to $0.25 per million, which the company says brings the typical running cost of Fable 5.1 down by around 25% compared with Fable 5, even though the headline rate looks unchanged (Anthropic, 2026).</p>
 
     <h2>Head-to-head, at a glance</h2>
-    <div class="table-scroll">
+    <section class="table-scroll" tabindex="0" aria-label="Model comparison table (scrolls sideways)">
       <table class="compare-table">
         <thead>
           <tr><th>Metric</th><th>GPT-6 Astra</th><th>Claude Fable 5.1</th></tr>
@@ -216,7 +219,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
           <tr><td>Vendor's stated focus</td><td>Browsing, computer use, agentic execution</td><td>Large codebases, multi-day autonomous coding</td></tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
     <div class="chart-box">
       <h3>Coding benchmark: Terminal-Bench 4.0</h3>

@@ -12,7 +12,7 @@ Source for [eastangliaaiservices.co.uk](https://eastangliaaiservices.co.uk): a m
 - **Location & service pages** — Norwich, Ipswich, Cambridge, AI training, AI voice agents
 - **Blog** — `blog/` (posts are listed in `sitemap.xml`, `blog/index.html`, `llms.txt` and `llms-full.txt`; CI checks they stay in sync)
 - **Accessibility** — panel for reduced motion, higher contrast and larger text; skip links; respects the OS reduced-motion setting
-- **Consent-first analytics** — Google Analytics 4, Microsoft Clarity and the Google Preferred Source button load only after the visitor clicks Accept (`assets/consent.js`, Google Consent Mode v2)
+- **Consent-first analytics** — the Google tag (GA4) is on every page in Google Consent Mode v2 with all storage denied, so it sets no cookies until the visitor clicks Accept (it does send cookieless pings before then); Microsoft Clarity and the Google Preferred Source button load only after Accept (`assets/consent.js`)
 
 ## 📁 Structure
 

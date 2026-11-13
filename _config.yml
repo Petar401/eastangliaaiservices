@@ -1,0 +1,11 @@
+# GitHub Pages (Jekyll) build settings.
+# The site is hand-written HTML; Jekyll only copies it. This file exists to keep
+# internal working documents out of the published website. Without it, every
+# Markdown file in the repo is rendered and served as a public, indexable page
+# (for example /docs/WEBSITE-CODE-REVIEW-2026-11-09.html).
+exclude:
+  - docs/
+  - audit/
+  - README.md
+  - SEO-INDEXNOW.md
+  - vercel.json

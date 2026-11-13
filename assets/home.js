@@ -154,9 +154,11 @@ setTimeout(()=>{if(!chatOpen)document.getElementById('chatNotif').style.display=
         status.textContent="Thanks — your message is on its way. We'll be in touch within 1 business day.";
         status.className='form-status ok show';
         form.reset();
+        if(window.EAAISTrack)window.EAAISTrack('form_submit',{form_id:'contact'});
       }else{
         status.textContent=(data&&data.message)?data.message:'Something went wrong. Please email info@eastangliaaiservices.co.uk instead.';
         status.className='form-status err show';
+        if(window.EAAISTrack)window.EAAISTrack('form_submit_failed',{form_id:'contact'});
       }
     }catch(err){
       status.textContent='Network error — please email info@eastangliaaiservices.co.uk or call 07466 951175.';

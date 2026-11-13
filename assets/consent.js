@@ -5,9 +5,11 @@
  *   this script loads Microsoft Clarity and the Google Preferred
  *   Source button script ONLY after the visitor clicks Accept.
  * - Clears _ga, _clck and _clsk cookies on Reject.
- * - Google Consent Mode v2 (basic): every signal defaults to "denied"; the
- *   analytics signal is updated to "granted" only on Accept. Ad signals stay
- *   denied because the site runs no advertising tags.
+ * - Google Consent Mode v2 (advanced): the Google tag itself loads on every
+ *   page with every signal defaulting to "denied", so before Accept it sets
+ *   no cookies but does send cookieless pings to Google. The analytics signal
+ *   is updated to "granted" only on Accept. Ad signals stay denied because
+ *   the site runs no advertising tags.
  * - Public API: window.EAAISConsent.{accept,reject,reopen,status}
  */
 (function () {
@@ -100,6 +102,30 @@
   function status() { return read(); }
 
   window.EAAISConsent = { accept: accept, reject: reject, reopen: reopen, status: status };
+
+  // Conversion events for GA4. Only an event name, a form or link identifier
+  // and the page path are sent, never anything the visitor typed. Events go
+  // through the same Google tag as page views, so they follow the visitor's
+  // consent choice via Consent Mode.
+  function track(name, params) {
+    try { window.gtag('event', name, params || {}); } catch (e) { /* analytics must never break the page */ }
+  }
+  window.EAAISTrack = track;
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('a[href],button') : null;
+    if (!el) return;
+    var href = el.getAttribute('href') || '';
+    var where = location.pathname;
+    if (href.indexOf('tel:') === 0) { track('call_click', { link_location: where }); return; }
+    if (href.indexOf('mailto:') === 0) { track('email_click', { link_location: where }); return; }
+    if (/(^|\s)(btn-primary|nav-cta|m-cta)(\s|$)/.test(el.className || '')) {
+      track('cta_click', {
+        cta_text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60),
+        cta_target: href || 'button',
+        link_location: where
+      });
+    }
+  }, true);
 
   function boot() {
     makeBanner();
