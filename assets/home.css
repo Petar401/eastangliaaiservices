@@ -365,10 +365,9 @@ html.high-contrast .logo,html.high-contrast .footer-logo-text,html.high-contrast
   .service-link{justify-self:start;}
   #regions .service-card{padding:18px;}
   .pricing-grid{grid-template-columns:1fr;}
-  .price-card{display:grid;grid-template-columns:118px 1fr;column-gap:12px;align-items:start;}
-  .price-amount{grid-row:1/3;font-size:1.25rem;margin:0;white-space:nowrap;}
-  .price-amount .price-from,.price-amount .price-unit{white-space:normal;}
-  .price-unit{display:block;font-size:.8rem;}
-  .price-name{margin-bottom:4px;}
+  .price-card{display:grid;grid-template-columns:1fr auto;column-gap:14px;row-gap:8px;align-items:end;padding:16px;}
+  .price-amount{grid-column:2;grid-row:1;font-size:1.3rem;margin:0;white-space:nowrap;text-align:right;}
+  .price-name{grid-column:1;grid-row:1;margin:0;}
+  .price-desc{grid-column:1/-1;}
 }
 @media(min-width:1001px){#regions .services-grid{grid-template-columns:repeat(4,1fr);}}

@@ -116,7 +116,7 @@ main:focus{outline:none;}
 .footer-preferred-source{margin-top:12px;}
 .footer-h{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--neon);margin-bottom:8px;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;}
-.footer-col ul a{display:inline-block;padding:9px 0;font-family:var(--sans);font-size:.9rem;line-height:1.45;color:var(--body);text-decoration:none;transition:color .25s;}
+.footer-col ul a{display:inline-block;padding:12px 0;font-family:var(--sans);font-size:.9rem;line-height:1.45;color:var(--body);text-decoration:none;transition:color .25s;}
 .footer-col ul a:hover{color:var(--neon);text-decoration:underline;text-underline-offset:3px;}
 .footer-bottom{border-top:1px solid rgba(0,255,231,.06);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-family:var(--sans);font-size:.8rem;line-height:1.6;color:var(--dim);max-width:780px;}
