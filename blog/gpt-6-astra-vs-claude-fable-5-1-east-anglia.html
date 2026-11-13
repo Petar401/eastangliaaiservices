@@ -108,7 +108,7 @@ h1{font-family:var(--sans);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-h
 .refs ol{list-style:none;counter-reset:ref;padding:0;margin:0;}
 .refs li{font-family:var(--mono);font-size:.72rem;line-height:1.85;color:var(--dim);padding-left:26px;position:relative;margin-bottom:14px;text-align:left;overflow-wrap:break-word;}
 .refs li::before{counter-increment:ref;content:counter(ref);position:absolute;left:0;top:0;color:var(--neon);font-weight:700;}
-.refs a{color:var(--neon);text-decoration:none;word-break:break-all;}
+.refs a{color:var(--neon);text-decoration:underline;text-underline-offset:2px;word-break:break-all;}
 .refs a:hover{text-decoration:underline;}
 footer{padding:40px 24px;border-top:1px solid rgba(0,255,231,.08);background:var(--dark2);text-align:center;}
 .footer-logo-text{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--neon);text-shadow:0 0 12px var(--neon);margin-bottom:10px;}
@@ -203,7 +203,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
     <p>List pricing for Fable 5.1 matches Astra's: $10 per million input tokens and $50 per million output tokens. Where it differs is caching. Anthropic cut the price of cached input tokens to $0.25 per million, which the company says brings the typical running cost of Fable 5.1 down by around 25% compared with Fable 5, even though the headline rate looks unchanged (Anthropic, 2026).</p>
 
     <h2>Head-to-head, at a glance</h2>
-    <div class="table-scroll">
+    <section class="table-scroll" tabindex="0" aria-label="Model comparison table (scrolls sideways)">
       <table class="compare-table">
         <thead>
           <tr><th>Metric</th><th>GPT-6 Astra</th><th>Claude Fable 5.1</th></tr>
@@ -219,7 +219,7 @@ if(g('eaais_a11y_text')==='1')r.classList.add('large-text');})();
           <tr><td>Vendor's stated focus</td><td>Browsing, computer use, agentic execution</td><td>Large codebases, multi-day autonomous coding</td></tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
     <div class="chart-box">
       <h3>Coding benchmark: Terminal-Bench 4.0</h3>
