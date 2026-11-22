@@ -334,7 +334,7 @@ html.high-contrast .logo,html.high-contrast .footer-logo-text,html.high-contrast
 @media(max-width:1100px){.pricing-grid{grid-template-columns:repeat(2,1fr);}}
 /* founder */
 .founder-mini{display:flex;gap:16px;align-items:center;margin-top:14px;}
-.about-block a,#regions .service-desc a,.price-name a{color:var(--neon);}
+.about-block a,#regions .service-desc a,#start-here .service-desc a,.price-name a{color:var(--neon);}
 .founder-mini a{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;min-height:44px;}
 
 /* ---- Free tools ---- */
@@ -370,4 +370,4 @@ html.high-contrast .logo,html.high-contrast .footer-logo-text,html.high-contrast
   .price-name{grid-column:1;grid-row:1;margin:0;}
   .price-desc{grid-column:1/-1;}
 }
-@media(min-width:1001px){#regions .services-grid{grid-template-columns:repeat(4,1fr);}}
+@media(min-width:1001px){#regions .services-grid,#start-here .services-grid{grid-template-columns:repeat(4,1fr);}}
